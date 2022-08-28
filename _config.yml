@@ -71,7 +71,7 @@ index_generator:
 default_category: uncategorized
 category_map:
   #
-  競程: competitive-programming
+  競程: cp
   比賽心得: contests
   出題心得: organizes
   題解: editorials
