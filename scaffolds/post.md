@@ -2,11 +2,13 @@
 title: {{ title }}
 date: {{ date }}
 categories:
-- [unknown]
+- unknown
+tags:
+- unknown
 ---
 
 something here
 
-<!--- more -->
+<!-- more -->
 
 more things here
