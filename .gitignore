@@ -4,6 +4,7 @@ db.json
 *.log
 node_modules/
 !node_modules/hexo-theme-next/
+!.gitignore
 public/
 .deploy*/
 _multiconfig.yml
