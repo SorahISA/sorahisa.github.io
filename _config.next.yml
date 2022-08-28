@@ -99,7 +99,10 @@ menu:
   about: /about/ || fa fa-user
   # tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
+  競程: /categories/competitive-programming/ || fa fa-code
+  課業: /categories/learning/ || fa fa-book
   archives: /archives/ || fa fa-archive
+  記分板: /OI/ || fa fa-ranking-star
   # schedule: /schedule/ || fa fa-calendar
   # sitemap: /sitemap.xml || fa fa-sitemap
   # commonweal: /404/ || fa fa-heartbeat
