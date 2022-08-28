@@ -27,8 +27,11 @@ jobs:
           key: ${{ runner.OS }}-npm-cache
           restore-keys: |
             ${{ runner.OS }}-npm-cache
-      - name: Install Dependencies
-        run: npm install
+      - name: Install pandoc & Dependencies
+        run: |
+          wget "https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb"
+          sudo dpkg -i pandoc-2.19.2-1-amd64.deb
+          npm install
       - name: Build
         run: npm run build
       - name: Deploy
