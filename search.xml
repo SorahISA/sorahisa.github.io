@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>IOI 2021 場外心得</title>
-    <url>/2021-07-05/cp/contests/ioi21/</url>
+    <url>/cp/contests/ioi21/</url>
     <content><![CDATA[<p>這是第一篇正式ㄉ文章ㄛ
 &gt;////&lt;，本來該是另一篇的，但是因為太懶了還沒有動工，這篇就變成第一個了
 www。</p>
@@ -35,17 +35,18 @@ class="score_ac"><span class="math inline">\(20\)</span></span>$/ $<span
 class="score_ac"><span class="math inline">\(25\)</span></span>$/ $<span
 class="score_ac"><span class="math inline">\(30\)</span></span><span
 class="math inline">\()\)</span></p>
-<blockquote>
-<p>有一個長度 <span class="math inline">\(n\)</span> 的字串，每個字元是
+<div class="note info no-icon"><p>有一個長度 <span class="math inline">\(n\)</span> 的字串，每個字元是
 <code>R</code> 或 <code>B</code>，你有 <span
 class="math inline">\(r\)</span> 個任務，第 <span
 class="math inline">\(i\)</span> 個任務要使 <span
 class="math inline">\([a_i, b_i]\)</span> 恰有 <span
 class="math inline">\(x_i\)</span>
 種顏色，詢問有沒有合法的構造，有的話輸出任意一組。</p>
-<p>限制：<span class="math inline">\(n, r \le 500\,000\)</span>、<span
-class="math inline">\(x_i \in \{1, 2\}\)</span>。</p>
-</blockquote>
+<ul>
+<li><span class="math inline">\(n, r \le 500\,000\)</span>。</li>
+<li><span class="math inline">\(x_i \in \{1, 2\}\)</span>。</li>
+</ul>
+</div>
 <p><a href="https://oj.uz/submission/440315">AC Solution</a></p>
 <p>水題，把 <span class="math inline">\(x = 1\)</span> 的區間都 merge
 起來剩下 RB 交錯放就好ㄌ。</p>
@@ -58,8 +59,7 @@ class="score_ac"><span class="math inline">\(15\)</span></span>$/ $<span
 class="score_ac"><span class="math inline">\(20\)</span></span>$/ $<span
 class="score_ac"><span class="math inline">\(55\)</span></span><span
 class="math inline">\()\)</span></p>
-<blockquote>
-<p>你需要完成兩個程式，第一個程式會給 jury 一個長度 <span
+<div class="note info no-icon"><p>你需要完成兩個程式，第一個程式會給 jury 一個長度 <span
 class="math inline">\(n\)</span> 的 01 陣列 <span
 class="math inline">\(a\)</span> 和一個正整數 <span
 class="math inline">\(k\)</span>，jury 會給你的第二個程式 <span
@@ -68,9 +68,11 @@ class="math inline">\(k\)</span> 的 subarray <span
 class="math inline">\(c = [a_x, a_{x+1}, \ldots,
 a_{x+k-1}]\)</span>，你需要回傳這些 subarray 們在 <span
 class="math inline">\(a\)</span> 的位置。</p>
-<p>限制：<span class="math inline">\(n, q \le 1000\)</span>。</p>
-<p>給分方法：<span class="math inline">\(k \le 10\)</span> 滿分。</p>
-</blockquote>
+<ul>
+<li><span class="math inline">\(n, q \le 1000\)</span>。</li>
+<li>給分方法：<span class="math inline">\(k \le 10\)</span> 滿分。</li>
+</ul>
+</div>
 <p><a href="https://oj.uz/submission/441104">AC Solution</a> # <a
 href="https://oj.uz/submission/440962">Random String</a></p>
 <p>看到一眼就知道是要構造 de Bruijn sequence
@@ -93,18 +95,20 @@ class="score_ac"><span class="math inline">\(21\)</span></span>$/ $<span
 class="score_ac"><span class="math inline">\(23\)</span></span>$/ $<span
 class="score_ac"><span class="math inline">\(40\)</span></span><span
 class="math inline">\()\)</span></p>
-<blockquote>
-<p>數線上 <span class="math inline">\([\,0, \ell\,]\)</span> 的位置放有
+<div class="note info no-icon"><p>數線上 <span class="math inline">\([\,0, \ell\,]\)</span> 的位置放有
 <span class="math inline">\(n\)</span> 座基地台，已知 <span
 class="math inline">\(p_0 = 0, \quad p_i &lt; p_{i+1}\)</span> 且 <span
 class="math inline">\(p_i \equiv 0 \pmod{2}\)</span>，你可以詢問他最多
 <span class="math inline">\(q\)</span> 次離位置 <span
 class="math inline">\(x\)</span>
 最近的基地台在哪裡（相同距離就選左邊的），最後要回傳所有基地台的位置。</p>
-<p>限制：<span class="math inline">\(\ell = 100\,000\)</span>、<span
-class="math inline">\(n = 1000\)</span>。</p>
-<p>給分方法：<span class="math inline">\(q \le 7500\)</span> 滿分。</p>
-</blockquote>
+<ul>
+<li><span class="math inline">\(\ell = 100\,000\)</span>。</li>
+<li><span class="math inline">\(n = 1000\)</span>。</li>
+<li>給分方法：<span class="math inline">\(q \le 7500\)</span>
+滿分。</li>
+</ul>
+</div>
 <p><a href="https://oj.uz/submission/440944">AC Solution</a> # <a
 href="https://oj.uz/submission/440817">Binary Search</a></p>
 <p>詢問得到的陣列會長 <span class="math inline">\([\,0, \ldots, 1,
@@ -123,7 +127,7 @@ class="math inline">\(72.85\)</span> 分</span>。</p>
 class="math inline">\(\mathcal{O}(n \lg \frac{\ell}{n}) \approx
 7000\)</span> 次詢問。自然而然的就會想到用 CDQ
 分治來做，實作也很簡單。</p>
-<div class="note info"><details>
+<div class="note success"><details>
 <summary>
 範例 code
 </summary>
@@ -143,17 +147,20 @@ class="score_ac"><span class="math inline">\(10\)</span></span>$/ $<span
 class="score_ac"><span class="math inline">\(14\)</span></span>$/ $<span
 class="score_ac"><span class="math inline">\(32\)</span></span><span
 class="math inline">\()\)</span></p>
-<blockquote>
-<p>有 <span class="math inline">\(n\)</span> 本相異的書，第 <span
+<div class="note info no-icon"><p>有 <span class="math inline">\(n\)</span> 本相異的書，第 <span
 class="math inline">\(i\)</span> 本書在商店 A 跟商店 B 分別賣 <span
 class="math inline">\(a_i\)</span> 跟 <span
 class="math inline">\(b_i\)</span> 元。你現在沒帶錢，但有 A 商店的 <span
 class="math inline">\(x\)</span> 元折價券跟 B 商店的 <span
 class="math inline">\(y\)</span>
 元折價券，請求出你最多可以買幾本相異的書。</p>
-<p>限制：<span class="math inline">\(n \le 2000\)</span>、<span
-class="math inline">\(0 \le x, y, a_i, b_i \le 10\,000\)</span>。</p>
-</blockquote>
+<ul>
+<li><span class="math inline">\(n \le 2000\)</span>。</li>
+<li><span class="math inline">\(0 \le x, y \le 10\,000\)</span>。</li>
+<li><span class="math inline">\(0 \le a_i, b_i \le
+10\,000\)</span>。</li>
+</ul>
+</div>
 <p><a href="https://oj.uz/submission/440487">AC Solution</a></p>
 <p>每個物品只有 3 種狀態：不選、選 Store A、選 Store B。Subtask 3
 提供了很重要的想法，如果先對 <span class="math inline">\(a_i\)</span>
@@ -208,8 +215,7 @@ class="score_na"><span class="math inline">\(27\)</span></span>$/ $<span
 class="score_na"><span class="math inline">\(29\)</span></span>$/ $<span
 class="score_na"><span class="math inline">\(33\)</span></span><span
 class="math inline">\()\)</span></p>
-<blockquote>
-<p>給定一長度為 <span class="math inline">\(n\)</span> 的陣列 <span
+<div class="note info no-icon"><p>給定一長度為 <span class="math inline">\(n\)</span> 的陣列 <span
 class="math inline">\(c\)</span> 跟 <span
 class="math inline">\(q\)</span> 次操作，你需要對一個長度為 <span
 class="math inline">\(n\)</span> 且初始值為 <span
@@ -222,10 +228,12 @@ class="math inline">\(a\)</span> 執行操作：</p>
 \max\{0, a_i - v_j\}\)</span>（從盒子拿糖果）。</li>
 </ol>
 <p>最後需要輸出 <span class="math inline">\(a\)</span>。</p>
-<p>限制：<span class="math inline">\(n, q \le 200\,000\)</span>、<span
-class="math inline">\(1 \le c_i \le 10^9\)</span>、<span
-class="math inline">\(1 \le v_j \le 10^9\)</span>。</p>
-</blockquote>
+<ul>
+<li><span class="math inline">\(n, q \le 200\,000\)</span>。</li>
+<li><span class="math inline">\(1 \le c_i \le 10^9\)</span>。</li>
+<li><span class="math inline">\(1 \le v_j \le 10^9\)</span>。</li>
+</ul>
+</div>
 <p><a href="https://oj.uz/submission/441424"><span
 class="math inline">\(\mathcal{O}(nq)\)</span> brute force</a> # <a
 href="https://oj.uz/submission/441429"><span class="math inline">\(v_j
@@ -265,7 +273,7 @@ p)\)</span>；</li>
 跟後面的交界處（<span class="math inline">\(a_{p-1}\)</span> 跟 <span
 class="math inline">\(a_p\)</span>）的差值。</li>
 </ol>
-<div class="note info"><details>
+<div class="note success"><details>
 <summary>
 範例 code
 </summary>
@@ -274,7 +282,7 @@ class="math inline">\(a_p\)</span>）的差值。</li>
 </div>
 <p>要找一個位置當下的值，就紀錄「上次變空（或變滿）是什麼時候」，再看那時候到現在的每次操作的
 <span class="math inline">\(v_j\)</span> 的和就好了。</p>
-<div class="note info"><details>
+<div class="note success"><details>
 <summary>
 範例 code
 </summary>
@@ -282,7 +290,7 @@ class="math inline">\(a_p\)</span>）的差值。</li>
 </details>
 </div>
 <p>求答案就是最後再問一輪就好ㄌ。</p>
-<div class="note info"><details>
+<div class="note success"><details>
 <summary>
 範例 code
 </summary>
@@ -303,17 +311,18 @@ class="score_ac"><span class="math inline">\(17\)</span></span>$/ $<span
 class="score_na"><span class="math inline">\(30\)</span></span>$/ $<span
 class="score_na"><span class="math inline">\(33\)</span></span><span
 class="math inline">\()\)</span></p>
-<blockquote>
-<p>有一座地牢，<span class="math inline">\(n\)</span>
+<div class="note info no-icon"><p>有一座地牢，<span class="math inline">\(n\)</span>
 個房間每間都有一把不盡相異的鑰匙 <span
 class="math inline">\(r_i\)</span>，且 <span
 class="math inline">\(m\)</span> 條雙向通道 <span
 class="math inline">\((u_j, v_j)\)</span> 每條都有一顆需要鑰匙 <span
 class="math inline">\(c_j\)</span>
 才能開的鎖（不會消耗鑰匙），你要輸出從哪些房間出發可以到達的房間數量最少。</p>
-<p>限制：<span class="math inline">\(n, m \le 300\,000\)</span>、<span
-class="math inline">\(0 \le r_i, c_j &lt; n\)</span>。</p>
-</blockquote>
+<ul>
+<li><span class="math inline">\(n, m \le 300\,000\)</span>。</li>
+<li><span class="math inline">\(0 \le r_i, c_j &lt; n\)</span>。</li>
+</ul>
+</div>
 <p><a href="https://oj.uz/submission/441446"><span
 class="math inline">\(\mathcal{O}(nm)\)</span> DFS</a></p>
 <p>前 3 個 Subtask 都有 <span class="math inline">\(n, m \le
@@ -334,8 +343,7 @@ class="score_ac"><span class="math inline">\(20\)</span></span>$/ $<span
 class="score_ac"><span class="math inline">\(20\)</span></span>$/ $<span
 class="score_na"><span class="math inline">\(30\)</span></span><span
 class="math inline">\()\)</span></p>
-<blockquote>
-<p>有 <span class="math inline">\(n\)</span> 座噴泉，第 <span
+<div class="note info no-icon"><p>有 <span class="math inline">\(n\)</span> 座噴泉，第 <span
 class="math inline">\(i\)</span> 座噴泉在 <span
 class="math inline">\((x_i,
 y_i)\)</span>，座標兩兩相異且必為偶數，你需要判斷可不可行並規劃一種道路構建跟長椅擺放方式使</p>
@@ -346,9 +354,13 @@ y_i)\)</span>，座標兩兩相異且必為偶數，你需要判斷可不可行�
 <li>每條道路都有一張相鄰的長椅面向他（長椅的座標需為奇數）；</li>
 <li>兩張長椅不能被放在同個位置。</li>
 </ul>
-<p>限制：<span class="math inline">\(n \le 200\,000; \quad 2 \le x_i,
-y_i \le 200\,000\)</span>。</p>
-</blockquote>
+<!-- -->
+<ul>
+<li><span class="math inline">\(n \le 200\,000\)</span>。</li>
+<li><span class="math inline">\(2 \le x_i, y_i \le
+200\,000\)</span>。</li>
+</ul>
+</div>
 <p><a href="https://oj.uz/submission/441398"><span
 class="math inline">\(2 \le x_i \le 4\)</span></a> # <a
 href="https://oj.uz/submission/441994">No <span class="math inline">\(2
@@ -356,14 +368,14 @@ href="https://oj.uz/submission/441994">No <span class="math inline">\(2
 <p>因為這題看起來最有趣就第一個做ㄌ。前兩個 Subtask 都有 <span
 class="math inline">\(2 \le x_i \le
 4\)</span>，就算把所有可以連的邊都連起來也只會像下面那樣，一定有解。</p>
-<p><img data-src="https://i.imgur.com/Z7wVLiu.png" height="300px"></img></p>
+<p><img data-src="Z7wVLiu.png" style="width: auto; max-width: 150px"></p>
 <p>接下來感覺 Subtask 4（只有一種蓋道路的方式）好像可做，不過感覺跟
 Subtask 5（沒有任四個噴泉形成 <span class="math inline">\(2 \times
 2\)</span> 的方格）蠻像，都不會有像下面兩條<span
 style="color:orange">橘線</span>或<span
 style="color:blue">藍線</span>的情況，於是就想出一個跟 <span
 class="math inline">\(\bmod 4\)</span> 相關的作法：</p>
-<p><img data-src="https://i.imgur.com/r26XQWf.png" height="120px"></img></p>
+<p><img data-src="r26XQWf.png" style="width: auto; max-width: 120px"></p>
 <p>先隨便建一棵樹，對所有的<span style="color:red">平行 <span
 class="math inline">\(y\)</span> 軸的邊（紅邊）</span>把 <span
 style="color:blue"><span class="math inline">\(x + y \equiv 2
@@ -372,9 +384,9 @@ style="color:lime">平行 <span class="math inline">\(x\)</span>
 軸的邊（綠邊）</span>把 <span style="color:#FFBF00"><span
 class="math inline">\(x + y \equiv 0 \pmod{4}\)</span>
 的椅子（黃椅）</span>指給他。</p>
-<p><img data-src="https://i.imgur.com/oDF75lk.png" height="300px"></img></p>
+<p><img data-src="oDF75lk.png" style="width: auto; max-width: 400px"></p>
 <p>因為不會有上面平行相鄰的狀況，所以不用擔心一張椅子被指到兩條平行的邊。</p>
-<div class="note info"><details>
+<div class="note success"><details>
 <summary>
 範例 code
 </summary>
@@ -432,8 +444,7 @@ class="score_ac"><span class="math inline">\(13\)</span></span>$/ $<span
 class="score_ac"><span class="math inline">\(28\)</span></span>$/ $<span
 class="score_ac"><span class="math inline">\(16\)</span></span><span
 class="math inline">\()\)</span></p>
-<blockquote>
-<p>給定兩個長度 <span class="math inline">\(n\)</span> 且只包含
+<div class="note info no-icon"><p>給定兩個長度 <span class="math inline">\(n\)</span> 且只包含
 <code>A</code>、<code>T</code>、<code>C</code> 的字串 <span
 class="math inline">\(a, b\)</span>，接下來會有 <span
 class="math inline">\(q\)</span> 次詢問，每次給一段區間 <span
@@ -441,9 +452,11 @@ class="math inline">\([x, y]\)</span>，你需要計算 <span
 class="math inline">\(a[x..y]\)</span>
 最少需要經過幾次「交換兩個字元的位置」來變成 <span
 class="math inline">\(b[x..y]\)</span>。</p>
-<p>限制：<span class="math inline">\(n, q \le 100\,000\)</span>、<span
-class="math inline">\(0 \le x \le y \le n-1\)</span>。</p>
-</blockquote>
+<ul>
+<li><span class="math inline">\(n, q \le 100\,000\)</span>。</li>
+<li><span class="math inline">\(0 \le x \le y \le n-1\)</span>。</li>
+</ul>
+</div>
 <p><a href="https://oj.uz/submission/442137">AC Solution</a></p>
 <p>今年最水 IOI
 題，一開始看錯題以為是「交換兩個<strong>相鄰</strong>字元的位置」，結果交上去
@@ -462,8 +475,7 @@ class="score_na"><span class="math inline">\(12\)</span></span>$/ $<span
 class="score_na"><span class="math inline">\(27\)</span></span>$/ $<span
 class="score_na"><span class="math inline">\(11\)</span></span><span
 class="math inline">\()\)</span></p>
-<blockquote>
-<p>有 <span class="math inline">\((n+1)\)</span> 座地牢，其中編號 <span
+<div class="note info no-icon"><p>有 <span class="math inline">\((n+1)\)</span> 座地牢，其中編號 <span
 class="math inline">\(i\)</span> <span class="math inline">\((0 \le i
 \le n-1)\)</span> 的地牢有一位力量為 <span
 class="math inline">\(s_i\)</span> 的對手，假設英雄現在在地牢 <span
@@ -483,12 +495,15 @@ class="math inline">\(x \leftarrow l_x\)</span>。</li>
 次模擬，每次給你英雄的初始位置 <span class="math inline">\(x\)</span>
 跟初始力量 <span
 class="math inline">\(z\)</span>，請求出當遊戲結束時英雄的力量。</p>
-<p>限制：<span class="math inline">\(n \le 400\,000\)</span>、<span
-class="math inline">\(q \le 50\,000\)</span>、<span
-class="math inline">\(1 \le s_i, p_i, z \le 10^7\)</span>、<span
-class="math inline">\(0 \le w_i, l_i \le n\)</span>、<span
-class="math inline">\(0 \le x &lt; n\)</span>。</p>
-</blockquote>
+<ul>
+<li><span class="math inline">\(n \le 400\,000\)</span>。</li>
+<li><span class="math inline">\(q \le 50\,000\)</span>。</li>
+<li><span class="math inline">\(1 \le s_i, p_i, z \le
+10^7\)</span>。</li>
+<li><span class="math inline">\(0 \le w_i, l_i \le n\)</span>。</li>
+<li><span class="math inline">\(0 \le x &lt; n\)</span>。</li>
+</ul>
+</div>
 <p><a href="https://oj.uz/submission/442807">AC Solution</a> # <a
 href="https://oj.uz/submission/442812"><span class="math inline">\(n \le
 50\,000\)</span></a> # <a
@@ -540,8 +555,7 @@ class="score_na"><span class="math inline">\(25\)</span></span>$/ $<span
 class="score_na"><span class="math inline">\(13\)</span></span>$/ $<span
 class="score_na"><span class="math inline">\(29\)</span></span><span
 class="math inline">\()\)</span></p>
-<blockquote>
-<p>你有 <span class="math inline">\(100\)</span> 個容量 <span
+<div class="note info no-icon"><p>你有 <span class="math inline">\(100\)</span> 個容量 <span
 class="math inline">\(2000\)</span> bits 的 register <span
 class="math inline">\(r_0 \sim
 r_{m-1}\)</span>，你可以進行以下操作：</p>
@@ -584,13 +598,15 @@ class="math inline">\(c\)</span> 裡面第 <span
 class="math inline">\(i\)</span> 小的數字。</li>
 </ul>
 <p>其他不在要求區間裡的 bit 可以是任意值。</p>
-<p>限制（<span class="math inline">\(s = 0\)</span>）：<span
+<ul>
+<li>限制（<span class="math inline">\(s = 0\)</span>）：<span
 class="math inline">\(n \le 100\)</span>、<span class="math inline">\(k
-\le 10\)</span>、<span class="math inline">\(q = 150\)</span>；<br/>
-限制（<span class="math inline">\(s = 1\)</span>）：<span
+\le 10\)</span>、<span class="math inline">\(q = 150\)</span>。</li>
+<li>限制（<span class="math inline">\(s = 1\)</span>）：<span
 class="math inline">\(n \le 100\)</span>、<span class="math inline">\(k
-\le 10\)</span>、<span class="math inline">\(q = 4000\)</span>。</p>
-</blockquote>
+\le 10\)</span>、<span class="math inline">\(q = 4000\)</span>。</li>
+</ul>
+</div>
 <p><a href="https://oj.uz/submission/442197"><span
 class="math inline">\(s = 0\)</span>、<span class="math inline">\(n =
 2\)</span>、<span class="math inline">\(k \le 2\)</span>、<span
@@ -603,11 +619,11 @@ class="math inline">\(a, b\)</span>，有以下式子：</p>
 <p><span class="math display">\[\min\{a, b\}_1 = a_1 \cdot
 (\overline{a_1} \cdot \overline{a_0} + b_1 \cdot b_0 + \overline{a_1}
 \cdot b_1) + b_1 \cdot \overline{(\overline{a_1} \cdot \overline{a_0} +
-b_1 \cdot b_0 + \overline{a_1} \cdot b_1)}\]</span></p>
+b_1 \cdot b_0 + \overline{a_1} \cdot b_1)} \notag\]</span></p>
 <p><span class="math display">\[\min\{a, b\}_0 = a_0 \cdot
 (\overline{a_1} \cdot \overline{a_0} + b_1 \cdot b_0 + \overline{a_1}
 \cdot b_1) + b_0 \cdot \overline{(\overline{a_1} \cdot \overline{a_0} +
-b_1 \cdot b_0 + \overline{a_1} \cdot b_1)}\]</span></p>
+b_1 \cdot b_0 + \overline{a_1} \cdot b_1)} \notag\]</span></p>
 <p>我就花了一個多小時在把這個寫出來，結果還用了 <span
 class="math inline">\(26\)</span> 次操作，只有拿到 <span
 class="score_10"><span class="math inline">\(10\)</span>
@@ -687,7 +703,7 @@ dungeons 出題心得</a></li>
   </entry>
   <entry>
     <title>MHC 2022 Qualification 比賽心得</title>
-    <url>/2022-08-29/cp/contests/mhc22-0/</url>
+    <url>/cp/contests/mhc22-0/</url>
     <content><![CDATA[<p>今年開始 Facebook Hacker Cup 改叫 Meta Hacker
 Cup，瞬間感覺變得高大上了 (X)，不過現在聽到 MHC
 的簡寫完全無法直接反應過來 www。</p>
@@ -709,12 +725,12 @@ www。</p>
 </ul></li>
 <li>拿到盡量高的排名</li>
 </ul>
+<hr />
 <h2 id="qualification-round">Qualification Round</h2>
 <ul>
 <li><a
 href="https://www.facebook.com/codingcompetitions/hacker-cup/2022/qualification-round">Judge</a></li>
-<li><a
-href="https://www.youtube.com/watch?v=hsWBNidLFqY">Screencast</a></li>
+<li><a href="https://youtu.be/hsWBNidLFqY">Screencast</a></li>
 </ul>
 <p>因為是以破台為目標，所以基本上就是按照順序開題。開場先花了兩分鐘把東西整理好，就開始看題了～</p>
 <h3 id="a.-second-hands">A. Second Hands</h3>
@@ -732,6 +748,9 @@ class="math inline">\(S_1, S_2, \ldots, S_N\)</span>
 class="math inline">\(1 \le i \le N\)</span>）。</li>
 </ul>
 </div>
+<p><a
+href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-0A.cpp">AC
+Solution</a></p>
 <p>直觀的想法就是把出現兩次的數字都分開放，有出現三次以上的數字或是
 <span class="math inline">\(N &gt; 2K\)</span> 就是
 <code>NO</code>。</p>
@@ -749,6 +768,9 @@ class="math inline">\(1 \le i \le N\)</span>）。</li>
 <li><span class="math inline">\(1 \le R, C \le 100\)</span>。</li>
 </ul>
 </div>
+<p><a
+href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-0B.cpp">AC
+Solution</a></p>
 <p>我看到最上面說 B2 <span class="math inline">\(\supseteq\)</span> B1
 之後就直接跳到 B2 了，所以我沒有看這題。</p>
 <h3 id="b2.-second-second-friend">B2. Second Second Friend</h3>
@@ -763,6 +785,9 @@ class="math inline">\(1 \le i \le N\)</span>）。</li>
 \mathbf{3000}\)</span>。</li>
 </ul>
 </div>
+<p><a
+href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-0B.cpp">AC
+Solution</a></p>
 <p>第一眼的感覺是填滿會最好，不過因為有些位置會被石頭擋到只剩下一個
 <em>氣</em>（定義一個位置的 <em>氣</em>
 是他四方位相鄰的格子中可以種樹的位置數量），而那些只剩下 <span
@@ -794,6 +819,9 @@ class="math inline">\(1\)</span> 種解讀方式。</p>
 class="math inline">\(2 \le i \le N\)</span>）。</li>
 </ul>
 </div>
+<p><a
+href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-0C.cpp">AC
+Solution</a></p>
 <p>第一個想法是「只要所有符號壓縮後的長度都一樣就不會出現歧異」，不過給你的
 <span class="math inline">\(C_1\)</span> 可能會超短（<span
 class="math inline">\(\le 6\)</span>）讓我們沒辦法弄出 <span
@@ -820,6 +848,9 @@ class="math inline">\(C_2, C_3, \ldots, C_N\)</span> 的長度都相同就能把
 N\)</span>）。</li>
 </ul>
 </div>
+<p><a
+href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-0C.cpp">AC
+Solution</a></p>
 <p>本來想說 C2 是給你 <span class="math inline">\(C_1, C_2, \ldots,
 C_K\)</span> 求 <span class="math inline">\(C_{K+1}, C_{K+2}, \ldots,
 C_N\)</span>（沒看題目被抓到），結果只是限制輸出長度要 <span
@@ -866,6 +897,12 @@ class="math inline">\(1 \le j \le Q\)</span>）。</li>
 class="math inline">\(1 \le j \le Q\)</span>）。</li>
 </ul>
 </div>
+<p><a
+href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-0D-1.cpp">AC
+Solution (<span class="math inline">\(\texttt{bitset}\)</span>)</a> # <a
+href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-0D-2.cpp">AC
+Solution (<span
+class="math inline">\(\texttt{unordered\_map}\)</span>)</a></p>
 <p>一開始覺得跟最大流有關，不過發現只要看 <span
 class="math inline">\((X_j, Y_j)\)</span> 有沒有邊以及枚舉中間點 <span
 class="math inline">\(Z_j\)</span> 計算 <span
@@ -883,28 +920,42 @@ class="math inline">\(X_j\)</span> 跟 <span
 class="math inline">\(Y_j\)</span>
 都是度數小的那群就直接線性掃過去（先把鄰居按照編號排序）。這樣複雜度就會變成
 <span class="math inline">\(\mathcal{O}(Q\sqrt{N})\)</span>。</p>
-<div class="note "><details>
-<summary>
-<h4>
-複雜度證明（未完）
-</h4>
-</summary>
-還沒寫
-</details>
-</div>
+<blockquote>
+<p>其實是 <span class="math inline">\(\mathcal{O}(M
+\sqrt{Q})\)</span>，我不會算複雜度 QwQ。<br/> 證明可以參考
+<a href="https://www.facebook.com/codingcompetitions/hacker-cup/2022/qualification-round/solutions"><strong>官方的題解（Solution
+2）</strong></a>。</p>
+</blockquote>
 <blockquote>
 <p>寫到這裡我才發現其實把 <code>pair&lt;int, int&gt;</code> 壓成
 <code>int64_t</code> 就可以用 <code>unordered_map</code> 了。<br/> 然後
-<code>bitset</code> 應該也可以被 <code>unordered_map</code> 取代掉，我
-<code>bitset</code> 中毒 QwQ。</p>
+<code>bitset</code> 跟整個 <code>adj[]</code> 也都可以被
+<code>unordered_map</code> 取代掉，我 <code>bitset</code> 中毒 QwQ。</p>
 </blockquote>
 <p>光是 validation 就跑半分鐘了，所幸正式的 input
 也大約兩分鐘就跑完了，不知道筆電如果開風扇會不會跑快一點。</p>
 <blockquote>
 <p>賽後才意識到 D 的輸出足足有 36 MB，不知道為什麼反而上傳的了？</p>
 </blockquote>
+<blockquote>
+<p>做法可以參考
+<a href="https://youtu.be/AbF6-TtkPLs?t=468">官方的影片解說</a>，我把上面的
+Solution 1 改成 Solution 2 之後就跟其中一個官解幾乎一樣了。</p>
+</blockquote>
+<hr />
 <h2 id="總結">總結</h2>
-<p>還沒寫。</p>
+<ul>
+<li>分數：<span class="score_ac"><span
+class="math inline">\(100\)</span> 分</span></li>
+<li>排名：<span class="medal_au"><span class="math inline">\(11 /
+27\,603\)</span> 名</span></li>
+</ul>
+<p><img data-src="scoreboard.png" width="90%"></p>
+<p>果然拿到了超高的名次，感覺 C 意外的水，而且 D
+看題解才發現根號就是官解的複雜度，有種失望的感覺... 本來希望看到神奇的帶
+<span class="math inline">\(\log\)</span> 作法的。</p>
+<p>能用原定時間的一半多一點點破台是我沒想過的，不過自己感覺還有許多可以進步的地方<del>（像是剪指甲）</del>，接下來可能還有許多題目要出，剩下的就等
+Round 1 再說ㄅ。</p>
 ]]></content>
       <categories>
         <category>競程</category>
@@ -916,7 +967,7 @@ class="math inline">\(Y_j\)</span>
   </entry>
   <entry>
     <title>ZeroJudge c272. 趙哥的養成計畫 I --- 題解</title>
-    <url>/2021-07-20/cp/editorials/zj-c272/</url>
+    <url>/cp/editorials/zj-c272/</url>
     <content><![CDATA[<h2 id="動機">動機</h2>
 <p>刷
 <a href="https://sites.google.com/site/pcshic/zi-xun-pei-xun">板中的講義題單</a>
@@ -1036,7 +1087,7 @@ href="https://github.com/SorahISA/competitive_programming/blob/master/ZeroJudge/
   </entry>
   <entry>
     <title>演算法概論－期中考</title>
-    <url>/2021-11-20/learning/nycu-introduction-to-algorithms/nycu-i2a-midterm/</url>
+    <url>/learning/nycu-introduction-to-algorithms/nycu-i2a-midterm/</url>
     <content><![CDATA[<p>好久沒發文了，電腦好像還有些東西沒設定好，沒辦法本機 deploy ;w;</p>
 <span id="more"></span>
 <hr />
