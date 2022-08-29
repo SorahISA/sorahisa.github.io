@@ -36,9 +36,12 @@ $<span class="score_ac">$20$</span>$/
 $<span class="score_ac">$25$</span>$/
 $<span class="score_ac">$30$</span>$)$
 
-> 有一個長度 $n$ 的字串，每個字元是 `R` 或 `B`，你有 $r$ 個任務，第 $i$ 個任務要使 $[a_i, b_i]$ 恰有 $x_i$ 種顏色，詢問有沒有合法的構造，有的話輸出任意一組。
-> 
-> 限制：$n, r \le 500\,000$、$x_i \in \{1, 2\}$。
+{% note info no-icon %}
+有一個長度 $n$ 的字串，每個字元是 `R` 或 `B`，你有 $r$ 個任務，第 $i$ 個任務要使 $[a_i, b_i]$ 恰有 $x_i$ 種顏色，詢問有沒有合法的構造，有的話輸出任意一組。
+
+- $n, r \le 500\,000$。
+- $x_i \in \{1, 2\}$。
+{% endnote %}
 
 [AC Solution](https://oj.uz/submission/440315)
 
@@ -52,13 +55,15 @@ $<span class="score_ac">$15$</span>$/
 $<span class="score_ac">$20$</span>$/
 $<span class="score_ac">$55$</span>$)$
 
-> 你需要完成兩個程式，第一個程式會給 jury 一個長度 $n$ 的 01 陣列 $a$ 和一個正整數 $k$，jury 會給你的第二個程式 $q$ 段長度為 $k$ 的 subarray $c = [a_x, a_{x+1}, \ldots, a_{x+k-1}]$，你需要回傳這些 subarray 們在 $a$ 的位置。
-> 
-> 限制：$n, q \le 1000$。
-> 
-> 給分方法：$k \le 10$ 滿分。
+{% note info no-icon %}
+你需要完成兩個程式，第一個程式會給 jury 一個長度 $n$ 的 01 陣列 $a$ 和一個正整數 $k$，jury 會給你的第二個程式 $q$ 段長度為 $k$ 的 subarray $c = [a_x, a_{x+1}, \ldots, a_{x+k-1}]$，你需要回傳這些 subarray 們在 $a$ 的位置。
 
-[AC Solution](https://oj.uz/submission/441104) # [Random String](https://oj.uz/submission/440962)
+- $n, q \le 1000$。
+- 給分方法：$k \le 10$ 滿分。
+{% endnote %}
+
+[AC Solution](https://oj.uz/submission/441104) #
+[Random String](https://oj.uz/submission/440962)
 
 看到一眼就知道是要構造 de Bruijn sequence 的題目，但是忘記怎麼構造，所以先 random 生了一堆 01 字串來看看可以把 $k$ 壓到多少（BioInformatics 後遺症 www）。放了大約一小時最好的結果就是 $k = 15$，就丟上去了。
 
@@ -74,19 +79,22 @@ $<span class="score_ac">$21$</span>$/
 $<span class="score_ac">$23$</span>$/
 $<span class="score_ac">$40$</span>$)$
 
-> 數線上 $[\,0, \ell\,]$ 的位置放有 $n$ 座基地台，已知 $p_0 = 0, \quad p_i < p_{i+1}$ 且 $p_i \equiv 0 \pmod{2}$，你可以詢問他最多 $q$ 次離位置 $x$ 最近的基地台在哪裡（相同距離就選左邊的），最後要回傳所有基地台的位置。
-> 
-> 限制：$\ell = 100\,000$、$n = 1000$。
-> 
-> 給分方法：$q \le 7500$ 滿分。
+{% note info no-icon %}
+數線上 $[\,0, \ell\,]$ 的位置放有 $n$ 座基地台，已知 $p_0 = 0, \quad p_i < p_{i+1}$ 且 $p_i \equiv 0 \pmod{2}$，你可以詢問他最多 $q$ 次離位置 $x$ 最近的基地台在哪裡（相同距離就選左邊的），最後要回傳所有基地台的位置。
 
-[AC Solution](https://oj.uz/submission/440944) # [Binary Search](https://oj.uz/submission/440817)
+- $\ell = 100\,000$。
+- $n = 1000$。
+- 給分方法：$q \le 7500$ 滿分。
+{% endnote %}
+
+[AC Solution](https://oj.uz/submission/440944) #
+[Binary Search](https://oj.uz/submission/440817)
 
 詢問得到的陣列會長 $[\,0, \ldots, 1, \ldots, i, \ldots, n-1\,]$ 這樣子，每個數字都會出現至少一次且值非嚴格遞增。可以二分搜出每個 $p_c = x$ 且 $p_{c+1} = x+1$ 的位置並得到 $c$ 就是 $x$ 跟 $x+1$ 的中點。這樣 query 的次數會是 $\mathcal{O}(n \lg \ell) \approx 20\,000$ 次，拿到 <span class="score_70">$72.85$ 分</span>。
 
 不過，每一段的長度平均是 $\frac{\ell}{n} = 100$，如果可以先花幾次把陣列分塊，大概就只需要再 $\mathcal{O}(n \lg \frac{\ell}{n}) \approx 7000$ 次詢問。自然而然的就會想到用 CDQ 分治來做，實作也很簡單。
 
-{% note info %}
+{% note success %}
 <details>
 <summary>範例 code</summary>
 ```cpp
@@ -113,9 +121,13 @@ $<span class="score_ac">$10$</span>$/
 $<span class="score_ac">$14$</span>$/
 $<span class="score_ac">$32$</span>$)$
 
-> 有 $n$ 本相異的書，第 $i$ 本書在商店 A 跟商店 B 分別賣 $a_i$ 跟 $b_i$ 元。你現在沒帶錢，但有 A 商店的 $x$ 元折價券跟 B 商店的 $y$ 元折價券，請求出你最多可以買幾本相異的書。
-> 
-> 限制：$n \le 2000$、$0 \le x, y, a_i, b_i \le 10\,000$。
+{% note info no-icon %}
+有 $n$ 本相異的書，第 $i$ 本書在商店 A 跟商店 B 分別賣 $a_i$ 跟 $b_i$ 元。你現在沒帶錢，但有 A 商店的 $x$ 元折價券跟 B 商店的 $y$ 元折價券，請求出你最多可以買幾本相異的書。
+
+- $n \le 2000$。
+- $0 \le x, y \le 10\,000$。
+- $0 \le a_i, b_i \le 10\,000$。
+{% endnote %}
 
 [AC Solution](https://oj.uz/submission/440487)
 
@@ -158,16 +170,22 @@ $<span class="score_na">$27$</span>$/
 $<span class="score_na">$29$</span>$/
 $<span class="score_na">$33$</span>$)$
 
-> 給定一長度為 $n$ 的陣列 $c$ 跟 $q$ 次操作，你需要對一個長度為 $n$ 且初始值為 $0$ 的陣列 $a$ 執行操作：
-> 
-> 1. $\forall i \in [l_j, r_j], \quad a_i = \min\{c_i, a_i + v_j\}$（放糖果進盒子）；
-> 2. $\forall i \in [l_j, r_j], \quad a_i = \max\{0,   a_i - v_j\}$（從盒子拿糖果）。
-> 
-> 最後需要輸出 $a$。
-> 
-> 限制：$n, q \le 200\,000$、$1 \le c_i \le 10^9$、$1 \le v_j \le 10^9$。
+{% note info no-icon %}
+給定一長度為 $n$ 的陣列 $c$ 跟 $q$ 次操作，你需要對一個長度為 $n$ 且初始值為 $0$ 的陣列 $a$ 執行操作：
 
-[$\mathcal{O}(nq)$ brute force](https://oj.uz/submission/441424) # [$v_j > 0$](https://oj.uz/submission/441429) # [$(l_i, r_i) = (0, n-1)$](https://oj.uz/submission/441562)
+1. $\forall i \in [l_j, r_j], \quad a_i = \min\{c_i, a_i + v_j\}$（放糖果進盒子）；
+2. $\forall i \in [l_j, r_j], \quad a_i = \max\{0,   a_i - v_j\}$（從盒子拿糖果）。
+
+最後需要輸出 $a$。
+
+- $n, q \le 200\,000$。
+- $1 \le c_i \le 10^9$。
+- $1 \le v_j \le 10^9$。
+{% endnote %}
+
+[$\mathcal{O}(nq)$ brute force](https://oj.uz/submission/441424) #
+[$v_j > 0$](https://oj.uz/submission/441429) #
+[$(l_i, r_i) = (0, n-1)$](https://oj.uz/submission/441562)
 
 看到題目的第一眼覺得是[吉如一線段樹](https://codeforces.com/blog/entry/57319)裸題（至少 Subtask 3（盒子容量都相同）是裸題），因為回想起第一次在 IOIC 刻他花了大約 6 小時，而且這題看起來要維護最大、次大、最小、次小，所以把這題放在最後想。
 
@@ -185,7 +203,7 @@ Subtask 1（$n, q \le 2000$）是暴力，本來以為 Subtask 2（只有加值�
 2. 給 $[\,0, p)$ 那段區間一個代表全空（或全滿）的 tag；
 3. 更新前綴 $[\,0, p)$ 跟後面的交界處（$a_{p-1}$ 跟 $a_p$）的差值。
 
-{% note info %}
+{% note success %}
 <details>
 <summary>範例 code</summary>
 ```cpp
@@ -216,7 +234,7 @@ for (int i = 1; i <= Q; ++i) {
 
 要找一個位置當下的值，就紀錄「上次變空（或變滿）是什麼時候」，再看那時候到現在的每次操作的 $v_j$ 的和就好了。
 
-{% note info %}
+{% note success %}
 <details>
 <summary>範例 code</summary>
 ```cpp
@@ -237,7 +255,7 @@ int CheckVal(int idx, int qID) {
 
 求答案就是最後再問一輪就好ㄌ。
 
-{% note info %}
+{% note success %}
 <details>
 <summary>範例 code</summary>
 ```cpp
@@ -258,9 +276,12 @@ $<span class="score_ac">$17$</span>$/
 $<span class="score_na">$30$</span>$/
 $<span class="score_na">$33$</span>$)$
 
-> 有一座地牢，$n$ 個房間每間都有一把不盡相異的鑰匙 $r_i$，且 $m$ 條雙向通道 $(u_j, v_j)$ 每條都有一顆需要鑰匙 $c_j$ 才能開的鎖（不會消耗鑰匙），你要輸出從哪些房間出發可以到達的房間數量最少。
-> 
-> 限制：$n, m \le 300\,000$、$0 \le r_i, c_j < n$。
+{% note info no-icon %}
+有一座地牢，$n$ 個房間每間都有一把不盡相異的鑰匙 $r_i$，且 $m$ 條雙向通道 $(u_j, v_j)$ 每條都有一顆需要鑰匙 $c_j$ 才能開的鎖（不會消耗鑰匙），你要輸出從哪些房間出發可以到達的房間數量最少。
+
+- $n, m \le 300\,000$。
+- $0 \le r_i, c_j < n$。
+{% endnote %}
 
 [$\mathcal{O}(nm)$ DFS](https://oj.uz/submission/441446)
 
@@ -278,32 +299,38 @@ $<span class="score_ac">$20$</span>$/
 $<span class="score_ac">$20$</span>$/
 $<span class="score_na">$30$</span>$)$
 
-> 有 $n$ 座噴泉，第 $i$ 座噴泉在 $(x_i, y_i)$，座標兩兩相異且必為偶數，你需要判斷可不可行並規劃一種道路構建跟長椅擺放方式使
-> 
-> - 每條道路長度皆為 $2$ 且連接兩座噴泉；
-> - 所有噴泉必須被道路們連通；
-> - 每條道路都有一張相鄰的長椅面向他（長椅的座標需為奇數）；
-> - 兩張長椅不能被放在同個位置。
-> 
-> 限制：$n \le 200\,000; \quad 2 \le x_i, y_i \le 200\,000$。
+{% note info no-icon %}
+有 $n$ 座噴泉，第 $i$ 座噴泉在 $(x_i, y_i)$，座標兩兩相異且必為偶數，你需要判斷可不可行並規劃一種道路構建跟長椅擺放方式使
 
-[$2 \le x_i \le 4$](https://oj.uz/submission/441398) # [No $2 \times 2$ square](https://oj.uz/submission/441994)
+- 每條道路長度皆為 $2$ 且連接兩座噴泉；
+- 所有噴泉必須被道路們連通；
+- 每條道路都有一張相鄰的長椅面向他（長椅的座標需為奇數）；
+- 兩張長椅不能被放在同個位置。
+
+<!-- -->
+
+- $n \le 200\,000$。
+- $2 \le x_i, y_i \le 200\,000$。
+{% endnote %}
+
+[$2 \le x_i \le 4$](https://oj.uz/submission/441398) #
+[No $2 \times 2$ square](https://oj.uz/submission/441994)
 
 因為這題看起來最有趣就第一個做ㄌ。前兩個 Subtask 都有 $2 \le x_i \le 4$，就算把所有可以連的邊都連起來也只會像下面那樣，一定有解。
 
-<img src="https://i.imgur.com/Z7wVLiu.png" height="300px"></img>
+<img src="Z7wVLiu.png" style="width: auto; max-width: 150px">
 
 接下來感覺 Subtask 4（只有一種蓋道路的方式）好像可做，不過感覺跟 Subtask 5（沒有任四個噴泉形成 $2 \times 2$ 的方格）蠻像，都不會有像下面兩條<span style="color:orange">橘線</span>或<span style="color:blue">藍線</span>的情況，於是就想出一個跟 $\bmod 4$ 相關的作法：
 
-<img src="https://i.imgur.com/r26XQWf.png" height="120px"></img>
+<img src="r26XQWf.png" style="width: auto; max-width: 120px">
 
 先隨便建一棵樹，對所有的<span style="color:red">平行 $y$ 軸的邊（紅邊）</span>把 <span style="color:blue">$x + y \equiv 2 \pmod{4}$ 的椅子（藍椅）</span>指給他；對所有<span style="color:lime">平行 $x$ 軸的邊（綠邊）</span>把 <span style="color:#FFBF00">$x + y \equiv 0 \pmod{4}$ 的椅子（黃椅）</span>指給他。
 
-<img src="https://i.imgur.com/oDF75lk.png" height="300px"></img>
+<img src="oDF75lk.png" style="width: auto; max-width: 400px">
 
 因為不會有上面平行相鄰的狀況，所以不用擔心一張椅子被指到兩條平行的邊。
 
-{% note info %}
+{% note success %}
 <details>
 <summary>範例 code</summary>
 ```cpp
@@ -359,9 +386,12 @@ $<span class="score_ac">$13$</span>$/
 $<span class="score_ac">$28$</span>$/
 $<span class="score_ac">$16$</span>$)$
 
-> 給定兩個長度 $n$ 且只包含 `A`、`T`、`C` 的字串 $a, b$，接下來會有 $q$ 次詢問，每次給一段區間 $[x, y]$，你需要計算 $a[x..y]$ 最少需要經過幾次「交換兩個字元的位置」來變成 $b[x..y]$。
->
-> 限制：$n, q \le 100\,000$、$0 \le x \le y \le n-1$。
+{% note info no-icon %}
+給定兩個長度 $n$ 且只包含 `A`、`T`、`C` 的字串 $a, b$，接下來會有 $q$ 次詢問，每次給一段區間 $[x, y]$，你需要計算 $a[x..y]$ 最少需要經過幾次「交換兩個字元的位置」來變成 $b[x..y]$。
+
+- $n, q \le 100\,000$。
+- $0 \le x \le y \le n-1$。
+{% endnote %}
 
 [AC Solution](https://oj.uz/submission/442137)
 
@@ -379,17 +409,28 @@ $<span class="score_na">$12$</span>$/
 $<span class="score_na">$27$</span>$/
 $<span class="score_na">$11$</span>$)$
 
-> 有 $(n+1)$ 座地牢，其中編號 $i$ $(0 \le i \le n-1)$ 的地牢有一位力量為 $s_i$ 的對手，假設英雄現在在地牢 $x$ 並擁有 $z$ 的力量：
->
-> - 如果 $x = n$，遊戲結束；
-> - 如果 $z \ge s_x$，則 $z \leftarrow z + s_x$ 且 $x \leftarrow w_x$（$w_x > x$）；
-> - 如果 $z < s_x$，則 $z \leftarrow z + p_x$ 且 $x \leftarrow l_x$。
-> 
-> 你需要進行 $q$ 次模擬，每次給你英雄的初始位置 $x$ 跟初始力量 $z$，請求出當遊戲結束時英雄的力量。
->
-> 限制：$n \le 400\,000$、$q \le 50\,000$、$1 \le s_i, p_i, z \le 10^7$、$0 \le w_i, l_i \le n$、$0 \le x < n$。
+{% note info no-icon %}
+有 $(n+1)$ 座地牢，其中編號 $i$ $(0 \le i \le n-1)$ 的地牢有一位力量為 $s_i$ 的對手，假設英雄現在在地牢 $x$ 並擁有 $z$ 的力量：
 
-[AC Solution](https://oj.uz/submission/442807) # [$n \le 50\,000$](https://oj.uz/submission/442812) # [Doubling on $s_i = p_i$](https://oj.uz/submission/442814) # [$\#\{x : x \in s\} = 1$](https://oj.uz/submission/442835) # [$\#\{x : x \in s\} \le 5$](https://oj.uz/submission/442827) # [$\mathcal{O}(q(n + C))$ brute force](https://oj.uz/submission/442142)
+- 如果 $x = n$，遊戲結束；
+- 如果 $z \ge s_x$，則 $z \leftarrow z + s_x$ 且 $x \leftarrow w_x$（$w_x > x$）；
+- 如果 $z < s_x$，則 $z \leftarrow z + p_x$ 且 $x \leftarrow l_x$。
+
+你需要進行 $q$ 次模擬，每次給你英雄的初始位置 $x$ 跟初始力量 $z$，請求出當遊戲結束時英雄的力量。
+
+- $n \le 400\,000$。
+- $q \le 50\,000$。
+- $1 \le s_i, p_i, z \le 10^7$。
+- $0 \le w_i, l_i \le n$。
+- $0 \le x < n$。
+{% endnote %}
+
+[AC Solution](https://oj.uz/submission/442807) #
+[$n \le 50\,000$](https://oj.uz/submission/442812) #
+[Doubling on $s_i = p_i$](https://oj.uz/submission/442814) #
+[$\#\{x : x \in s\} = 1$](https://oj.uz/submission/442835) #
+[$\#\{x : x \in s\} \le 5$](https://oj.uz/submission/442827) #
+[$\mathcal{O}(q(n + C))$ brute force](https://oj.uz/submission/442142)
 
 在寫這題之前先想到 Subtask 2（$s_i = p_i$）有個有趣的性質可以倍增，那就是如果英雄某一場打輸了，那他的力量至少會變成兩倍，所以就做 $\mathcal{O}(\lg n)$ 次「最多可以連勝到哪裡」就會到終點了，複雜度大約是 $\mathcal{O}(\lg n \lg C)$。把暴力寫完之後也把倍增寫掉了，這時才發現倍增的作法可以一次過前兩筆 Subtask www。
 
@@ -409,27 +450,29 @@ $<span class="score_na">$25$</span>$/
 $<span class="score_na">$13$</span>$/
 $<span class="score_na">$29$</span>$)$
 
-> 你有 $100$ 個容量 $2000$ bits 的 register $r_0 \sim r_{m-1}$，你可以進行以下操作：
-> 
-> - $\texttt{move}(t, y)$：$r_t = r_y$；
-> - $\texttt{store}(t, v)$：$r_t = v$；
-> - $\texttt{and}(t, x, y)$：$r_t = r_x \land r_y$；
-> - $\texttt{or}(t, x, y)$：$r_t = r_x \lor r_y$；
-> - $\texttt{xor}(t, x, y)$：$r_t = r_x \oplus r_y$；
-> - $\texttt{not}(t, x)$：$r_t = \neg r_x$；
-> - $\texttt{left}(t, x, p)$：$r_t = r_x \ll p$；
-> - $\texttt{right}(t, x, p)$：$r_t = r_x \gg p$；
-> - $\texttt{add}(t, x, y)$：$r_t = r_x + r_y$。
-> 
-> 一開始有 $n$ 個 $k$-bit 整數 $c_0 \sim c_{n-1}$ 依序儲存在 $r_0$，其他所有 bits 皆為 $0$，你可以進行最多 $q$ 次操作使：
-> 
-> - $s = 0$：$r_0$ 在 $[\,0, k)$ 區間的 bits 需要是 $\min\limits_{0 \le i \le n-1}\{c_i\}$；
-> - $s = 1$：$r_0$ 在 $[\,i \cdot k, (i+1) \cdot k)$ 區間的 bits 需要是 $c$ 裡面第 $i$ 小的數字。
-> 
-> 其他不在要求區間裡的 bit 可以是任意值。
-> 
-> 限制（$s = 0$）：$n \le 100$、$k \le 10$、$q = 150$；<br/>
-> 限制（$s = 1$）：$n \le 100$、$k \le 10$、$q = 4000$。
+{% note info no-icon %}
+你有 $100$ 個容量 $2000$ bits 的 register $r_0 \sim r_{m-1}$，你可以進行以下操作：
+
+- $\texttt{move}(t, y)$：$r_t = r_y$；
+- $\texttt{store}(t, v)$：$r_t = v$；
+- $\texttt{and}(t, x, y)$：$r_t = r_x \land r_y$；
+- $\texttt{or}(t, x, y)$：$r_t = r_x \lor r_y$；
+- $\texttt{xor}(t, x, y)$：$r_t = r_x \oplus r_y$；
+- $\texttt{not}(t, x)$：$r_t = \neg r_x$；
+- $\texttt{left}(t, x, p)$：$r_t = r_x \ll p$；
+- $\texttt{right}(t, x, p)$：$r_t = r_x \gg p$；
+- $\texttt{add}(t, x, y)$：$r_t = r_x + r_y$。
+
+一開始有 $n$ 個 $k$-bit 整數 $c_0 \sim c_{n-1}$ 依序儲存在 $r_0$，其他所有 bits 皆為 $0$，你可以進行最多 $q$ 次操作使：
+
+- $s = 0$：$r_0$ 在 $[\,0, k)$ 區間的 bits 需要是 $\min\limits_{0 \le i \le n-1}\{c_i\}$；
+- $s = 1$：$r_0$ 在 $[\,i \cdot k, (i+1) \cdot k)$ 區間的 bits 需要是 $c$ 裡面第 $i$ 小的數字。
+
+其他不在要求區間裡的 bit 可以是任意值。
+
+- 限制（$s = 0$）：$n \le 100$、$k \le 10$、$q = 150$。
+- 限制（$s = 1$）：$n \le 100$、$k \le 10$、$q = 4000$。
+{% endnote %}
 
 [$s = 0$、$n = 2$、$k \le 2$、$q = 1000$](https://oj.uz/submission/442197)
 
@@ -437,9 +480,9 @@ $<span class="score_na">$29$</span>$)$
 
 根據我在「數位電路設計」~~學習~~耍廢的經驗，對兩個 $2$-bit 的數字 $a, b$，有以下式子：
 
-$$\min\{a, b\}_1 = a_1 \cdot (\overline{a_1} \cdot \overline{a_0} + b_1 \cdot b_0 + \overline{a_1} \cdot b_1) + b_1 \cdot \overline{(\overline{a_1} \cdot \overline{a_0} + b_1 \cdot b_0 + \overline{a_1} \cdot b_1)}$$
+$$\min\{a, b\}_1 = a_1 \cdot (\overline{a_1} \cdot \overline{a_0} + b_1 \cdot b_0 + \overline{a_1} \cdot b_1) + b_1 \cdot \overline{(\overline{a_1} \cdot \overline{a_0} + b_1 \cdot b_0 + \overline{a_1} \cdot b_1)} \notag$$
 
-$$\min\{a, b\}_0 = a_0 \cdot (\overline{a_1} \cdot \overline{a_0} + b_1 \cdot b_0 + \overline{a_1} \cdot b_1) + b_0 \cdot \overline{(\overline{a_1} \cdot \overline{a_0} + b_1 \cdot b_0 + \overline{a_1} \cdot b_1)}$$
+$$\min\{a, b\}_0 = a_0 \cdot (\overline{a_1} \cdot \overline{a_0} + b_1 \cdot b_0 + \overline{a_1} \cdot b_1) + b_0 \cdot \overline{(\overline{a_1} \cdot \overline{a_0} + b_1 \cdot b_0 + \overline{a_1} \cdot b_1)} \notag$$
 
 我就花了一個多小時在把這個寫出來，結果還用了 $26$ 次操作，只有拿到 <span class="score_10">$10$ 分</span>，然後我就放棄了。
 

@@ -14,7 +14,6 @@ date: 2022-08-29 05:51:26
 ## 寫 blog
 
 - IONCamp 2022 出題心得
-- Meta Hacker Cup 2022 Qualification 心得
 - 2018 Benelux Algorithm Programming Contest (BAPC 18) | virtual 心得
 
 ## 搬 blog
@@ -23,8 +22,8 @@ date: 2022-08-29 05:51:26
 
 ## 網站整理
 
-- 把整理記分板的網站 [sorahisa.github.io](https://sorahisa.github.io) 搬到 sorahisa-rank.github.io，並把 dumprank 分到很多個 repo 以降低 build page 壓力。
-- 把 YTP 的記分板（半靜態）做好
+- 把整理記分板的網站 [sorahisa.github.io/OI](https://sorahisa.github.io/OI) 搬到 sorahisa-rank.github.io，並把 dumprank 分到很多個 repo 以降低 build page 壓力。
+- 把 YTP 的記分板（半靜態）做好。
 
 ## Project
 
