@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>IOI 2021 場外心得</title>
-    <url>/2021-07-05/competitive-programming/contests/ioi-2021/</url>
+    <url>/2021-07-05/cp/contests/ioi21/</url>
     <content><![CDATA[<p>這是第一篇正式ㄉ文章ㄛ
 &gt;////&lt;，本來該是另一篇的，但是因為太懶了還沒有動工，這篇就變成第一個了
 www。</p>
@@ -681,10 +681,242 @@ dungeons 出題心得</a></li>
         <category>競程</category>
         <category>比賽心得</category>
       </categories>
+      <tags>
+        <tag>IOI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MHC 2022 Qualification 比賽心得</title>
+    <url>/2022-08-29/cp/contests/mhc22-0/</url>
+    <content><![CDATA[<p>今年開始 Facebook Hacker Cup 改叫 Meta Hacker
+Cup，瞬間感覺變得高大上了 (X)，不過現在聽到 MHC
+的簡寫完全無法直接反應過來 www。</p>
+<span id="more"></span>
+<div class="note primary"><p>如果你沒有打過 Meta Hacker Cup，可以參考看看
+<a href="https://hackmd.io/@SorahISA-OIer/r1C5ZsT4F">這篇介紹文</a>。</p>
+</div>
+<h2 id="前言">前言</h2>
+<p>雖然 Qualification 總共有三天、要什麼時候打都可以、也只要 AC
+一題就能晉級，但是如果想要拿到高名次反而就只能選這種比較少電神會認真打的比賽了
+www。</p>
+<p>於是，目標就成形了：</p>
+<ul>
+<li>在 8/27 01:00 開始做題</li>
+<li>把能寫的都寫完，能唬爛的都唬爛完
+<ul>
+<li>目標是在三個小時內全部 submit 成功</li>
+<li><del>吃 FST 再說</del></li>
+</ul></li>
+<li>拿到盡量高的排名</li>
+</ul>
+<h2 id="qualification-round">Qualification Round</h2>
+<ul>
+<li><a
+href="https://www.facebook.com/codingcompetitions/hacker-cup/2022/qualification-round">Judge</a></li>
+<li><a
+href="https://www.youtube.com/watch?v=hsWBNidLFqY">Screencast</a></li>
+</ul>
+<p>因為是以破台為目標，所以基本上就是按照順序開題。開場先花了兩分鐘把東西整理好，就開始看題了～</p>
+<h3 id="a.-second-hands">A. Second Hands</h3>
+<p><span class="score_ac"><span class="math inline">\(9\)</span>
+分</span> (6:17)</p>
+<div class="note info no-icon"><p>你要把 <span class="math inline">\(N\)</span> 個正整數 <span
+class="math inline">\(S_1, S_2, \ldots, S_N\)</span>
+分成兩堆，使得兩堆的大小都 <span class="math inline">\(\le K\)</span>
+且各自都不能包含重複的數字。<br/> 只要輸出 <code>YES</code> 或
+<code>NO</code>，不用構造解法。</p>
+<ul>
+<li>測資數量<span class="math inline">\({} = 90\)</span>。</li>
+<li><span class="math inline">\(1 \le N, K \le 100\)</span>。</li>
+<li><span class="math inline">\(1 \le S_i \le 100\)</span>（<span
+class="math inline">\(1 \le i \le N\)</span>）。</li>
+</ul>
+</div>
+<p>直觀的想法就是把出現兩次的數字都分開放，有出現三次以上的數字或是
+<span class="math inline">\(N &gt; 2K\)</span> 就是
+<code>NO</code>。</p>
+<p>稍微想了一下就發現不用真的放數字，只要上面 <code>NO</code>
+的條件不符合就會有解。</p>
+<h3 id="b1.-second-friend">B1. Second Friend</h3>
+<p><span class="score_ac"><span class="math inline">\(9\)</span>
+分</span> (30:18)</p>
+<div class="note info no-icon"><p>在 <span class="math inline">\(R \times C\)</span> 的格子裡有一些道路
+<code>.</code> 跟樹木
+<code>^</code>，你要在道路上種一些樹使得每一棵樹的四方位相鄰格子都只少有兩棵樹。<br/>
+如果有解請輸出構造方法。</p>
+<ul>
+<li>測資數量<span class="math inline">\({} = 85\)</span>。</li>
+<li><span class="math inline">\(1 \le R, C \le 100\)</span>。</li>
+</ul>
+</div>
+<p>我看到最上面說 B2 <span class="math inline">\(\supseteq\)</span> B1
+之後就直接跳到 B2 了，所以我沒有看這題。</p>
+<h3 id="b2.-second-second-friend">B2. Second Second Friend</h3>
+<p><span class="score_ac"><span class="math inline">\(17\)</span>
+分</span> (31:06)</p>
+<div class="note info no-icon"><p>接 B1，在 <span class="math inline">\(R \times C\)</span>
+的格子裡有一些道路 <code>.</code> 跟樹木 <code>^</code> <strong>跟石頭
+<code>#</code></strong>。<br/></p>
+<ul>
+<li>測資數量<span class="math inline">\({} = 80\)</span>。</li>
+<li><span class="math inline">\(1 \le R, C \le
+\mathbf{3000}\)</span>。</li>
+</ul>
+</div>
+<p>第一眼的感覺是填滿會最好，不過因為有些位置會被石頭擋到只剩下一個
+<em>氣</em>（定義一個位置的 <em>氣</em>
+是他四方位相鄰的格子中可以種樹的位置數量），而那些只剩下 <span
+class="math inline">\(0 \sim 1\)</span>
+個氣的位置又會讓周圍的氣減少，於是要使用 DFS 來找所有會影響的位置。</p>
+<p>寫了一堆 bug 讓我多花了 9 分鐘
+QwQ。像是一開始把氣的初始值定義為周圍是道路或樹木的數量，結果 DFS
+時又會把石頭周圍的氣都 <span
+class="math inline">\(-1\)</span>，就導致石頭被扣兩次。</p>
+<p>上傳的時候發現會燒雞，感覺是檔案太大的問題？於是就按照他們說的發了個
+Clarification 附上 code 跟輸出 .zip 檔。</p>
+<p>這時候我才發現每一題的名稱都有 Second www。</p>
+<h3 id="c1.-second-meaning">C1. Second Meaning</h3>
+<p><span class="score_ac"><span class="math inline">\(14\)</span>
+分</span> (43:27)</p>
+<div class="note info no-icon"><p>有一個神秘的語言，它總共有 <span class="math inline">\(N\)</span>
+種符號，現在你希望只使用 <code>.</code> 跟 <code>-</code>
+壓縮這個語言的任何訊息。<br/> 現在要求你第一種符號一定要壓縮成 <span
+class="math inline">\(C_1\)</span>，請求出任何一組 <span
+class="math inline">\(C_2, C_3, \ldots, C_N\)</span> 使得所有由
+<code>.</code> 跟 <code>-</code> 構成的訊息都只有 <span
+class="math inline">\(0\)</span> 或 <span
+class="math inline">\(1\)</span> 種解讀方式。</p>
+<ul>
+<li>測資數量<span class="math inline">\({} = 100\)</span>。</li>
+<li><span class="math inline">\(2 \le N \le 100\)</span>。</li>
+<li><span class="math inline">\(1 \le |C_1| \le 100\)</span>。</li>
+<li><span class="math inline">\(1 \le |C_i| \le 200\)</span>（<span
+class="math inline">\(2 \le i \le N\)</span>）。</li>
+</ul>
+</div>
+<p>第一個想法是「只要所有符號壓縮後的長度都一樣就不會出現歧異」，不過給你的
+<span class="math inline">\(C_1\)</span> 可能會超短（<span
+class="math inline">\(\le 6\)</span>）讓我們沒辦法弄出 <span
+class="math inline">\(N\)</span> 個相異字串。</p>
+<p>那不如就把 <span class="math inline">\(C_1\)</span> 獨立出來看？讓
+<span class="math inline">\(C_1\)</span>
+的開頭跟其他人都不一樣，這樣讀到 <span
+class="math inline">\(C_1[0]\)</span> 就知道是 <span
+class="math inline">\(C_1\)</span>；讀到不是 <span
+class="math inline">\(C_1[0]\)</span> 就知道是 <span
+class="math inline">\(C_2, C_3, \ldots, C_N\)</span>，再讓 <span
+class="math inline">\(C_2, C_3, \ldots, C_N\)</span> 的長度都相同就能把
+<span class="math inline">\(C_1\)</span> 分出來了！</p>
+<h3 id="c2.-second-second-meaning">C2. Second Second Meaning</h3>
+<p><span class="score_ac"><span class="math inline">\(18\)</span>
+分</span> (43:44)</p>
+<div class="note info no-icon"><p>接 C1。</p>
+<ul>
+<li>測資數量<span class="math inline">\({} = 95\)</span>。</li>
+<li><span class="math inline">\(2 \le N \le 100\)</span>。</li>
+<li><span class="math inline">\(1 \le |C_1| \le 100\)</span>。</li>
+<li><span class="math inline">\(1 \le |C_i| \le
+\mathbf{10}\)</span>（<span class="math inline">\(2 \le i \le
+N\)</span>）。</li>
+</ul>
+</div>
+<p>本來想說 C2 是給你 <span class="math inline">\(C_1, C_2, \ldots,
+C_K\)</span> 求 <span class="math inline">\(C_{K+1}, C_{K+2}, \ldots,
+C_N\)</span>（沒看題目被抓到），結果只是限制輸出長度要 <span
+class="math inline">\(\le 10\)</span>，直接一起水掉 &gt;////&lt;。</p>
+<p>C1 跟 C2 都上傳完之後看了一下輸出檢查有沒有弄錯檔案，結果發現我的
+<code>Case #x:</code> 後面沒有換行，嚇死。</p>
+<p>不過 validation 都有過，應該沒有差ㄅ？反正我又重新傳了一次。</p>
+<blockquote>
+<p>為什麼不要出到 <span class="math inline">\(|C_i| \le 7\)</span> 呢
+OwO。</p>
+</blockquote>
+<h3 id="d.-second-flight">D. Second Flight</h3>
+<p><span class="score_ac"><span class="math inline">\(33\)</span>
+分</span> (91:40)</p>
+<div class="note info no-icon"><p>有 <span class="math inline">\(N\)</span> 個城市，城市之間以 <span
+class="math inline">\(M\)</span> 個航班 <span
+class="math inline">\((A_i, B_i, C_i)\)</span> 連通。<br/>
+每個航班在一天內會發 <span class="math inline">\(4\)</span> 班飛機，早晚
+<span class="math inline">\(A_i \to B_i\)</span> 跟 <span
+class="math inline">\(B_i \to A_i\)</span> 都各有一班，可以載 <span
+class="math inline">\(C_i\)</span> 個 <strong>t</strong>ourists。<br/>
+接著你會詢問 <span class="math inline">\(Q\)</span> 次 <span
+class="math inline">\((X_j,
+Y_j)\)</span>：在一天之內最多有多少人可以從城市 <span
+class="math inline">\(X_j\)</span> 前往 <span
+class="math inline">\(Y_j\)</span>。注意一個乘客一天之內最多可以搭乘兩個航班（早晚各一個）。</p>
+<ul>
+<li>測資數量<span class="math inline">\({} = 70\)</span>。</li>
+<li><span class="math inline">\(1 \le N, M, Q \le
+200\,000\)</span>。</li>
+<li><span class="math inline">\(\sum\limits_{所有測資}{Q} \le
+5\,000\,000\)</span>。</li>
+<li><span class="math inline">\(1 \le A_i, B_i \le N\)</span>（<span
+class="math inline">\(1 \le i \le M\)</span>）。</li>
+<li>保證 <span class="math inline">\(A_i \ne
+B_i\)</span>，且所有<strong>無序數對</strong> <span
+class="math inline">\((A_i, B_i)\)</span> 皆相異（<span
+class="math inline">\(1 \le i \le M\)</span>）。</li>
+<li><span class="math inline">\(1 \le C_i \le 10^9\)</span>（<span
+class="math inline">\(1 \le i \le M\)</span>）。</li>
+<li><span class="math inline">\(1 \le X_j, Y_j \le N\)</span>（<span
+class="math inline">\(1 \le j \le Q\)</span>）。</li>
+<li>保證 <span class="math inline">\(X_j \ne Y_j\)</span>（<span
+class="math inline">\(1 \le j \le Q\)</span>）。</li>
+</ul>
+</div>
+<p>一開始覺得跟最大流有關，不過發現只要看 <span
+class="math inline">\((X_j, Y_j)\)</span> 有沒有邊以及枚舉中間點 <span
+class="math inline">\(Z_j\)</span> 計算 <span
+class="math inline">\(\min\{C_{(X_j, Z_j)}, C_{(Z_j, Y_j)}\}\)</span>
+就能得到答案，我就覺得與其好好想解不如直接寫暴力 www。</p>
+<p>不過 <span class="math inline">\(\mathcal{O}(QN)\)</span>
+還是太大了，就算暴力也應該跑不完。</p>
+<p>我決定來試試一個簡單的簡化法：把詢問過的答案存起來，並每次枚舉 <span
+class="math inline">\(X_j\)</span> 跟 <span
+class="math inline">\(Y_j\)</span> 度數小的去詢問大的有沒有。</p>
+<p>把度數前 <span class="math inline">\(\mathcal{O}(\sqrt{N})\)</span>
+大的點的鄰居存成 <code>bitset</code> 以求 <span
+class="math inline">\(\mathcal{O}(1)\)</span> 查詢，如果 <span
+class="math inline">\(X_j\)</span> 跟 <span
+class="math inline">\(Y_j\)</span>
+都是度數小的那群就直接線性掃過去（先把鄰居按照編號排序）。這樣複雜度就會變成
+<span class="math inline">\(\mathcal{O}(Q\sqrt{N})\)</span>。</p>
+<div class="note "><details>
+<summary>
+<h4>
+複雜度證明（未完）
+</h4>
+</summary>
+還沒寫
+</details>
+</div>
+<blockquote>
+<p>寫到這裡我才發現其實把 <code>pair&lt;int, int&gt;</code> 壓成
+<code>int64_t</code> 就可以用 <code>unordered_map</code> 了。<br/> 然後
+<code>bitset</code> 應該也可以被 <code>unordered_map</code> 取代掉，我
+<code>bitset</code> 中毒 QwQ。</p>
+</blockquote>
+<p>光是 validation 就跑半分鐘了，所幸正式的 input
+也大約兩分鐘就跑完了，不知道筆電如果開風扇會不會跑快一點。</p>
+<blockquote>
+<p>賽後才意識到 D 的輸出足足有 36 MB，不知道為什麼反而上傳的了？</p>
+</blockquote>
+<h2 id="總結">總結</h2>
+<p>還沒寫。</p>
+]]></content>
+      <categories>
+        <category>競程</category>
+        <category>比賽心得</category>
+      </categories>
+      <tags>
+        <tag>MHC</tag>
+      </tags>
   </entry>
   <entry>
     <title>ZeroJudge c272. 趙哥的養成計畫 I --- 題解</title>
-    <url>/2021-07-20/competitive-programming/editorials/zj-c272/</url>
+    <url>/2021-07-20/cp/editorials/zj-c272/</url>
     <content><![CDATA[<h2 id="動機">動機</h2>
 <p>刷
 <a href="https://sites.google.com/site/pcshic/zi-xun-pei-xun">板中的講義題單</a>
@@ -798,6 +1030,9 @@ href="https://github.com/SorahISA/competitive_programming/blob/master/ZeroJudge/
         <category>競程</category>
         <category>題解</category>
       </categories>
+      <tags>
+        <tag>ZeroJudge</tag>
+      </tags>
   </entry>
   <entry>
     <title>演算法概論－期中考</title>
