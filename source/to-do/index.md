@@ -26,6 +26,15 @@ date: 2022-08-29 05:51:26
 - 把整理記分板的網站 [sorahisa.github.io](https://sorahisa.github.io) 搬到 sorahisa-rank.github.io，並把 dumprank 分到很多個 repo 以降低 build page 壓力。
 - 把 YTP 的記分板（半靜態）做好
 
+## Project
+
+- CMS Resolver
+- 做一套出題專用的模板
+  - 題本 LaTeX（應該是採用 twpca 的 TOI 模板跟 PCCA 的 ICPC 模板）
+  - 生測資（目前是使用 tps）
+  - 整理題目狀態，支援多人合作（notion 還不錯，不過對中文 + 數學的支援很怪）
+- Online Judge for TOI and my future contests
+
 ## 其他
 
 - [Sep 04] SITCON
