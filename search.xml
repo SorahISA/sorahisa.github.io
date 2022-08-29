@@ -992,9 +992,11 @@ Solution 1 改成 Solution 2 之後就跟其中一個官解幾乎一樣了。</p
 <h2 id="總結">總結</h2>
 <ul>
 <li>分數：<span class="score_ac"><span
-class="math inline">\(100\)</span> 分</span></li>
-<li>排名：<span class="medal_au"><span class="math inline">\(11 /
-27\,603\)</span> 名</span></li>
+class="math inline">\(100\)</span></span><span class="math inline">\(/
+100\)</span> 分</li>
+<li>排名：<span class="medal_au"><span
+class="math inline">\(11\)</span></span><span class="math inline">\(/
+27\,603\)</span> 名</li>
 </ul>
 <p><img data-src="scoreboard.png" width="90%"></p>
 <p>果然拿到了超高的名次，感覺 C 意外的水，而且 D
