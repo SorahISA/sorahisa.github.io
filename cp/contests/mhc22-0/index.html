@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sorahisa.github.io/cp/contests/mhc22-0/scoreboard.png">
 <meta property="article:published_time" content="2022-08-29T06:37:03.000Z">
-<meta property="article:modified_time" content="2022-08-29T23:25:17.094Z">
+<meta property="article:modified_time" content="2022-08-29T23:33:26.818Z">
 <meta property="article:author" content="SorahISA">
 <meta property="article:tag" content="MHC">
 <meta name="twitter:card" content="summary">
@@ -236,7 +236,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-08-29 06:37:03 / Modified: 23:25:17" itemprop="dateCreated datePublished" datetime="2022-08-29T06:37:03+00:00">2022-08-29</time>
+      <time title="Created: 2022-08-29 06:37:03 / Modified: 23:33:26" itemprop="dateCreated datePublished" datetime="2022-08-29T06:37:03+00:00">2022-08-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -460,7 +460,7 @@ target="_blank" rel="noopener" href="https://github.com/SorahISA/competitive_pro
 Solution (<span class="math inline">\(\texttt{bitset}\)</span>)</a> # <a
 target="_blank" rel="noopener" href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-0D-2.cpp">AC
 Solution (<span
-class="math inline">\(\texttt{unordered\_map}\)</span>)</a></p>
+class="math inline">\(\texttt{unordered_map}\)</span>)</a></p>
 <p>一開始覺得跟最大流有關，不過發現只要看 <span
 class="math inline">\((X_j, Y_j)\)</span> 有沒有邊以及枚舉中間點 <span
 class="math inline">\(Z_j\)</span> 計算 <span
@@ -506,7 +506,7 @@ to smax</a>）：</p>
 class="math inline">\(&lt; B\)</span> 的叫ㄌㄌ。
 <ul>
 <li>如果 <span class="math inline">\(X_j\)</span>
-是ㄌㄌ：直接衝上去，反正ㄌㄌ的複雜度夠小，只有 <span
+是ㄌㄌ：&gt;////&lt;。因為ㄌㄌ的複雜度夠小，只有 <span
 class="math inline">\(\mathcal{O}(B)\)</span>。</li>
 <li>如果 <span class="math inline">\(X_j\)</span> 是阿姨：頂多只有 <span
 class="math inline">\(\mathcal{O}\left(\frac{M}{B}\right)\)</span>
@@ -514,7 +514,10 @@ class="math inline">\(\mathcal{O}\left(\frac{M}{B}\right)\)</span>
 class="math inline">\(\mathcal{O}\left(\frac{M^2}{B^2}\right)\)</span>
 次。
 <ul>
-<li>只考慮不重複的詢問，因為第一項。</li>
+<li><span class="math inline">\(X_j\)</span> 是阿姨 <span
+class="math inline">\(\implies\)</span> <span
+class="math inline">\(Y_j\)</span> 是阿姨。</li>
+<li>只考慮不重複的詢問，因為有把回答存起來。</li>
 </ul></li>
 </ul></li>
 <li>所有遇到ㄌㄌ的複雜度加起來是 <span

@@ -902,7 +902,7 @@ href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Me
 Solution (<span class="math inline">\(\texttt{bitset}\)</span>)</a> # <a
 href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-0D-2.cpp">AC
 Solution (<span
-class="math inline">\(\texttt{unordered\_map}\)</span>)</a></p>
+class="math inline">\(\texttt{unordered_map}\)</span>)</a></p>
 <p>一開始覺得跟最大流有關，不過發現只要看 <span
 class="math inline">\((X_j, Y_j)\)</span> 有沒有邊以及枚舉中間點 <span
 class="math inline">\(Z_j\)</span> 計算 <span
@@ -948,7 +948,7 @@ to smax</a>）：</p>
 class="math inline">\(&lt; B\)</span> 的叫ㄌㄌ。
 <ul>
 <li>如果 <span class="math inline">\(X_j\)</span>
-是ㄌㄌ：直接衝上去，反正ㄌㄌ的複雜度夠小，只有 <span
+是ㄌㄌ：&gt;////&lt;。因為ㄌㄌ的複雜度夠小，只有 <span
 class="math inline">\(\mathcal{O}(B)\)</span>。</li>
 <li>如果 <span class="math inline">\(X_j\)</span> 是阿姨：頂多只有 <span
 class="math inline">\(\mathcal{O}\left(\frac{M}{B}\right)\)</span>
@@ -956,7 +956,10 @@ class="math inline">\(\mathcal{O}\left(\frac{M}{B}\right)\)</span>
 class="math inline">\(\mathcal{O}\left(\frac{M^2}{B^2}\right)\)</span>
 次。
 <ul>
-<li>只考慮不重複的詢問，因為第一項。</li>
+<li><span class="math inline">\(X_j\)</span> 是阿姨 <span
+class="math inline">\(\implies\)</span> <span
+class="math inline">\(Y_j\)</span> 是阿姨。</li>
+<li>只考慮不重複的詢問，因為有把回答存起來。</li>
 </ul></li>
 </ul></li>
 <li>所有遇到ㄌㄌ的複雜度加起來是 <span
