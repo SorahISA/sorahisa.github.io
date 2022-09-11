@@ -45,7 +45,7 @@ date: 2022-09-08 00:01:30
 ### D - Large Number Multiply
 
 {% note info no-icon %}
-給你 $A$、$B$，輸出 $A \cdot B$。
+給你 $A$、$B$，輸出 $A \times B$。
 
 有 $N$ 組測資。
 
@@ -71,7 +71,10 @@ date: 2022-09-08 00:01:30
 
 在團練時我們使用的是二分搜，不過剛好在團練完的時候我們有看題解裡講到 <a href="https://en.wikipedia.org/wiki/Brahmagupta#Brahmagupta's_formula">Brahmagupta's formula</a> 可以在 $\mathcal{O}(1)$ 時間求解，而且很精簡。
 
-$$A = \sqrt{(s-a)(s-b)(s-c)(s-d)}, \quad s = \frac{a+b+c+d}{2}$$
+$$\begin{aligned}
+s &= \frac{a+b+c+d}{2} \\
+A &= \sqrt{(s-a)(s-b)(s-c)(s-d)} \\
+\end{aligned} \notag$$
 
 - **4 min, pM <span class="score_ac">Correct</span> + 首殺**
 
@@ -133,9 +136,9 @@ $$A = \sqrt{(s-a)(s-b)(s-c)(s-d)}, \quad s = \frac{a+b+c+d}{2}$$
 ### F - Fulcrum
 
 {% note info no-icon %}
-給你 $a_1, a_2, \ldots, a_n$，定義一個 subarray $b_1, b_2, \ldots, b_k$ 的權重如下：
+給你 $a_1, a_2, \ldots, a_n$，定義一個 subarray $b_1, b_2, \ldots, b_m$ 的權重如下：
 
-$$\text{weight}(b) = \sum_{i=1}^{k}{i \cdot b_i}$$
+$$\text{weight}(b) = \sum_{i=1}^{m}{i \cdot b_i}$$
 
 請求出有幾個非空 subarray 的權重 $\le k$。
 
@@ -216,7 +219,7 @@ SCC 縮點 + DAG 最長路裸題，所以重諺就 AC 了。
 {% note info no-icon %}
 有 $n$ 盞路燈位於 $x_1, x_2, \ldots, x_n$，且分別有著 $a_1, a_2, \ldots, a_n$ 的強度，定義在位置 $p$ 的亮度是
 
-$$\text{luminance}(p) = \sum_{i=1}^{n}{\lfloor\frac{a_i}{|p - x_i| + 1}\rfloor}$$
+$$\text{luminance}(p) = \sum_{i=1}^{n}{\left\lfloor\frac{a_i}{|p - x_i| + 1}\right\rfloor} \notag$$
 
 請求出在 $1, 2, \ldots, L$ 裡亮度最低跟最高的值。
 
@@ -279,14 +282,14 @@ $$\text{luminance}(p) = \sum_{i=1}^{n}{\lfloor\frac{a_i}{|p - x_i| + 1}\rfloor}$
 {% note info no-icon %}
 給你字串 $s$、$t$，你要求出有幾個 $s$ 的 substring $s'$ 可以跟 $t$ 匹配。
 
-匹配的定義是存在一種雙射的 $f : \sum \to \sum$ 使 ${s'}_i = f(t_i)$。
+匹配的定義是存在一種雙射的 $f : \Sigma \to \Sigma$ 使 $s_i' = f(t_i)$。
 
 - $1 \le |s| \le 10^7$。
 - $1 \le |t| \le |s|$。
-- $\sum = \{\texttt{a}, \texttt{b}, \ldots, \texttt{z}\}$。
+- $\Sigma = \{\texttt{a}, \texttt{b}, \ldots, \texttt{z}\}$。
 {% endnote %}
 
-在先前看到題目的當下我就想到一種簡化法：紀錄 $s'$ 跟 $t$ 內每個字元的出現順序，比對時只要出現順序相同就是能匹配的。當時因為很多細節不會寫所以沒有細想，在把這個方法丟出來之後越來越覺得可行，比對序列可以單純的用 hash，而加入跟刪除字元都可以在 $\mathcal{O}(|\sum|)$ 更新順序以及每個字元對 hash 值的貢獻。
+在先前看到題目的當下我就想到一種簡化法：紀錄 $s'$ 跟 $t$ 內每個字元的出現順序，比對時只要出現順序相同就是能匹配的。當時因為很多細節不會寫所以沒有細想，在把這個方法丟出來之後越來越覺得可行，比對序列可以單純的用 hash，而加入跟刪除字元都可以在 $\mathcal{O}(|\Sigma|)$ 更新順序以及每個字元對 hash 值的貢獻。
 
 我們三個人一起手忙腳亂的寫 code，迺絜負責整體架構，重諺計算每個字元的貢獻，我更新字元出現的順序。雖然寫的很醜也出很多 bug
 ，但他至少有在動了！
@@ -297,13 +300,13 @@ $$\text{luminance}(p) = \sum_{i=1}^{n}{\lfloor\frac{a_i}{|p - x_i| + 1}\rfloor}$
 
 - **293 min, pI <span class="score_na">Wrong-Answer</span>**
 
-我想說是不是我的部分寫爛了，準備打算換成 $\mathcal{O}(|\sum| \lg{|\sum|})$ 的暴力計算法，不過他們覺得是模的數字太大才爛掉，於是就從 $10^{15}+7$ 改成 $10^9+7$ 就過了！
+我想說是不是我的部分寫爛了，準備打算換成 $\mathcal{O}(|\Sigma| \lg{|\Sigma|})$ 的暴力計算法，不過他們覺得是模的數字太大才爛掉，於是就從 $10^{15}+7$ 改成 $10^9+7$ 就過了！
 
 - **297 min, pI <span class="score_ac">Correct</span>**
 
 我還是不知道為什麼 $10^{15}+7$ 會爛耶 OuO。
 
-> 這題 hank 的官解是確定性的，而且複雜度不會帶 $\mathcal{O}(|\sum|)$。本來所有做出這題的四隊都會被 TLE 掉，可惜時限定的不夠緊。
+> 這題 hank 的官解是確定性的，而且複雜度不會帶 $\mathcal{O}(|\Sigma|)$。本來所有做出這題的四隊都會被 TLE 掉，可惜時限定的不夠緊。
 
 ## 總結
 
