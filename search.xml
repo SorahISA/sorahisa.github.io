@@ -933,7 +933,7 @@ class="math inline">\(\mathcal{O}\left(Q\sqrt{N}\right)\)</span>。</p>
 複雜度證明
 </h4>
 </summary>
-<p><a href="https://www.facebook.com/codingcompetitions/hacker-cup/2022/qualification-round/solutions">官方有提供證明（最下面
+<p><a href="https://www.facebook.com/codingcompetitions/hacker-cup/2022/qualification-round/problems/D/solution">官方有提供證明（最下面
 Solution
 2）</a>，不過有個更簡單的作法（<a href="https://codeforces.com/blog/entry/106451?#comment-947999">Credit
 to smax</a>）：</p>
@@ -1004,6 +1004,274 @@ class="math inline">\(11\)</span></span><span class="math inline">\(/
 <span class="math inline">\(\log\)</span> 作法的。</p>
 <p>能用原定時間的一半多一點點破台是我沒想過的，不過自己感覺還有許多可以進步的地方<del>（像是剪指甲）</del>，接下來可能還有許多題目要出，剩下的就等
 Round 1 再說ㄅ。</p>
+<div class="note primary"><ul>
+<li>下一篇：<a href="../mhc22-1">Round 1</a></li>
+</ul>
+</div>
+]]></content>
+      <categories>
+        <category>競程</category>
+        <category>比賽心得</category>
+      </categories>
+      <tags>
+        <tag>MHC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MHC 2022 Round 1 比賽心得</title>
+    <url>/cp/contests/mhc22-1/</url>
+    <content><![CDATA[<p>最近要開學了，交大 9/8 才能開始搬進宿舍，然後就撞連假又遇到颱風
+QwQ。</p>
+<p>因為這天（9/11）剛好要搬行李到學校，七點多就要起床，所以沒辦法好好打完。</p>
+<span id="more"></span>
+<h2 id="前言">前言</h2>
+<p>前言都寫在前面了耶～</p>
+<h2 id="round-1">Round 1</h2>
+<ul>
+<li><a
+href="https://www.facebook.com/codingcompetitions/hacker-cup/2022/round-1">Judge</a></li>
+<li>Maybe no screencast</li>
+</ul>
+<h3 id="a1.-consecutive-cuts---chapter-1">A1. Consecutive Cuts - Chapter
+1</h3>
+<p><span class="score_ac"><span class="math inline">\(10\)</span>
+分</span> (91:44)</p>
+<div class="note info no-icon"><p>定義一次「切牌」的動作是把撲克牌分成非空的兩堆，再交換順序疊回去。<br>
+現在給定 <span class="math inline">\(N\)</span> 張撲克牌由上而下的數字
+<span class="math inline">\(A_1, A_2, \ldots,
+A_N\)</span>，請問你能不能利用恰好 <span
+class="math inline">\(K\)</span> 次切牌讓牌堆由上而下變成 <span
+class="math inline">\(B_1, B_2, \ldots, B_N\)</span> 的樣子？</p>
+<ul>
+<li>測資數量<span class="math inline">\({} = 200\)</span>。</li>
+<li><span class="math inline">\(2 \le N \le 500\,000\)</span>。</li>
+<li><span class="math inline">\(\sum\limits_{所有測資}{N} \le
+5\,000\,000\)</span>。</li>
+<li><span class="math inline">\(0 \le K \le 10^9\)</span>。</li>
+<li><span class="math inline">\(1 \le A_i, B_i \le N\)</span>（<span
+class="math inline">\(1 \le i \le N\)</span>）。</li>
+<li><span class="math inline">\(A\)</span> 跟 <span
+class="math inline">\(B\)</span> 都是 <span class="math inline">\(1, 2,
+\ldots, N\)</span> 的排列。</li>
+</ul>
+</div>
+<p><a
+href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-1A.cpp">AC
+Solution</a></p>
+<p>因為只做 A1 不能晉級，所以我直接去看 A2。</p>
+<h3 id="a2.-consecutive-cuts---chapter-2">A2. Consecutive Cuts - Chapter
+2</h3>
+<p><span class="score_ac"><span class="math inline">\(16\)</span>
+分</span> (93:03)</p>
+<div class="note info no-icon"><p>定義一次「切牌」的動作是把撲克牌分成非空的兩堆，再交換順序疊回去。<br>
+現在給定 <span class="math inline">\(N\)</span> 張撲克牌由上而下的數字
+<span class="math inline">\(A_1, A_2, \ldots,
+A_N\)</span>，請問你能不能利用恰好 <span
+class="math inline">\(K\)</span> 次切牌讓牌堆由上而下變成 <span
+class="math inline">\(B_1, B_2, \ldots, B_N\)</span> 的樣子？</p>
+<ul>
+<li>測資數量<span class="math inline">\({} = 205\)</span>。</li>
+<li><span class="math inline">\(2 \le N \le 500\,000\)</span>。</li>
+<li><span class="math inline">\(\sum\limits_{所有測資}{N} \le
+7\,000\,000\)</span>。</li>
+<li><span class="math inline">\(0 \le K \le 10^9\)</span>。</li>
+<li><span class="math inline">\(1 \le A_i, B_i \le
+\mathbf{10^9}\)</span>（<span class="math inline">\(1 \le i \le
+N\)</span>）。</li>
+<li><strong><span class="math inline">\(\mathbf{A}\)</span> 跟 <span
+class="math inline">\(\mathbf{B}\)</span> 是彼此的排列。</strong></li>
+</ul>
+</div>
+<p><a
+href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-1A.cpp">AC
+Solution</a></p>
+<p>看到的當下就發現是循環字串匹配，也就是
+<a href="https://oi-wiki.org/string/minimal-string/">最小表示法</a>
+的裸題。</p>
+<p>不過在 <span class="math inline">\(N = 2\)</span> 跟 <span
+class="math inline">\(K = 0, 1\)</span> 時好像需要特判，有點噁心
+._.。</p>
+<p>因為想要自己寫寫看，於是我就手刻了 <span
+class="math inline">\(\mathcal{O}(N \lg^2{N})\)</span> 的 suffix
+array，大約在 35 分鐘時刻完，特判這幾種 case 又寫了 10 分鐘。</p>
+<p>不過很慘的是複雜度太爛了，在 validation input
+跑了兩分鐘都還沒有出來，我只好去<del>偷</del>利用 BBQube codebook 的
+SA-IS 來算，過了一陣子之後發現我看不懂 SA-IS 所以不會把它改成我要的樣子
+QwQ。</p>
+<p>最後我決定直接拿 OI-Wiki 上的模板來用，就成功過了！</p>
+<blockquote>
+<p>直到比賽結束我才發現我漏看「<span class="math inline">\(A\)</span> 跟
+<span class="math inline">\(B\)</span>
+是彼此的排列」的限制，讓我多刻了幾行特判。</p>
+</blockquote>
+<blockquote>
+<p>話說這題好多人吃 FST 喔 OwO。</p>
+</blockquote>
+<h3 id="b1.-watering-well---chapter-1">B1. Watering Well - Chapter
+1</h3>
+<p><span class="score_ac"><span class="math inline">\(12\)</span>
+分</span> (102:20)</p>
+<div class="note info no-icon"><p>平面上有 <span class="math inline">\(N\)</span> 棵樹 <span
+class="math inline">\((A_i, B_i)\)</span> 以及 <span
+class="math inline">\(Q\)</span> 個水井 <span
+class="math inline">\((X_j, Y_j)\)</span>。請找出</p>
+<p><span class="math display">\[\sum_{i=1}^{N}\sum_{j=1}^{Q}{(A_i -
+X_j)^2 + (B_i - Y_j)^2} \notag\]</span></p>
+<p>的值，並輸出其對 <span class="math inline">\(10^9+7\)</span>
+取模的結果。</p>
+<ul>
+<li>測資數量<span class="math inline">\({} = 55\)</span>。</li>
+<li><span class="math inline">\(1 \le N, Q \le 500\,000\)</span>。</li>
+<li><span class="math inline">\(\sum\limits_{所有測資}{N},
+\sum\limits_{所有測資}{Q} \le 3\,000\,000\)</span>。</li>
+<li><span class="math inline">\(0 \le A_i, B_i \le 3000\)</span>（<span
+class="math inline">\(1 \le i \le N\)</span>）。</li>
+<li><span class="math inline">\((A_i, B_i) \ne (A_j,
+B_j)\)</span>（<span class="math inline">\(1 \le i &lt; j \le
+N\)</span>）。</li>
+<li><span class="math inline">\(0 \le X_i, Y_i \le 3000\)</span>（<span
+class="math inline">\(1 \le i \le Q\)</span>）。</li>
+<li><span class="math inline">\((X_i, X_i) \ne (X_j,
+X_j)\)</span>（<span class="math inline">\(1 \le i &lt; j \le
+Q\)</span>）。</li>
+</ul>
+</div>
+<p><a
+href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-1B1.cpp">AC
+Solution</a></p>
+<p>因為對 B2 暫時沒有想法，於是就先來寫 B1。</p>
+<p>上面那個算式的兩個維度是完全互斥的，所以可以紀錄每個 <span
+class="math inline">\(x\)</span> 跟 <span
+class="math inline">\(y\)</span> 分別有幾棵樹跟幾個水井，再 <span
+class="math inline">\(\mathcal{O}(C^2)\)</span> 暴力計算答案。</p>
+<h3 id="b2.-watering-well---chapter-2">B2. Watering Well - Chapter
+2</h3>
+<p><span class="score_ac"><span class="math inline">\(18\)</span>
+分</span> (135:04)</p>
+<div class="note info no-icon"><p>平面上有 <span class="math inline">\(N\)</span> 棵樹 <span
+class="math inline">\((A_i, B_i)\)</span> 以及 <span
+class="math inline">\(Q\)</span> 個水井 <span
+class="math inline">\((X_j, Y_j)\)</span>。請找出</p>
+<p><span class="math display">\[\sum_{i=1}^{N}\sum_{j=1}^{Q}{(A_i -
+X_j)^2 + (B_i - Y_j)^2} \notag\]</span></p>
+<p>的值，並輸出其對 <span class="math inline">\(10^9+7\)</span>
+取模的結果。</p>
+<ul>
+<li>測資數量<span class="math inline">\({} = 50\)</span>。</li>
+<li><span class="math inline">\(1 \le N, Q \le 500\,000\)</span>。</li>
+<li><span class="math inline">\(\sum\limits_{所有測資}{N},
+\sum\limits_{所有測資}{Q} \le 3\,000\,000\)</span>。</li>
+<li><span class="math inline">\(0 \le A_i, B_i \le
+\mathbf{10^9}\)</span>（<span class="math inline">\(1 \le i \le
+N\)</span>）。</li>
+<li><span class="math inline">\((A_i, B_i) \ne (A_j,
+B_j)\)</span>（<span class="math inline">\(1 \le i &lt; j \le
+N\)</span>）。</li>
+<li><span class="math inline">\(0 \le X_i, Y_i \le
+\mathbf{10^9}\)</span>（<span class="math inline">\(1 \le i \le
+Q\)</span>）。</li>
+<li><span class="math inline">\((X_i, X_i) \ne (X_j,
+X_j)\)</span>（<span class="math inline">\(1 \le i &lt; j \le
+Q\)</span>）。</li>
+</ul>
+</div>
+<p><a
+href="https://github.com/SorahISA/competitive_programming/blob/master/(MHC)%20Meta%20Hacker%20Cup/2022/Qualification%20Round/mhc22-1B2.cpp">AC
+Solution</a></p>
+<p>先去刷了牙、收了一部分的行李，突然意識到他只是維護平方和而已，而印象中這可以透過維護平方和、一次方和、零次方和來做到。</p>
+<p><span class="math display">\[\begin{aligned}
+\sum_{i=1}^{k}{(p_i + \Delta)^2}
+&amp;= \sum_{i=1}^{k}{(p_i^2 + 2 \Delta p_i + \Delta^2)} \\
+&amp;= \underbrace{\sum_{i=1}^{k}{p_i^2}}_{平方和} + 2 \Delta \cdot
+\underbrace{\sum_{i=1}^{k}{p_i}}_{一次方和} + \Delta^2 \cdot
+\underbrace{\sum_{i=1}^{k}{1}}_{零次方和} \\
+\end{aligned} \notag\]</span></p>
+<div class="note warning"><details>
+<summary>
+範例 code
+</summary>
+此處省略掉處理 mod 的部分。 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> s0 = <span class="number">1</span>, s1 = <span class="number">0</span>, s2 = <span class="number">0</span>, dx;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; Q; ++i) &#123;</span><br><span class="line">    <span class="keyword">while</span> (s0 &lt; N <span class="keyword">and</span> tree[s0] &lt;= well[i]) &#123;</span><br><span class="line">        dx = tree[s0] - tree[s0<span class="number">-1</span>];</span><br><span class="line">        s2 += <span class="number">2</span> * s1 * dx + s0 * dx * dx;</span><br><span class="line">        s1 += s0 * dx;</span><br><span class="line">        s0 += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    dx = well[i] - tree[s0<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">if</span> (dx &gt;= <span class="number">0</span>) ans += s2 + <span class="number">2</span> * s1 * dx + s0 * dx * dx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+</div>
+<h3 id="c.-lemonade-life">C. Lemonade Life</h3>
+<p><span class="score_na"><span class="math inline">\(44\)</span>
+分</span></p>
+<div class="note info no-icon"><p>平面上有 <span class="math inline">\(N\)</span> 個點 <span
+class="math inline">\((X_i, Y_i)\)</span>，你要從點 <span
+class="math inline">\(1\)</span> 走到點 <span
+class="math inline">\(N\)</span>，並中途停在一些點休息，你只能停在「存在一個半平面，其上只有該點」的點上，並且你一次走的
+Euclidean distance 不能超過 <span class="math inline">\(D\)</span>。</p>
+<p>若你在點 <span class="math inline">\(H_1, H_2, \ldots, H_M\)</span>
+停留（其中 <span class="math inline">\(H_1 = 1\)</span> 且 <span
+class="math inline">\(H_M = N\)</span>），那麼你的花費會是</p>
+<p><span class="math display">\[\sum_{i=1}^{M-1}{\max\left\{ K, (X_{H_i}
+- X_{H_{i+1}})^2 + (Y_{H_i} - Y_{H_{i+1}})^2 \right\}}\]</span></p>
+<p>請求出從點 <span class="math inline">\(1\)</span> 到點 <span
+class="math inline">\(N\)</span> 的最小花費，或判斷其不可能被達成。</p>
+<ul>
+<li>測資數量<span class="math inline">\({} = 90\)</span>。</li>
+<li><span class="math inline">\(2 \le N \le 1\,000\,000\)</span>。</li>
+<li><span class="math inline">\(\sum\limits_{所有測資}{N} \le
+4\,000\,000\)</span>。</li>
+<li>至多只有 <span class="math inline">\(15\)</span> 筆測資滿足 <span
+class="math inline">\(N &gt; 5000\)</span>。</li>
+<li><span class="math inline">\(0 \le K, D \le 10^9\)</span>。</li>
+<li><span class="math inline">\(0 \le X_i, Y_i \le
+1\,000\,000\)</span>（<span class="math inline">\(1 \le i \le
+N\)</span>）。</li>
+<li><span class="math inline">\(X_1 &lt; \min\{X_2, X_3, \ldots,
+X_N\}\)</span>。</li>
+<li><span class="math inline">\(X_N &gt; \max\{X_1, X_2, \ldots,
+X_{N-1}\}\)</span>。</li>
+<li><span class="math inline">\((X_i, X_i) \ne (X_j,
+X_j)\)</span>（<span class="math inline">\(1 \le i &lt; j \le
+N\)</span>）。</li>
+</ul>
+</div>
+<p>幾何題掰掰～</p>
+<p>好啦，但是除了看出「存在一個半平面，其上只有該點」就是指凸包以及可以
+<span class="math inline">\(\mathcal{O}(N^2)\)</span>
+建圖跑最短路之外就沒想法了。</p>
+<p>驅車前往新竹的路上有一大半的時間都在想這個，而且因為大塞車還開了九彎十八拐ㄉ北宜公路，整個超暈
+zzz。</p>
+<p>隱隱約約感覺會有什麼東西具有單調性，像是你在上路跟下路走的點都只會嚴格遞增（？）、最短路的轉移區間有單調性（爛的）等等，但最後還是什麼都沒有想出來。</p>
+<h2 id="總結">總結</h2>
+<ul>
+<li>分數：<span class="score_50"><span
+class="math inline">\(56\)</span></span><span class="math inline">\(/
+100\)</span> 分（<span class="score_ac"><span
+class="math inline">\(10\)</span></span>$/ $<span class="score_ac"><span
+class="math inline">\(16\)</span></span>$/ $<span class="score_ac"><span
+class="math inline">\(12\)</span></span>$/ $<span class="score_ac"><span
+class="math inline">\(18\)</span></span>$/ $<span class="score_na"><span
+class="math inline">\(44\)</span></span>）</li>
+<li>排名：<span class="medal_ag"><span
+class="math inline">\(212\)</span></span><span class="math inline">\(/
+12\,330\)</span> 名</li>
+</ul>
+<p>因為總體排名輸慘，所以就放臺灣排名就好。</p>
+<p><img data-src="scoreboard.png" width="90%"></p>
+<p>結果 C 的官解就是直接建凸包跑最短路，不過他給出了有趣的性質：</p>
+<div class="note success"><p>在 <span class="math inline">\(a \times a\)</span>
+的格子點上做凸包最多只會包含 <span
+class="math inline">\(\mathcal{O}(a^{2/3})\)</span> 的點。</p>
+</div>
+<p>於是直接暴力的複雜度會是好的 OwO。</p>
+<p>不過這種題目感覺不適合出在比賽裡，因為他的難度全在證明上，而賽中會想用暴力唬爛的人也不在少數。</p>
+<p>以下是檢討：</p>
+<p>MHC 的賽制是開放使用網路上的公開程式碼的，所以若要最小化 penalty
+其實我應該直接拿 OI-Wiki 上的 code
+來用，而不是先嘗試自己刻。這樣的後果就是 A1 ~ B2 都多了約 75 分鐘的
+penalty，致使排名下降了 120+ 名。</p>
+<p>另外，在這場跟上一場的最後一題都是嚇人的題目，除了複雜度不好分析之外基本上就是暴力小優化就能過的類型。</p>
+<p>從 Round 2 開始每場都只有三個小時，我應該多使用 codebook
+以及面對無解題去嘗試暴力的做法並加以優化。MHC 的 validation input
+都還蠻大的，或許也可以拿來驗證時間複雜度？</p>
+<div class="note primary"><ul>
+<li>上一篇：<a href="../mhc22-0">Qualification</a></li>
+<li>下一篇：還不存在</li>
+</ul>
+</div>
 ]]></content>
       <categories>
         <category>競程</category>
@@ -1057,7 +1325,7 @@ pD 的題敘超短就先拿過來讀：</p>
 <h3 id="d---large-number-multiply">D - Large Number Multiply</h3>
 <div class="note info no-icon"><p>給你 <span class="math inline">\(A\)</span>、<span
 class="math inline">\(B\)</span>，輸出 <span class="math inline">\(A
-\cdot B\)</span>。</p>
+\times B\)</span>。</p>
 <p>有 <span class="math inline">\(N\)</span> 組測資。</p>
 <ul>
 <li><span class="math inline">\(N\)</span> 的範圍不明。</li>
@@ -1091,8 +1359,10 @@ class="math inline">\(d\)</span>，請求出他們可以圍出的最大四邊形
 <a href="https://en.wikipedia.org/wiki/Brahmagupta#Brahmagupta's_formula">Brahmagupta's
 formula</a> 可以在 <span class="math inline">\(\mathcal{O}(1)\)</span>
 時間求解，而且很精簡。</p>
-<p><span class="math display">\[A = \sqrt{(s-a)(s-b)(s-c)(s-d)}, \quad s
-= \frac{a+b+c+d}{2}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+s &amp;= \frac{a+b+c+d}{2} \\
+A &amp;= \sqrt{(s-a)(s-b)(s-c)(s-d)} \\
+\end{aligned} \notag\]</span></p>
 <ul>
 <li><strong>4 min, pM <span class="score_ac">Correct</span> +
 首殺</strong></li>
@@ -1167,8 +1437,8 @@ class="score_ac">Correct</span></strong></li>
 <h3 id="f---fulcrum">F - Fulcrum</h3>
 <div class="note info no-icon"><p>給你 <span class="math inline">\(a_1, a_2, \ldots,
 a_n\)</span>，定義一個 subarray <span class="math inline">\(b_1, b_2,
-\ldots, b_k\)</span> 的權重如下：</p>
-<p><span class="math display">\[\text{weight}(b) = \sum_{i=1}^{k}{i
+\ldots, b_m\)</span> 的權重如下：</p>
+<p><span class="math display">\[\text{weight}(b) = \sum_{i=1}^{m}{i
 \cdot b_i}\]</span></p>
 <p>請求出有幾個非空 subarray 的權重 <span class="math inline">\(\le
 k\)</span>。</p>
@@ -1279,7 +1549,8 @@ class="math inline">\(x_1, x_2, \ldots, x_n\)</span>，且分別有著 <span
 class="math inline">\(a_1, a_2, \ldots, a_n\)</span> 的強度，定義在位置
 <span class="math inline">\(p\)</span> 的亮度是</p>
 <p><span class="math display">\[\text{luminance}(p) =
-\sum_{i=1}^{n}{\lfloor\frac{a_i}{|p - x_i| + 1}\rfloor}\]</span></p>
+\sum_{i=1}^{n}{\left\lfloor\frac{a_i}{|p - x_i| + 1}\right\rfloor}
+\notag\]</span></p>
 <p>請求出在 <span class="math inline">\(1, 2, \ldots, L\)</span>
 裡亮度最低跟最高的值。</p>
 <ul>
@@ -1363,14 +1634,14 @@ class="math inline">\(t\)</span>，你要求出有幾個 <span
 class="math inline">\(s\)</span> 的 substring <span
 class="math inline">\(s&#39;\)</span> 可以跟 <span
 class="math inline">\(t\)</span> 匹配。</p>
-<p>匹配的定義是存在一種雙射的 <span class="math inline">\(f : \sum \to
-\sum\)</span> 使 <span class="math inline">\({s&#39;}_i =
+<p>匹配的定義是存在一種雙射的 <span class="math inline">\(f : \Sigma \to
+\Sigma\)</span> 使 <span class="math inline">\(s_i&#39; =
 f(t_i)\)</span>。</p>
 <ul>
 <li><span class="math inline">\(1 \le |s| \le 10^7\)</span>。</li>
 <li><span class="math inline">\(1 \le |t| \le |s|\)</span>。</li>
-<li><span class="math inline">\(\sum = \{\texttt{a}, \texttt{b}, \ldots,
-\texttt{z}\}\)</span>。</li>
+<li><span class="math inline">\(\Sigma = \{\texttt{a}, \texttt{b},
+\ldots, \texttt{z}\}\)</span>。</li>
 </ul>
 </div>
 <p>在先前看到題目的當下我就想到一種簡化法：紀錄 <span
@@ -1378,7 +1649,7 @@ class="math inline">\(s&#39;\)</span> 跟 <span
 class="math inline">\(t\)</span>
 內每個字元的出現順序，比對時只要出現順序相同就是能匹配的。當時因為很多細節不會寫所以沒有細想，在把這個方法丟出來之後越來越覺得可行，比對序列可以單純的用
 hash，而加入跟刪除字元都可以在 <span
-class="math inline">\(\mathcal{O}(|\sum|)\)</span>
+class="math inline">\(\mathcal{O}(|\Sigma|)\)</span>
 更新順序以及每個字元對 hash 值的貢獻。</p>
 <p>我們三個人一起手忙腳亂的寫
 code，迺絜負責整體架構，重諺計算每個字元的貢獻，我更新字元出現的順序。雖然寫的很醜也出很多
@@ -1394,7 +1665,7 @@ class="score_na">Wrong-Answer</span></strong></li>
 class="score_na">Wrong-Answer</span></strong></li>
 </ul>
 <p>我想說是不是我的部分寫爛了，準備打算換成 <span
-class="math inline">\(\mathcal{O}(|\sum| \lg{|\sum|})\)</span>
+class="math inline">\(\mathcal{O}(|\Sigma| \lg{|\Sigma|})\)</span>
 的暴力計算法，不過他們覺得是模的數字太大才爛掉，於是就從 <span
 class="math inline">\(10^{15}+7\)</span> 改成 <span
 class="math inline">\(10^9+7\)</span> 就過了！</p>
@@ -1406,7 +1677,7 @@ class="score_ac">Correct</span></strong></li>
 會爛耶 OuO。</p>
 <blockquote>
 <p>這題 hank 的官解是確定性的，而且複雜度不會帶 <span
-class="math inline">\(\mathcal{O}(|\sum|)\)</span>。本來所有做出這題的四隊都會被
+class="math inline">\(\mathcal{O}(|\Sigma|)\)</span>。本來所有做出這題的四隊都會被
 TLE 掉，可惜時限定的不夠緊。</p>
 </blockquote>
 <h2 id="總結">總結</h2>
