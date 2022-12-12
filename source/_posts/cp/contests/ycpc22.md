@@ -1,11 +1,13 @@
 ---
-title: YCPC 2022 a.k.a. 交大年度賽 比賽心得
+title: 2022 YCPC a.k.a. 交大年度賽 遊記
 categories:
-  - [競程, 比賽心得]
+  - [競程, 比賽心得, 遊記]
 tags:
   - [ICPC]
-date: 2022-09-08 00:01:30
+date: 2022-09-08 00:00:00
 ---
+
+> 時間：2022.09.05 -- 2022.09.06
 
 一年一度的校內賽又來ㄌ >////<
 
@@ -71,10 +73,7 @@ date: 2022-09-08 00:01:30
 
 在團練時我們使用的是二分搜，不過剛好在團練完的時候我們有看題解裡講到 <a href="https://en.wikipedia.org/wiki/Brahmagupta#Brahmagupta's_formula">Brahmagupta's formula</a> 可以在 $\mathcal{O}(1)$ 時間求解，而且很精簡。
 
-$$\begin{aligned}
-s &= \frac{a+b+c+d}{2} \\
-A &= \sqrt{(s-a)(s-b)(s-c)(s-d)} \\
-\end{aligned} \notag$$
+$$\begin{aligned} s &= \frac{a+b+c+d}{2} \\ A &= \sqrt{(s-a)(s-b)(s-c)(s-d)} \\ \end{aligned} \notag$$ <!-- -->
 
 - **4 min, pM <span class="score_ac">Correct</span> + 首殺**
 
@@ -138,7 +137,7 @@ A &= \sqrt{(s-a)(s-b)(s-c)(s-d)} \\
 {% note info no-icon %}
 給你 $a_1, a_2, \ldots, a_n$，定義一個 subarray $b_1, b_2, \ldots, b_m$ 的權重如下：
 
-$$\text{weight}(b) = \sum_{i=1}^{m}{i \cdot b_i}$$
+$$\text{weight}(b) = \sum_{i=1}^{m}{i \cdot b_i}$$ <!-- -->
 
 請求出有幾個非空 subarray 的權重 $\le k$。
 
@@ -219,7 +218,7 @@ SCC 縮點 + DAG 最長路裸題，所以重諺就 AC 了。
 {% note info no-icon %}
 有 $n$ 盞路燈位於 $x_1, x_2, \ldots, x_n$，且分別有著 $a_1, a_2, \ldots, a_n$ 的強度，定義在位置 $p$ 的亮度是
 
-$$\text{luminance}(p) = \sum_{i=1}^{n}{\left\lfloor\frac{a_i}{|p - x_i| + 1}\right\rfloor} \notag$$
+$$\text{luminance}(p) = \sum_{i=1}^{n}{\left\lfloor\frac{a_i}{|p - x_i| + 1}\right\rfloor} \notag$$ <!-- -->
 
 請求出在 $1, 2, \ldots, L$ 裡亮度最低跟最高的值。
 
@@ -312,7 +311,7 @@ $$\text{luminance}(p) = \sum_{i=1}^{n}{\left\lfloor\frac{a_i}{|p - x_i| + 1}\rig
 
 - Rank: 2 / 13
 - AC: 13 / 13
-- penalty: 1328
+- Penalty: 1328
 
 <img src="scoreboard.png" width="90%">
 
