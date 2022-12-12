@@ -1282,9 +1282,12 @@ penalty，致使排名下降了 120+ 名。</p>
       </tags>
   </entry>
   <entry>
-    <title>YCPC 2022 a.k.a. 交大年度賽 比賽心得</title>
+    <title>2022 YCPC a.k.a. 交大年度賽 遊記</title>
     <url>/cp/contests/ycpc22/</url>
-    <content><![CDATA[<p>一年一度的校內賽又來ㄌ &gt;////&lt;</p>
+    <content><![CDATA[<blockquote>
+<p>時間：2022.09.05 -- 2022.09.06</p>
+</blockquote>
+<p>一年一度的校內賽又來ㄌ &gt;////&lt;</p>
 <p>大一拿到第三名，去年得了第七名（前六名可以去打
 NCPC），結果因為忘記去開會導致來不及遞補到 NCPC 的名額 QwQ。</p>
 <p>今年是跟新隊友黃迺絜（coldEr66）還有陳重諺（mmi366127）組隊，希望可以拿到好成績
@@ -1359,10 +1362,9 @@ class="math inline">\(d\)</span>，請求出他們可以圍出的最大四邊形
 <a href="https://en.wikipedia.org/wiki/Brahmagupta#Brahmagupta's_formula">Brahmagupta's
 formula</a> 可以在 <span class="math inline">\(\mathcal{O}(1)\)</span>
 時間求解，而且很精簡。</p>
-<p><span class="math display">\[\begin{aligned}
-s &amp;= \frac{a+b+c+d}{2} \\
-A &amp;= \sqrt{(s-a)(s-b)(s-c)(s-d)} \\
-\end{aligned} \notag\]</span></p>
+<p><span class="math display">\[\begin{aligned} s &amp;=
+\frac{a+b+c+d}{2} \\ A &amp;= \sqrt{(s-a)(s-b)(s-c)(s-d)} \\
+\end{aligned} \notag\]</span> <!-- --></p>
 <ul>
 <li><strong>4 min, pM <span class="score_ac">Correct</span> +
 首殺</strong></li>
@@ -1439,7 +1441,7 @@ class="score_ac">Correct</span></strong></li>
 a_n\)</span>，定義一個 subarray <span class="math inline">\(b_1, b_2,
 \ldots, b_m\)</span> 的權重如下：</p>
 <p><span class="math display">\[\text{weight}(b) = \sum_{i=1}^{m}{i
-\cdot b_i}\]</span></p>
+\cdot b_i}\]</span> <!-- --></p>
 <p>請求出有幾個非空 subarray 的權重 <span class="math inline">\(\le
 k\)</span>。</p>
 <ul>
@@ -1550,7 +1552,7 @@ class="math inline">\(a_1, a_2, \ldots, a_n\)</span> 的強度，定義在位置
 <span class="math inline">\(p\)</span> 的亮度是</p>
 <p><span class="math display">\[\text{luminance}(p) =
 \sum_{i=1}^{n}{\left\lfloor\frac{a_i}{|p - x_i| + 1}\right\rfloor}
-\notag\]</span></p>
+\notag\]</span> <!-- --></p>
 <p>請求出在 <span class="math inline">\(1, 2, \ldots, L\)</span>
 裡亮度最低跟最高的值。</p>
 <ul>
@@ -1684,7 +1686,7 @@ TLE 掉，可惜時限定的不夠緊。</p>
 <ul>
 <li>Rank: 2 / 13</li>
 <li>AC: 13 / 13</li>
-<li>penalty: 1328</li>
+<li>Penalty: 1328</li>
 </ul>
 <p><img data-src="scoreboard.png" width="90%"></p>
 <p>以結果論的話，其實不做出 pI 也是第二名，penalty
@@ -1709,6 +1711,7 @@ ACtame 夠強交大第二名就有機會坐享其成？</p>
       <categories>
         <category>競程</category>
         <category>比賽心得</category>
+        <category>遊記</category>
       </categories>
       <tags>
         <tag>ICPC</tag>
