@@ -102,7 +102,8 @@ menu:
   競程: /categories/cp/ || fa fa-code
   課業: /categories/learning/ || fa fa-book
   archives: /archives/ || fa fa-archive
-  記分板: /OI/ || fa fa-ranking-star
+  比賽紀錄: /contest/ || fa fa-solid fa-award
+  記分板: https://sorahisa-rank.github.io/ || fa fa-ranking-star
   To Do: /to-do/ || fa fa-clipboard-list
   # schedule: /schedule/ || fa fa-calendar
   # sitemap: /sitemap.xml || fa fa-sitemap
