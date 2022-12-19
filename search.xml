@@ -2284,6 +2284,190 @@ ACtame 夠強交大第二名就有機會坐享其成？</p>
       </tags>
   </entry>
   <entry>
+    <title>2022.11.30 -- 2022.12.17</title>
+    <url>/cp/diaries/2022-12-17/</url>
+    <content><![CDATA[<p>感覺上應該要來定期寫篇日記或周記來記錄自己到底都在幹嘛，不然可能耍個廢就一兩週過去了
+QQ</p>
+<p>目標是 World Final 冠軍，先將明年最可能是第一場重要比賽的時間
+2023.10.07（六）當作 Day 0 來努力吧！</p>
+<span id="more"></span>
+<h3 id="重要時間">重要時間</h3>
+<p>先來說一下接下來的重要時間點們：</p>
+<ol type="1">
+<li>九月初的 NYCU 校內賽</li>
+<li>十月初的 NCPC</li>
+<li>十月中的 TOPC</li>
+<li>十一月的 Taoyuan Site</li>
+<li>其他國外 Site (?)</li>
+<li>World Final</li>
+</ol>
+<p>聽說好像明年桃園站會提早到十月，不過那樣比賽勢必會變得非常緊湊，就仍然先以今年
+NCPC 的時間往前一個禮拜來當作第一戰的時間了。</p>
+<p>除了這些當然也還有其他目標，像是 CF 2800+、進 GCJ 跟 FHC
+決賽、為各大比賽出題、擔任營隊講師等等，不過那些就等到時候再開一個「目標」的欄位好了。</p>
+<h3 id="出國比賽">出國比賽</h3>
+<p>對於「可能可以出國比賽」這點，一直是抱著喜憂參半的心態。</p>
+<p>喜的部分當然就是能夠到以比賽的名義出國，這也一直是我的夢想，可惜的是四年的
+COVID-19 已經讓我錯失了太多東西。</p>
+<p>憂的部分則是桃園賽區的晉級名額可能會變得只有一隊，要能夠將國內外的天才們斬於馬下才有可能得到最終戰的門票。</p>
+<h3 id="day--311----2022.11.30">Day -311 -- 2022.11.30</h3>
+<p>跟隊友們討論了今後的<a
+href="https://hackmd.io/@NYCU-Yamada/main">練習方針</a>，主要就是藉著
+8BQube 的模版來學習各式主題並互相教學。</p>
+<h3 id="day--308----2022.12.03">Day -308 -- 2022.12.03</h3>
+<p>去台北為奶奶慶生，之後前往花蓮參加東華盃。</p>
+<p>在九月到交大之後，這還是第一次回花蓮呢～</p>
+<h3 id="day--307----2022.12.04-2022-ndhu">Day -307 -- 2022.12.04 (2022
+NDHU)</h3>
+<p>比賽結果不錯，順利拿下第一名並獲得 <span
+class="math inline">\(\frac{15\,000}{2}\)</span> NTD
+的獎金，但是狀態完全不理想。</p>
+<ul>
+<li><a
+href="https://hackmd.io/@NYCU-Yamada/team-20221204">團練紀錄</a></li>
+<li><a
+href="https://sorahisa.github.io/cp/contests/ndhu22/">遊記</a></li>
+</ul>
+<h3 id="day--304----2022.12.07-2023-eurasia">Day -304 -- 2022.12.07
+(2023 Eurasia)</h3>
+<p>恰好在禮拜三的晚上 Codeforces 有一場 ICPC
+Mirror，於是就問隊友要不要一起來打，就有了這場團練。</p>
+<ul>
+<li><a
+href="https://hackmd.io/@NYCU-Yamada/team-20221207">團練紀錄</a></li>
+</ul>
+<h3 id="day--301----2022.12.10-2022-nhspc-sim">Day -301 -- 2022.12.10
+(2022 NHSPC sim)</h3>
+<p>2022 全國模擬賽，出題、觀賽心得還沒寫。</p>
+<h3 id="day--300----2022.12.11-2022-oii">Day -300 -- 2022.12.11 (2022
+OII)</h3>
+<p>vir 了今年的義大利 OI，心得還沒寫。</p>
+<h3 id="day--297----2022.12.14-2023-ois-round-2">Day -297 -- 2022.12.14
+(2023 OIS Round 2)</h3>
+<p>跟 ub33 PK 了 2023 OIS Round 2，成功在剩下 80
+分鐘的時候僅剩一題樹剖，並花了 40 分鐘把它解決掉成功 AK。</p>
+<p>這一場的 AK 也讓我以 790 + 900
+的分數來到場外總排名第二名，第一名是兩場都 AK 的電神。</p>
+<p>在比賽中我遇到了一題還不錯的題目：</p>
+<div class="note info no-icon"><p>請計算有幾個 array <span
+class="math inline">\(\{a_i\}_{i=1}^{N}\)</span> 使得對所有 <span
+class="math inline">\(i\)</span> 都有 <span class="math inline">\(L \le
+a_i \le R\)</span> 且 <span
+class="math inline">\(\sum\limits_{i=1}^{N}{a_i} \equiv K
+\pmod{M}\)</span>，並輸出答案模 <span class="math inline">\(10^9 +
+7\)</span> 的結果。</p>
+<ul>
+<li><span class="math inline">\(1 \le N \le 10^{18}\)</span>。</li>
+<li><span class="math inline">\(1 \le M \le 1000\)</span>。</li>
+<li><span class="math inline">\(1 \le L \le R \le 2 \cdot
+10^9\)</span>。</li>
+<li><span class="math inline">\(0 \le K &lt; M\)</span>。</li>
+</ul>
+</div>
+<p>很容易就能想到一個 <span class="math inline">\(\mathcal{O}(N
+M^2)\)</span> 的 DP 做法：維護 <span class="math inline">\(i\)</span>
+個數字時模 <span class="math inline">\(M\)</span> 餘 <span
+class="math inline">\(j\)</span> 的方法數。</p>
+<p>可以發現到只要有 <span class="math inline">\(i_1\)</span> 跟 <span
+class="math inline">\(i_2\)</span> 個數字的 DP 表格就可以在 <span
+class="math inline">\(\mathcal{O}(M^2)\)</span> 時間內推出 <span
+class="math inline">\(i_1 + i_2\)</span> 個數字的 DP
+表格，於是可以套用快速冪來解決這個問題，變成 <span
+class="math inline">\(\mathcal{O}(M^2 \lg{N})\)</span>。</p>
+<p>配上 FFT 或是如果模數改一改配上 NTT 甚至可以加速到 <span
+class="math inline">\(\mathcal{O}(M \lg{M} \lg{N})\)</span>。</p>
+<p>這好像又被稱為「<span class="math inline">\(\times 2, + 1\)</span>
+trick」。</p>
+<h3 id="個人實力">個人實力</h3>
+<p>在看到 World Final 的時候 edisonhello 直接被
+KOvid-19，我也很擔心在未來的這一年之間會不會有各種意外而導致隊友無心練習或是無法參加比賽。</p>
+<p>雖然 ICPC
+是團隊競賽，但是實際上打起來的感覺更像是三個人各自解自己擅長的題目，再將其拼湊起來。在這種分工明確的隊伍下，若突然有人燒雞那後果想必是相當慘重的。</p>
+<p>看著 polarischiba
+單刷桃園站並拿下了金牌、看著他過往幾年的經歷，我突然意識到團體配合並不是我想要發展的方向。以我現在的實力根本只會拖他們的後腿而已。</p>
+<h3 id="世界盃">世界盃</h3>
+<p>最近正好是四年一度的世界盃，而世界盃算是我這個完全不想運動的人唯一會追著看的運動比賽了吧。在為日本隊加油的同時，我也去看了「藍色監獄」的動畫跟漫畫，而其中便有著一些感觸著我的台詞（之後再補）：</p>
+<ul>
+<li>唯有全力奮戰的人，「運氣」才會始終平等地垂青他們。</li>
+</ul>
+<h3 id="day--296----2022.12.15">Day -296 -- 2022.12.15</h3>
+<p>這是下定決心要開始寫差不多是周記的咚咚來記錄練習狀態的日子，之後應該幾乎每天都會花幾分鐘在本機寫點紀錄。</p>
+<p>每周四早上 8:00 我都要騎腳踏車到高爾夫球場上體育課，車程大約是 15
+分鐘，但因為是上班時段所以會大塞車。高爾夫球課基本上就是一直不斷練習揮七號桿，老師會來回巡視並修正每個人的動作，不過一個多小時裡面大概也只會被關切到一兩次而已。</p>
+<p>高爾夫球課的時間變成為了我的「冥想」時間，我會不斷開 AtCoder
+的黃題並思考大約 20
+分鐘，大約有一半的題目會想的出做法，而另一半就暫時一直累積在清單裡面
+QQ</p>
+<p>想出來的題目暫時都完全沒有去補，希望能夠在 2022.12.25
+以前把那些題目補起來。</p>
+<h3 id="day--295----2022.12.16">Day -295 -- 2022.12.16</h3>
+<p>雖然兩周前才見過爸媽，也有來到花蓮，但是那次只是來打比賽的，並沒有回家抱抱可愛的拉菲。</p>
+<p>再加上現在天氣真的爆幹冷，再不回家換長袖長褲跟發熱衣我就要被凍死了。</p>
+<p>晚上直到 5:30 才穿著雨衣拖著行李從宿舍往清大門口走去，好像走了 40
+多分鐘嗎？感覺不走清交小徑會更快到。本來打算是 4:30 坐上客運，最後應該是
+6:15 左右上了客運。</p>
+<p>路上也是大塞車，客運開了兩個小時是我看過最久的一次，導致我又把訂好的車票給退了，最後只能搭
+22:00 - 24:22 再麻煩爸爸來接了 QQ</p>
+<p>在台北車站發生了一件慘劇：提行李箱的那個握把在要上樓梯的時候爆開了，看起來是修不好了嗎？</p>
+<p>晚餐吃的是太陽番茄（拉）麵，因為前陣子聊天講到而問了位置發現意外的近就決定來吃了。雖然不錯吃但完全不像拉麵，下次點雞骨白湯試試好了。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="2021217-ramen-1.jpg" /></div><div class="group-picture-column"><img data-src="2021217-ramen-2.jpg" /></div><div class="group-picture-column"><img data-src="2021217-ramen-3.jpg" /></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="2021217-ramen-4.jpg" /></div><div class="group-picture-column"><img data-src="2021217-ramen-5.jpg" /></div></div></div>
+<p>晚上回家幫拉菲跟四糸乃洗了澡，就一起睡覺覺ㄌ &gt;////&lt;</p>
+<h3 id="day--294----2022.12.17-2022-nhspc">Day -294 -- 2022.12.17 (2022
+NHSPC)</h3>
+<p>今天是全國賽的日子，雖然很想到現場看但是再不回家換衣服我就要死ㄌ
+OAO</p>
+<p>今年跟之前的感覺都不一樣，以往都是最後一個小時最刺激，今天是前三小時一堆
+event，後面反而比較無聊。就把紀錄直接放這裡好了～</p>
+<ul>
+<li><a
+href="https://sorahisa-rank.github.io/nhspc-fin/2022/problems.pdf">題本</a></li>
+<li><a
+href="https://sorahisa-rank.github.io/nhspc-fin/2022/ranking/">記分板</a></li>
+</ul>
+<p>Timestamp</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[general]       0:04:00 恆毅中學 李昶毅 首 submit</span><br><span class="line">[general]       0:07:41 建國中學 陳柏凱 首 100 分</span><br><span class="line">[general]       0:16:38 恆毅中學 李昶毅 首 partial</span><br><span class="line">[general]       0:18:46 建國中學 陳柏凱 首 200 分</span><br><span class="line">[general]       0:30:28 建國中學 陳柏凱 首 300 分</span><br><span class="line">[general]       1:00:00     336 / 300 (*4) / 200 (*15)</span><br><span class="line">[general]       1:22:21 建國中學 陳柏凱 首在兩題拿 partial</span><br><span class="line">[general]       1:32:06 台南一中 王　淇 首 400 分</span><br><span class="line">[general]       1:44:02     min 0 =&gt; 29</span><br><span class="line">[general]       2:00:00     404 / 400 (*2) / 300+ (*8) / 300 (*12)</span><br><span class="line">[general]       2:28:32     min 29 =&gt; 100</span><br><span class="line">[general]       2:33:17 台南一中 王　淇 首 500 分 (536)</span><br><span class="line">[general]       2:46:33 建國中學 張秉中 首在三題拿 partial</span><br><span class="line">[general]       2:58:24 台南一中 王　淇 首 600 分 (636)</span><br><span class="line">[general]       3:00:00     636 / 477 / 436 (*3) / 400=+ (*6) / 300+ (*10) / 300 (*8)</span><br><span class="line">[general]       3:00:00     AC 人數 0 / 0 / 37 / 8 / 46 / 5 / 2 / 0 / 30</span><br><span class="line">[general]       3:15:00 高雄中學 吳威錡 首在四題拿 partial</span><br><span class="line">[general]       3:41:40 台南一中 王　淇 首在所有題有 submission</span><br><span class="line">[general]       3:53:11 建國中學 張秉中 首 partial 總和 &gt;= 100</span><br><span class="line">[general]       3:59:36     min 100 =&gt; 106</span><br><span class="line">[general]       4:00:00     640 / 598 / 511 / 508 / 504 / 440=+ (*5) / 350=+ (*10)</span><br><span class="line">[general]       4:00:00     AC 人數 0 / 0 / 39 / 14 / 46 / 6 / 3 / 0 / 31</span><br><span class="line">[general]       4:03:35 台南一中 王　淇 首 650 分 (671)</span><br><span class="line">[general]       4:03:35 台南一中 王　淇 達成所有人聯集</span><br><span class="line">[general]       4:29:50 建國中學 張庭瑋 達成所有人聯集</span><br><span class="line">[general]       4:59:11 建國中學 陳柏凱 達成所有人聯集</span><br><span class="line">[general]       5:02:00     671 (*3) / 504-591 (*7) / 415-477 (*10) / 309-400 (*10)</span><br><span class="line">[general]       5:02:00     AC 人數 0 / 0 / 41 / 22 / 46 / 6 / 6 / 0 / 34</span><br><span class="line"></span><br><span class="line">[base]          0:35:58 板橋高中 林加樂 首 submit</span><br><span class="line"></span><br><span class="line">[bicycle]       0:06:58 中和高中 周昀軒 首 submit</span><br><span class="line">[bicycle]       0:41:05 建國中學 陳柏凱 首得分 &gt;= 36</span><br><span class="line">[bicycle]       0:42:03 師大附中 張亦頡 二得分 &gt;= 36</span><br><span class="line">[bicycle]       1:19:28 師大附中 鄭宇宏 三得分 &gt;= 36</span><br><span class="line"></span><br><span class="line">[card]          0:07:41 建國中學 陳柏凱 首殺</span><br><span class="line">[card]          0:12:15 成功高中 周宜勳 二殺</span><br><span class="line">[card]          0:13:52 台中一中 龔德恩 三殺</span><br><span class="line"></span><br><span class="line">[editor]        0:29:13 台南一中 王　淇 首 submit</span><br><span class="line">[editor]        1:08:58 建國中學 張秉中 首殺</span><br><span class="line">[editor]        1:22:21 科園實中 曹允碩 二殺</span><br><span class="line">[editor]        1:32:06 台南一中 王　淇 三殺</span><br><span class="line"></span><br><span class="line">[gears]         0:12:50 建國中學 張庭瑋 首殺</span><br><span class="line">[gears]         0:15:42 台中一中 劉以翔 二殺</span><br><span class="line">[gears]         0:18:46 建國中學 陳柏凱 三殺</span><br><span class="line">[gears]         2:49:43 板橋高中 林加樂 尾殺</span><br><span class="line"></span><br><span class="line">[scratchcard]   0:42:44 台中一中 張皓凱 首 submit</span><br><span class="line">[scratchcard]   1:14:24 恆毅中學 李昶毅 首得分 &gt;= 6</span><br><span class="line">[scratchcard]   1:22:21 建國中學 陳柏凱 首得分 &gt;= 37</span><br><span class="line">[scratchcard]   1:25:16 建國中學 張庭瑋 首殺</span><br><span class="line">[scratchcard]   1:55:38 台南一中 高嘉泓 二殺</span><br><span class="line">[scratchcard]   2:03:37 建國中學 陳柏凱 三殺</span><br><span class="line"></span><br><span class="line">[tree]          1:24:05 台南一中 郭育愷 首得分 &gt;= 27</span><br><span class="line">[tree]          2:32:45 康橋高中 江承為 首殺</span><br><span class="line">[tree]          2:58:24 台南一中 王　淇 二殺</span><br><span class="line">[tree]          3:12:02 科園實中 曹允碩 三殺</span><br><span class="line"></span><br><span class="line">[ussr]          0:35:16 高雄中學 郭久銘 首得分 &gt;= 4</span><br><span class="line">[ussr]          2:05:28 台南一中 郭育愷 首得分 &gt;= 35</span><br><span class="line">[ussr]          2:09:10 台中一中 彭詳睿 二得分 &gt;= 35</span><br><span class="line">[ussr]          2:50:11 台中一中 劉以翔 三得分 &gt;= 35</span><br><span class="line"></span><br><span class="line">[xmas]          0:18:46 復旦高中 賴宇弘 首得分 &gt;= 32</span><br><span class="line">[xmas]          0:30:26 台中一中 龔德恩 首殺</span><br><span class="line">[xmas]          0:30:28 建國中學 陳柏凱 二殺</span><br><span class="line">[xmas]          0:40:43 武陵高中 蕭凱鴻 三殺</span><br></pre></td></tr></table></figure>
+<p>各 Subtask 得分人數</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">base:         4  (0) / 20  (0) / 11  (0) / 32  (0) / 33  (0)</span><br><span class="line">bicycle:     15 (32) / 16 (20) /  5 (16) / 64  (0)</span><br><span class="line">card:        29 (43) / 71 (41)</span><br><span class="line">editor:       1 (25) /  4 (24) / 19 (24) / 76 (22)</span><br><span class="line">gears:       20 (46) / 80 (46)</span><br><span class="line">scratchcard:  6 (26) / 31 (12) / 63  (6)</span><br><span class="line">tree:        24 (10) / 27 (13) / 49  (6)</span><br><span class="line">ussr:         4 (28) / 31 (11) / 38  (0) / 27  (0)</span><br><span class="line">xmas:         5 (40) / 27 (39) / 68 (34)</span><br></pre></td></tr></table></figure>
+<p>今年認識的人明顯少了許多，但多虧了 IONCamp
+還是有認識一些人才不至於完全沒看頭。但是好像也寫不出什麼觀戰心得，所以就先放一邊ㄅ。</p>
+<p>比賽完之後每題大約花兩三分鐘思考一遍，感想如下：</p>
+<ul>
+<li><code>base</code>：這題看得比較久，聽說是論文題但題目好像有問題，按照評分規則來看什麼事都不做應該要拿到滿分但實際上並不會。</li>
+<li><code>bicycle</code>：目前只會 36 分 <span
+class="math inline">\(\mathcal{O}(nm)\)</span> DP。</li>
+<li><code>card</code>：輕鬆 AC 的水題。</li>
+<li><code>editor</code>：目前只會 24 分暴力 +
+greedy，還不確定是不是好的。</li>
+<li><code>gears</code>：輕鬆 AC 的水題。</li>
+<li><code>scratchcard</code>：看起來像是枚舉 5
+種答案做三維偏序，但是我不會三圍偏序所以精神只有二維偏序的 37 分。</li>
+<li><code>tree</code>：輕鬆 AC 的水題，但是對沒有學過 <span
+class="math inline">\(\text{Prüfer Code}\)</span> 特殊性質「<span
+class="math inline">\(\text{cnt}_i = \text{deg}_i -
+1\)</span>」的人並不容易。</li>
+<li><code>ussr</code>：構造 <span class="math inline">\(n\)</span>
+個點的 <span class="math inline">\(k\)</span>-regular
+平面圖，好像也是論文題。只會做 <span class="math inline">\(k \le
+3\)</span> 的 35 分。</li>
+<li><code>xmas</code>：調和級數水題，也是輕鬆
+AC。今年好像看到了很多調和的題目耶～</li>
+</ul>
+<p>總共精神分數是 <span class="math inline">\([508, 532]\)</span>
+穩二等線，分數取決於 greedy 是不是好的。</p>
+<p>晚上打算一邊打 <a
+href="https://codeforces.com/contest/1774">Codeforces Polynomial Round
+2022</a> 一邊看世足季軍戰，2023 之前只剩下最後兩場 rated
+比賽了，希望可以順利上紅！</p>
+]]></content>
+      <categories>
+        <category>競程</category>
+        <category>日記</category>
+      </categories>
+      <tags>
+        <tag>unknown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ZeroJudge c272. 趙哥的養成計畫 I --- 題解</title>
     <url>/cp/editorials/zj-c272/</url>
     <content><![CDATA[<h2 id="動機">動機</h2>
