@@ -14,6 +14,7 @@ date: 2022-12-25 00:44:56
 我寫的每題 AC Code 還有題本會放到 GitHub 裡面，但先讓我整理一下。
 
 <!-- more -->
+
 ## Problem A. Write-Only-Once Memory
 
 ### 題目大意
@@ -29,8 +30,6 @@ date: 2022-12-25 00:44:56
 {% endnote %}
 
 ### 解法
-
-[AC Solution]()
 
 以下用 $n$ 代表 $s$ 中以空白字元切出的字串數量。
 
@@ -54,8 +53,6 @@ date: 2022-12-25 00:44:56
 
 ### 解法
 
-[AC Solution]()
-
 待補。
 
 ## Problem C. Exponentiation
@@ -70,9 +67,9 @@ date: 2022-12-25 00:44:56
 
 ### 解法
 
-[AC Solution]()
-
 觀察到 $2^n$ 尾數是 $1, 2, 4, 8, 6, 2, 4, 8, 6, \ldots$ 循環，於是就判斷 $n \bmod{4}$ 是多少以及特判 $n = 0$ 的 case。
+
+實作上只要利用 $n$ 的末兩位數即可得到除以 $4$ 的餘數。
 
 ## Problem D. Isosceles Triangle
 
@@ -87,13 +84,11 @@ date: 2022-12-25 00:44:56
 
 ### 解法
 
-[AC Solution]()
-
 枚舉每個點 $v$ 當成等腰夾的那個點並計算出 $v$ 跟其他所有點的距離，最後使用 `std::map` 來求出有幾個離 $v$ 距離相同的點對。
 
 注意到若是所有點都為格子點，則不會構成正三角形，不會有重複計算的情形。
 
-實作上最好是儲存距離平方，避免因為精度誤差導致吃 WA。
+實作上最好是儲存距離平方，避免因為精度誤差導致吃 Wrong Answer。
 
 ## Problem E. Derangement
 
@@ -107,25 +102,21 @@ date: 2022-12-25 00:44:56
 
 ### 解法
 
-[AC Solution]()
-
-https://hackmd.io/@jacky860226/rJ0lIKEFs
+[出題者的題解](https://hackmd.io/@jacky860226/rJ0lIKEFs)
 
 ## Problem F. Shengdiyage city
 
 ### 題目大意
 
 {% note info no-icon %}
-給你一個 $n \times m$ 的地圖表格 $A$，其中 $A_{i,j} = \texttt{"."}$ 代表空格、 $A_{i,j} = \texttt{"\#"}$ 代表牆壁。<br>
+給你一個 $n \times m$ 的地圖表格 $A$，其中 $A_{i,j} = \texttt{"."}$ 代表空格、 $A_{i,j} = \texttt{"\(\#\)"}$ 代表牆壁。<br>
 定義一個「房間」是一個極大的四連通空格們，請問給定的地圖中有多少房間？
 
 - $1 \le n, m \le 1000$。
-- $A_{i,j} \in \{\texttt{.}, \texttt{\#}\}$（$1 \le i \le n$、$1 \le j \le m$）。
+- $A_{i,j} \in \{\texttt{.}, \#\}$（$1 \le i \le n$、$1 \le j \le m$）。
 {% endnote %}
 
 ### 解法
-
-[AC Solution]()
 
 對沒被拜訪過的空格做 BFS，並在每次做 BFS 時把答案 $+1$。
 
@@ -139,8 +130,6 @@ https://hackmd.io/@jacky860226/rJ0lIKEFs
 
 ### 解法
 
-[AC Solution]()
-
 待補。
 
 ## Problem H. Packing Rectangles
@@ -152,8 +141,6 @@ https://hackmd.io/@jacky860226/rJ0lIKEFs
 {% endnote %}
 
 ### 解法
-
-[AC Solution]()
 
 記得使用 `std::map` 來存，還有要記得初始化。
 
@@ -173,7 +160,7 @@ https://hackmd.io/@jacky860226/rJ0lIKEFs
 4. 秘密 + Kruskal + 虛樹 $\to$ 燒雞
 5. 秘密 + 秘密 $\to$ 生一半
 
-都失敗了，最後這題就被重新翻出來想有沒有更好的解，最後是想到了一個只帶 $R$ 的作法。
+都失敗了，最後這題就被重新翻出來想有沒有更好的解，最後是想到了一個只帶 $R$ 的作法。不過我還是覺得有只帶 $\text{polylog}(R)$ 的解。
 
 題敘部分的靈感是今年 ICPC World Final 時有隊伍提出了 ["strategic submission"](https://youtu.be/15Wyj_-PG9I?t=669)。
 
@@ -193,8 +180,6 @@ https://hackmd.io/@jacky860226/rJ0lIKEFs
 
 ### 解法
 
-[AC Solution]()
-
 {% note primary %}
 12.26 公布。
 {% endnote %}
@@ -205,6 +190,8 @@ https://hackmd.io/@jacky860226/rJ0lIKEFs
 
 這題的定位是中等難度的題目，但結果是變成第二難的題目，其實還挺出人意料的 OAO
 
+一開始我想生的是互動或構造題，簡單來說就是需要動更多腦而且相對一般來說更困難的題目。最後因為遲遲沒有好的互動靈感，就打算生一題序列的構造題。我記得 2020 年好像有一題是「構造 $n$ 個數字的排列，使逆序數對數量恰為 $k$」相當經典，於是我想要找到一個不那麼 trivial 的 idea 來要求構造。
+
 在 ISSC 開放報名時看到 PixelCat 徵隊友的貼文，之後獲得出題權後就打算出一題題敘裡有 Nachoneko 的題目（結果 PixelCat 整場都沒看那題 .\_.），就套了一個帶有一點點數學的題目上去。
 
 ### 題目大意
@@ -214,8 +201,6 @@ https://hackmd.io/@jacky860226/rJ0lIKEFs
 {% endnote %}
 
 ### 解法
-
-[AC Solution]()
 
 {% note primary %}
 12.26 公布。
