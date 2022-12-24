@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#39C5BB"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#39C5BB">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"sorahisa.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#39C5BB","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本來沒有打算打所有題目的題解的，因為題目應該也沒有難到會有人想看所有題目的解。不過出於強迫症我還是嘗試把每題的題解打出來了。 出題心得以及觀賽心得還沒寫完，寫完再更新連結。 我寫的每題 AC Code 還有題本會放到 GitHub 裡面，但先讓我整理一下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022 ISSC 題解">
+<meta property="og:url" content="https://sorahisa.github.io/cp/editorials/issc22/index.html">
+<meta property="og:site_name" content="SorahISA&#39;s Blog">
+<meta property="og:description" content="本來沒有打算打所有題目的題解的，因為題目應該也沒有難到會有人想看所有題目的解。不過出於強迫症我還是嘗試把每題的題解打出來了。 出題心得以及觀賽心得還沒寫完，寫完再更新連結。 我寫的每題 AC Code 還有題本會放到 GitHub 裡面，但先讓我整理一下。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sorahisa.github.io/cp/editorials/issc22/strategic-submission.png">
+<meta property="article:published_time" content="2022-12-25T00:44:56.000Z">
+<meta property="article:modified_time" content="2022-12-24T19:33:41.997Z">
+<meta property="article:author" content="SorahISA">
+<meta property="article:tag" content="ISSC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sorahisa.github.io/cp/editorials/issc22/strategic-submission.png">
+
+
+<link rel="canonical" href="https://sorahisa.github.io/cp/editorials/issc22/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sorahisa.github.io/cp/editorials/issc22/","path":"cp/editorials/issc22/","title":"2022 ISSC 題解"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>2022 ISSC 題解 | SorahISA's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SorahISA's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-關於"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-競程"><a href="/categories/cp/" rel="section"><i class="fa fa-code fa-fw"></i>競程</a></li><li class="menu-item menu-item-課業"><a href="/categories/learning/" rel="section"><i class="fa fa-book fa-fw"></i>課業</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-比賽紀錄"><a href="/contest/" rel="section"><i class="fa fa-solid fa-award fa-fw"></i>比賽紀錄</a></li><li class="menu-item menu-item-記分板"><a href="https://sorahisa-rank.github.io/" rel="noopener" target="_blank"><i class="fa fa-ranking-star fa-fw"></i>記分板</a></li><li class="menu-item menu-item-to-do"><a href="/to-do/" rel="section"><i class="fa fa-clipboard-list fa-fw"></i>To Do</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-a.-write-only-once-memory"><span class="nav-number">1.</span> <span class="nav-text">Problem A. Write-Only-Once
+Memory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E5%A4%A7%E6%84%8F"><span class="nav-number">1.1.</span> <span class="nav-text">題目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-b.-schedule-for-nursing"><span class="nav-number">2.</span> <span class="nav-text">Problem B. Schedule for
+Nursing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E5%A4%A7%E6%84%8F-1"><span class="nav-number">2.1.</span> <span class="nav-text">題目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95-1"><span class="nav-number">2.2.</span> <span class="nav-text">解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-c.-exponentiation"><span class="nav-number">3.</span> <span class="nav-text">Problem C. Exponentiation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E5%A4%A7%E6%84%8F-2"><span class="nav-number">3.1.</span> <span class="nav-text">題目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95-2"><span class="nav-number">3.2.</span> <span class="nav-text">解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-d.-isosceles-triangle"><span class="nav-number">4.</span> <span class="nav-text">Problem D. Isosceles
+Triangle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E5%A4%A7%E6%84%8F-3"><span class="nav-number">4.1.</span> <span class="nav-text">題目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95-3"><span class="nav-number">4.2.</span> <span class="nav-text">解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-e.-derangement"><span class="nav-number">5.</span> <span class="nav-text">Problem E. Derangement</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E5%A4%A7%E6%84%8F-4"><span class="nav-number">5.1.</span> <span class="nav-text">題目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95-4"><span class="nav-number">5.2.</span> <span class="nav-text">解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-f.-shengdiyage-city"><span class="nav-number">6.</span> <span class="nav-text">Problem F. Shengdiyage city</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E5%A4%A7%E6%84%8F-5"><span class="nav-number">6.1.</span> <span class="nav-text">題目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95-5"><span class="nav-number">6.2.</span> <span class="nav-text">解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-g.-strings-without-four-consecutive-same-symbols"><span class="nav-number">7.</span> <span class="nav-text">Problem G.
+Strings without Four Consecutive Same Symbols</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E5%A4%A7%E6%84%8F-6"><span class="nav-number">7.1.</span> <span class="nav-text">題目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95-6"><span class="nav-number">7.2.</span> <span class="nav-text">解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-h.-packing-rectangles"><span class="nav-number">8.</span> <span class="nav-text">Problem H. Packing
+Rectangles</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E5%A4%A7%E6%84%8F-7"><span class="nav-number">8.1.</span> <span class="nav-text">題目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95-7"><span class="nav-number">8.2.</span> <span class="nav-text">解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-i.-international-strategic-submission-contest"><span class="nav-number">9.</span> <span class="nav-text">Problem
+I. International Strategic Submission Contest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E6%95%85%E4%BA%8B"><span class="nav-number">9.1.</span> <span class="nav-text">背景故事</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E5%A4%A7%E6%84%8F-8"><span class="nav-number">9.2.</span> <span class="nav-text">題目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95-8"><span class="nav-number">9.3.</span> <span class="nav-text">解法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-j.-christmas-padoru"><span class="nav-number">10.</span> <span class="nav-text">Problem J. Christmas Padoru</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E6%95%85%E4%BA%8B-1"><span class="nav-number">10.1.</span> <span class="nav-text">背景故事</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E5%A4%A7%E6%84%8F-9"><span class="nav-number">10.2.</span> <span class="nav-text">題目大意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95-9"><span class="nav-number">10.3.</span> <span class="nav-text">解法</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SorahISA"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">SorahISA</p>
+  <div class="site-description" itemprop="description">耍廢區</div>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SorahISA" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SorahISA" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sorahisa.cs09@nycu.edu.tw" title="E-Mail → mailto:sorahisa.cs09@nycu.edu.tw" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/sorahisa0612" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;sorahisa0612" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/SorahISA" class="github-corner" title="if uwu awe the fiwst tuwu dm me a scweenshut of wis titwe un mwesenwer, uwu cawn get aw fwee wamen" aria-label="if uwu awe the fiwst tuwu dm me a scweenshut of wis titwe un mwesenwer, uwu cawn get aw fwee wamen" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sorahisa.github.io/cp/editorials/issc22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SorahISA">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SorahISA's Blog">
+      <meta itemprop="description" content="耍廢區">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="2022 ISSC 題解 | SorahISA's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2022 ISSC 題解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-12-25 00:44:56" itemprop="dateCreated datePublished" datetime="2022-12-25T00:44:56+00:00">2022-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-12-24 19:33:41" itemprop="dateModified" datetime="2022-12-24T19:33:41+00:00">2022-12-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/cp/" itemprop="url" rel="index"><span itemprop="name">競程</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/cp/editorials/" itemprop="url" rel="index"><span itemprop="name">題解</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>本來沒有打算打所有題目的題解的，因為題目應該也沒有難到會有人想看所有題目的解。不過出於強迫症我還是嘗試把每題的題解打出來了。</p>
+<p>出題心得以及觀賽心得還沒寫完，寫完再更新連結。</p>
+<p>我寫的每題 AC Code 還有題本會放到 GitHub 裡面，但先讓我整理一下。</p>
+<span id="more"></span>
+<h2 id="problem-a.-write-only-once-memory">Problem A. Write-Only-Once
+Memory</h2>
+<h3 id="題目大意">題目大意</h3>
+<div class="note info no-icon"><p>待補。</p>
+<ul>
+<li><span class="math inline">\(1 \le\)</span> 測資筆數 <span
+class="math inline">\(\le 10\)</span>。</li>
+<li><span class="math inline">\(1 \le |s| \le 999\)</span>。</li>
+<li><span class="math inline">\(s\)</span>
+只包含大小寫英文字母以及空白字元。</li>
+<li><span class="math inline">\(s\)</span> 中的空白字元數量 <span
+class="math inline">\(\le 100\)</span>。</li>
+<li>保證 <span class="math inline">\(s\)</span>
+的第一跟最後一個字元不是空白，且不會有兩個相鄰空白字元出現。</li>
+</ul>
+</div>
+<h3 id="解法">解法</h3>
+<p>以下用 <span class="math inline">\(n\)</span> 代表 <span
+class="math inline">\(s\)</span> 中以空白字元切出的字串數量。</p>
+<p>先利用 <code>getline</code> 與 <code>stringstream</code>
+將輸入讀進來，顯然重要的只有字串的長度，於是問題從一堆字串們變成了一陣列的數字們。</p>
+<p>觀察到題目給出的條件是 <span class="math inline">\(\text{cost}_{i,j}
+= \min\limits_{i \le k &lt; j}\{\text{cost}_{i,k} + \text{cost}_{k+1,j}
++ 1\}\)</span>，顯然可以直接遞迴 DP 在 <span
+class="math inline">\(\mathcal{O}(n^3)\)</span> 解決，base case 就是
+<span class="math inline">\(\text{cost}_{i,i} = \text{length of the
+\(i\)-th string}\)</span>。</p>
+<p>另外，利用轉移點單調的性質可以更進一步壓到 <span
+class="math inline">\(\mathcal{O}(n^2)\)</span>，但不需要這樣做也能通過本題。</p>
+<h2 id="problem-b.-schedule-for-nursing">Problem B. Schedule for
+Nursing</h2>
+<h3 id="題目大意-1">題目大意</h3>
+<div class="note info no-icon"><p>有 <span class="math inline">\(d\)</span> 個工作，分別要在時段 <span
+class="math inline">\([s_i, e_i)\)</span>
+完成，一個員工能在兩個工作時段工作若且唯若這兩個時段不重疊，且其中至少有一單位的休息時間。請問要將所有工作做完至少需要幾個員工？</p>
+<ul>
+<li><span class="math inline">\(1 \le\)</span> 測資筆數 <span
+class="math inline">\(\le 10\)</span>。</li>
+<li><span class="math inline">\(1 \le d \le 100\)</span>。</li>
+<li><span class="math inline">\(8 \le s_i &lt; e_i \le
+22\)</span>（<span class="math inline">\(1 \le i \le d\)</span>）。</li>
+</ul>
+</div>
+<h3 id="解法-1">解法</h3>
+<p>待補。</p>
+<h2 id="problem-c.-exponentiation">Problem C. Exponentiation</h2>
+<h3 id="題目大意-2">題目大意</h3>
+<div class="note info no-icon"><p>求 <span class="math inline">\(2^n \bmod{10}\)</span> 的結果。</p>
+<ul>
+<li><span class="math inline">\(0 \le n \le 10^{200}\)</span>。</li>
+</ul>
+</div>
+<h3 id="解法-2">解法</h3>
+<p>觀察到 <span class="math inline">\(2^n\)</span> 尾數是 <span
+class="math inline">\(1, 2, 4, 8, 6, 2, 4, 8, 6, \ldots\)</span>
+循環，於是就判斷 <span class="math inline">\(n \bmod{4}\)</span>
+是多少以及特判 <span class="math inline">\(n = 0\)</span> 的 case。</p>
+<p>實作上只要利用 <span class="math inline">\(n\)</span>
+的末兩位數即可得到除以 <span class="math inline">\(4\)</span>
+的餘數。</p>
+<h2 id="problem-d.-isosceles-triangle">Problem D. Isosceles
+Triangle</h2>
+<h3 id="題目大意-3">題目大意</h3>
+<div class="note info no-icon"><p>給你平面上不重複的 <span class="math inline">\(n\)</span> 個格子點
+<span class="math inline">\((x_i, y_i)\)</span>，請求出有多少個 <span
+class="math inline">\((a, b, c)\)</span> 滿足 <span
+class="math inline">\(a &lt; b &lt; c\)</span> 使得 <span
+class="math inline">\((x_a, y_a)\)</span>、<span
+class="math inline">\((x_b, y_b)\)</span>、<span
+class="math inline">\((x_c, y_c)\)</span> 構成等腰三角形。</p>
+<ul>
+<li><span class="math inline">\(3 \le n \le 3000\)</span>。</li>
+<li><span class="math inline">\(|x_i|, |y_i| \le
+100\,000\)</span>（<span class="math inline">\(1 \le i \le
+n\)</span>）。</li>
+</ul>
+</div>
+<h3 id="解法-3">解法</h3>
+<p>枚舉每個點 <span class="math inline">\(v\)</span>
+當成等腰夾的那個點並計算出 <span class="math inline">\(v\)</span>
+跟其他所有點的距離，最後使用 <code>std::map</code> 來求出有幾個離 <span
+class="math inline">\(v\)</span> 距離相同的點對。</p>
+<p>注意到若是所有點都為格子點，則不會構成正三角形，不會有重複計算的情形。</p>
+<p>實作上最好是儲存距離平方，避免因為精度誤差導致吃 Wrong Answer。</p>
+<h2 id="problem-e.-derangement">Problem E. Derangement</h2>
+<h3 id="題目大意-4">題目大意</h3>
+<div class="note info no-icon"><p>計算 <span class="math inline">\(1, 2, \ldots, n\)</span> 的排列的<a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Derangement">錯排數</a>，並對 <span
+class="math inline">\(10^9 + 7\)</span> 取餘數後輸出。</p>
+<ul>
+<li><span class="math inline">\(1 \le n \le 1\,000\,000\)</span>。</li>
+</ul>
+</div>
+<h3 id="解法-4">解法</h3>
+<p><a
+target="_blank" rel="noopener" href="https://hackmd.io/@jacky860226/rJ0lIKEFs">出題者的題解</a></p>
+<h2 id="problem-f.-shengdiyage-city">Problem F. Shengdiyage city</h2>
+<h3 id="題目大意-5">題目大意</h3>
+<div class="note info no-icon"><p>給你一個 <span class="math inline">\(n \times m\)</span> 的地圖表格
+<span class="math inline">\(A\)</span>，其中 <span
+class="math inline">\(A_{i,j} = \texttt{&quot;.&quot;}\)</span>
+代表空格、 <span class="math inline">\(A_{i,j} =
+\texttt{&quot;\(\#\)&quot;}\)</span> 代表牆壁。<br>
+定義一個「房間」是一個極大的四連通空格們，請問給定的地圖中有多少房間？</p>
+<ul>
+<li><span class="math inline">\(1 \le n, m \le 1000\)</span>。</li>
+<li><span class="math inline">\(A_{i,j} \in \{\texttt{.},
+\#\}\)</span>（<span class="math inline">\(1 \le i \le n\)</span>、<span
+class="math inline">\(1 \le j \le m\)</span>）。</li>
+</ul>
+</div>
+<h3 id="解法-5">解法</h3>
+<p>對沒被拜訪過的空格做 BFS，並在每次做 BFS 時把答案 <span
+class="math inline">\(+1\)</span>。</p>
+<h2
+id="problem-g.-strings-without-four-consecutive-same-symbols">Problem G.
+Strings without Four Consecutive Same Symbols</h2>
+<h3 id="題目大意-6">題目大意</h3>
+<div class="note info no-icon"><p>待補。</p>
+</div>
+<h3 id="解法-6">解法</h3>
+<p>待補。</p>
+<h2 id="problem-h.-packing-rectangles">Problem H. Packing
+Rectangles</h2>
+<h3 id="題目大意-7">題目大意</h3>
+<div class="note info no-icon"><p>待補。</p>
+</div>
+<h3 id="解法-7">解法</h3>
+<p>記得使用 <code>std::map</code> 來存，還有要記得初始化。</p>
+<p>待補。</p>
+<h2 id="problem-i.-international-strategic-submission-contest">Problem
+I. International Strategic Submission Contest</h2>
+<h3 id="背景故事">背景故事</h3>
+<p>原本沒有故事的版本在一年半前（2021.03.06）就出完了，只不過一開始的複雜度是帶
+<span class="math inline">\(\text{lcm}{(1, 2, \ldots, R)}\)</span>
+的版本，因為覺得可以做到更好就一直擱著了。</p>
+<p>而本題分配到的程度是難題，而本來想出</p>
+<ol type="1">
+<li>秘密 <span class="math inline">\(\to\)</span> 燒雞</li>
+<li>定理題 <span class="math inline">\(\to\)</span> 生一半</li>
+<li>矩陣乘法 + NTT <span class="math inline">\(\to\)</span> 燒雞</li>
+<li>秘密 + Kruskal + 虛樹 <span class="math inline">\(\to\)</span>
+燒雞</li>
+<li>秘密 + 秘密 <span class="math inline">\(\to\)</span> 生一半</li>
+</ol>
+<p>都失敗了，最後這題就被重新翻出來想有沒有更好的解，最後是想到了一個只帶
+<span class="math inline">\(R\)</span> 的作法。不過我還是覺得有只帶
+<span class="math inline">\(\text{polylog}(R)\)</span> 的解。</p>
+<p>題敘部分的靈感是今年 ICPC World Final 時有隊伍提出了 <a
+target="_blank" rel="noopener" href="https://youtu.be/15Wyj_-PG9I?t=669">"strategic
+submission"</a>。</p>
+<p><img data-src="strategic-submission.png" style="width: 90%; max-width: 400px"></p>
+<p>決定選了這題之後就打算取可以使縮寫是 ISSC 的 "International Strategic
+Submission Contest"
+當作題目名稱；決定完題目名稱之後就是決定要放什麼敘述，最後是套「機器人比賽」跟可愛的拉菲進去。</p>
+<p>題目會這麼長的另一個原因單純是我想要試試看出題敘長的題目，雖然在
+AtCoder
+看到的題敘往往都非常簡短，且其實這題原本敘述也才五六行而已，但是看著
+ICPC 上屢屢能寫到四五頁的題目也不禁讓我想試試看出題敘長一點的題目。</p>
+<p>這題的英文題敘大部分是用 Grammarly
+糾正出來的，事實證明它對於含有數學算式的文章很難抓出文法錯誤。而在生完題敘之後不久
+ChatGPT 橫空出世，所以現在我基本上都是用那個來幫忙翻譯題敘跟題解了
+&gt;////&lt;</p>
+<h3 id="題目大意-8">題目大意</h3>
+<div class="note primary"><p>12.26 公布。</p>
+</div>
+<h3 id="解法-8">解法</h3>
+<div class="note primary"><p>12.26 公布。</p>
+</div>
+<h2 id="problem-j.-christmas-padoru">Problem J. Christmas Padoru</h2>
+<h3 id="背景故事-1">背景故事</h3>
+<p>這題的定位是中等難度的題目，但結果是變成第二難的題目，其實還挺出人意料的
+OAO</p>
+<p>一開始我想生的是互動或構造題，簡單來說就是需要動更多腦而且相對一般來說更困難的題目。最後因為遲遲沒有好的互動靈感，就打算生一題序列的構造題。我記得
+2020 年好像有一題是「構造 <span class="math inline">\(n\)</span>
+個數字的排列，使逆序數對數量恰為 <span
+class="math inline">\(k\)</span>」相當經典，於是我想要找到一個不那麼
+trivial 的 idea 來要求構造。</p>
+<p>在 ISSC 開放報名時看到 PixelCat
+徵隊友的貼文，之後獲得出題權後就打算出一題題敘裡有 Nachoneko
+的題目（結果 PixelCat 整場都沒看那題
+._.），就套了一個帶有一點點數學的題目上去。</p>
+<h3 id="題目大意-9">題目大意</h3>
+<div class="note primary"><p>12.26 公布。</p>
+</div>
+<h3 id="解法-9">解法</h3>
+<div class="note primary"><p>12.26 公布。</p>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ISSC/" rel="tag"># ISSC</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/cp/diaries/2022-12-17/" rel="prev" title="2022.11.30 -- 2022.12.17">
+                  <i class="fa fa-chevron-left"></i> 2022.11.30 -- 2022.12.17
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022.08.25 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SorahISA</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js","integrity":"sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
