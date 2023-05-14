@@ -80,7 +80,7 @@ date: 2023-04-30 01:30:00
 
 好像不能透漏太多。
 
-不知道是誰在考試開始約 45 分鐘時戳了 Rejudge all submissions 的按鈕，結果 judge 大概就![:fire:](https://assets.hackmd.io/build/emojify.js/dist/images/basic/fire.png)火力全開![:fire:](https://assets.hackmd.io/build/emojify.js/dist/images/basic/fire.png)了快半小時？之後絕對不要再把「火」放進比賽名稱了......
+不知道是誰在考試開始約 45 分鐘時戳了 Rejudge all submissions 的按鈕，結果 judge 大概就🔥火力全開🔥了快半小時？之後絕對不要再把「火」放進比賽名稱了......
 
 本來我 claim 我的題目一定不會有人 $> 25$ 分，然後大約會有 $10$ 人拿到 $25$ 分，幾個人拿到 $10$ 分，不過 baluteshih 覺得這題可能只有競賽選手會開，其中某人可以期待一下。
 
