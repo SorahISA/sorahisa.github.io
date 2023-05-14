@@ -1808,7 +1808,7 @@ AwA。</p>
 <li>16:00</li>
 </ul>
 <p>開幕式的時候說如果東華明年沒有至少拿到前三名明年就沒有烤豬可以吃了，結果除了第一名是我們之外剩下的名次都被海大包攬了（烤豬
-88888888）。高中更是只有四隊參加，但我記得他好像發出了前三名跟一個佳作？到底是怎麼發的啊？</p>
+88888888）。高中更是只有四隊參加，但我記得他好像發出了前三名跟兩個佳作？到底是怎麼發的啊？</p>
 <p>很開心的是學弟們在我在報名期限最後一天推薦之後還有來報名，去年還有好幾所高中組了九隊，今年直接只有花中的四隊包下了全部的高中組獎金（希望這套題目不會讓他們不想打競程
 QQ）。</p>
 <p>比賽結束並頒完獎之後就準備回家，從東華走到火車站真的超久，大概走了四十幾分鐘。</p>
@@ -2468,6 +2468,307 @@ href="https://codeforces.com/contest/1774">Codeforces Polynomial Round
       </tags>
   </entry>
   <entry>
+    <title>2022.12.18 -- 2022.12.24</title>
+    <url>/cp/diaries/2022-12-24/</url>
+    <content><![CDATA[<p>第二篇周記，categories
+寫日記只是為了避免之後<del>這系列變成月記或是季記</del>還有寫日記不想分成很多類。</p>
+<span id="more"></span>
+<h3 id="day--293----2022.12.18-cf-1774">Day -293 -- 2022.12.18 (CF
+1774)</h3>
+<p>昨天晚上的比賽大掉分了，但在得知自己 FST 的時候並沒有什麼心情變化。
+特別值得一提的題目是 <a
+href="https://codeforces.com/contest/1774/problem/E">1774E. Two Chess
+Pieces</a>：</p>
+<div class="note info no-icon"><p>給定一棵樹，一開始有兩個棋子位在點 <span
+class="math inline">\(1\)</span>，兩個棋子分別有可以以任意順序拜訪的點們：<span
+class="math inline">\(a_1, a_2, \ldots, a_{m_1}\)</span> 以及 <span
+class="math inline">\(b_1, b_2, \ldots,
+b_{m_2}\)</span>，並且最後兩個棋子必須都回到點 <span
+class="math inline">\(1\)</span>。</p>
+<p>你每一次操作可以將一個棋子移動一步，你需要保持兩個棋子的距離不超過
+<span class="math inline">\(d\)</span>，請問最少的移動步數是多少？</p>
+<ul>
+<li><span class="math inline">\(2 \le n \le 200\,000\)</span>。</li>
+<li><span class="math inline">\(2 \le d \le n\)</span>。</li>
+<li><span class="math inline">\(1 \le m_1, m_2 \le n\)</span>。</li>
+</ul>
+</div>
+<p><a
+href="https://codeforces.com/contest/1774/submission/185746082">我的做法</a>比較暴力而且是
+<span class="math inline">\(\mathcal{O}(n\lg{n})\)</span>
+的，因為有學弟來問所以就整理一下：</p>
+<ol type="1">
+<li>將所有點重新用 DFS 順序編號，重編號時會一併維護一個點的父親
+<code>par[v]</code>、子樹的最小最大編號
+<code>mn[v]</code>、<code>mx[v]</code>、深度
+<code>par[v]</code>，並且會把每個點的 adjacency list 排序過。</li>
+<li>用一個 deque 來記錄兩個點之間的路徑。</li>
+<li>每次看哪個棋子的目標編號比較小就讓他往目標走過去。
+<ul>
+<li>如果 <code>mn[v] &lt;= goal &amp;&amp; goal &lt;= mx[v]</code>
+就代表在子樹裡，因為 adj. list 排序過所以可以使用
+<code>prev(upper_bound(ALL(adj[v]), x))</code>
+得到要往哪個小孩走；反之就代表目標要往 <code>par[v]</code> 走。</li>
+<li>這邊需要額外處理的是「往回走」的情形（不是往 <code>par[v]</code>
+走），可以透過判斷要加進去的位置跟 deque
+裡面的正數或倒數第二個位置來判斷。</li>
+</ul></li>
+<li>在走的時候如果 deque 裡面有 <span class="math inline">\(&gt;
+d+1\)</span> 個點就代表距離 <span class="math inline">\(&gt;
+d\)</span>，這時就會把另一端的點 pop 出來。</li>
+<li>最後因為要讓兩個點都移回根，需要再將答案加上兩個點的深度。</li>
+</ol>
+<p>在做完之後看了題解發現他寫的超級精簡，需要用到以下觀察。</p>
+<div class="note success"><p>某一個棋子在 <span class="math inline">\(v\)</span>
+的時候另一個棋子一定在 <span
+class="math inline">\(\texttt{par}^d[v]\)</span> 的子樹裡面。</p>
+</div>
+<p>也就是代表另一個棋子會經過 <span
+class="math inline">\(\texttt{par}^d[v]\)</span>，所以可以直接把所有的
+<span class="math inline">\(\texttt{par}^d[a_i]\)</span> 加進 <span
+class="math inline">\(b\)</span> 裡面；以及把所有的 <span
+class="math inline">\(\texttt{par}^d[b_i]\)</span> 加進 <span
+class="math inline">\(a\)</span> 裡面。</p>
+<p>加完之後兩個棋子就完全可以分開來了！變得可以在 <span
+class="math inline">\(\mathcal{O}(n)\)</span>
+時間做完，而且超級好寫。用我之前的做法來看的話會發現他們的距離永遠會保持在
+<span class="math inline">\(d\)</span> 以內。</p>
+<hr />
+<p>中午吃了弘爺當早午餐（好久沒吃ㄌ），稍微休息了一會兒就去收拾行李帶著飲料準備去坐火車了。希望五件發熱衣可以幫助我撐過這個冬天
+OwO</p>
+<p>晚上去西門吃晚餐，本來想吃沒吃過的拉麵，但發現手機快沒電了到時候一定會迷路就放棄了，鳥人在
+18 號吃感覺就很虧 (?)，花月嵐排超多人，最後就決定吃 Coco ㄌ。掃 QRCode
+點餐的時候手機只剩下 1% 電，還好來得及耶～</p>
+<p>吃完後去雜誌瘋買了 Blue Lock 跟菜鳥煉金術師，再來本想去 animate
+但是剛好遇到物品盤點 (?)
+所以提前兩小時關門，改去虎之穴發現帶著飲料不讓進去只好先在外面喝完上廁所丟掉。想去買運彩壓阿根廷
+2 : 1 法國又因為手機沒電不知道怎麼用又放棄了（還好沒買哈哈）。</p>
+<p>回到宿舍的時候大約是 11:15 左右，發現 118
+的同學在看世足於是就放棄先把行李抬上樓的想法去追完整場決賽。</p>
+<p>本來以為上半場 2 : 0 法國要下去了，結果下半場 Mbappe 又上演驚天地的
+90 秒進兩球追平。到了延長賽本以為會維持 2 : 2 進到 PK，卻看到在 E.T.
+下半場阿根廷進了一球之後在禁區內手球被 Mbappe
+追平。最後是法國十二碼全部都踢左邊被守爆才輸的（不過 Mbappe
+三次踢左邊都進了），感覺完全是他在被隊友雷嘛 OwO</p>
+<p>最後是直接在 118
+睡了一個晚上，早上起床把行李搬到四樓才意識到沒有準備日文小考，燒雞
+QQ</p>
+<h3 id="day--292----2022.12.19-at-custom-lockout">Day -292 -- 2022.12.19
+(AT Custom Lockout)</h3>
+<p>早上上完日文課之後跟 ub33 ㄘ午餐順便討論了一些 PCCACamp
+要做的事情，我覺得去年的時間實在是太趕了，甚至到了比賽當天還在改、換題目。</p>
+<p>上禮拜 2023 OIS Round 2
+那場我說要樹剖的題目完全是我在吃毒，我把題目轉化成強制在線的<b>「單點加值、詢問點到根的權值和」</b>之後就直接
+claim
+他只能樹剖，但其實可以再變成<b>「子樹加值、詢問點權」</b>就一樣也只要一棵
+BIT，複雜度還少個 <span class="math inline">\(\log\)</span>。</p>
+<p>下午則是去 ub33 宿舍玩 (X) 思考比賽要出什麼咚咚
+(O)，結果想出了一些我完全不會做的 idea，不知道最後能不能用上。</p>
+<p>吃完晚餐後回宿舍打掃了一會兒書桌就開了一場 <a
+href="https://kenkoooo.com/atcoder#/contest/show/b2e101f8-a594-4a82-9363-25c67b3b7eef">AtCoder
+Lockout</a>，取了 ABC 裡面難度 18xx 到 23xx
+的題目各一題來打兩小時，最後是寫掉了 18xx、20xx、21xx
+的三題順利拿下分數，ub33 因為燒雞在 23xx 的題目（AC x 50 + WA x
+1，超慘）導致最後掛蛋。</p>
+<p>其中有一題看起來很幾何的題目我記得之前有看過，而這次終於把他做出來了！</p>
+<div class="note info no-icon"><p>平面上有 <span class="math inline">\(y = 100\)</span> 跟 <span
+class="math inline">\(y = -100\)</span>
+兩條邊界線，以及一堆大小可以忽略的點 <span class="math inline">\(\{(x_i,
+y_i)\}_{i=1}^{N}\)</span>。你要從 <span class="math inline">\((-10^9,
+0)\)</span> 推一個圓盤到 <span class="math inline">\((10^9,
+0)\)</span>，並且你不能穿過邊界線跟那些點，請問圓盤的最大半徑可以是多少？</p>
+<ul>
+<li><span class="math inline">\(1 \le N \le 100\)</span>。</li>
+<li><span class="math inline">\(|x_i|, |y_i| &lt; 100\)</span>（<span
+class="math inline">\(1 \le i \le N\)</span>）。</li>
+</ul>
+</div>
+<p>一開始的想法是二分搜半徑 <span
+class="math inline">\(r\)</span>，並讓邊界線跟每個點都往外長 <span
+class="math inline">\(r\)</span>，再去計算聯集出來的形狀能不能會不會完全蓋住。這時仍一度以為是噁心的幾何題，直到在紙上畫了幾個圓才發現一個重要性質：上下連通
+<span class="math inline">\(\implies\)</span> 左右不連通，可以用 DSU
+做判斷。</p>
+<p>而二分搜也可以被壓掉，實際上答案只會是某兩個點或是線之間的距離，所以就把那些距離都蒐集起來從小做到大就可以了！</p>
+<p>打完之後看了沒做出來的題目題解，發現我完全沒想法的字串根本就是大水題，接下來就到處亂逛，去看了
+<a
+href="https://5a0401.notion.site/5a0401/0-5A-Blog-d926ced62f84473e82f1feddb8df788e">0+5a
+的 blog</a>，又意識到應該回來做事才對，就開始寫這篇記錄ㄌ。</p>
+<h3 id="day--291----2022.12.20">Day -291 -- 2022.12.20</h3>
+<h3 id="day--290----2022.12.21">Day -290 -- 2022.12.21</h3>
+<h3 id="day--289----2022.12.22">Day -289 -- 2022.12.22</h3>
+<p>本來打算要通霄弄完 SA
+作業，但是直到凌晨兩點多我突然意識到今天是禮拜四，有早八體育課要上，就計畫著先睡到
+6:30 再說。</p>
+<p>不過顯然，我太懶了，根本不會只睡四小時在這麼冷的天氣爬起來，甚至睡到了
+8:20 才下床。</p>
+<p>趕緊洗漱完，騎著 Youbike 2.0 就往高爾夫球場去。但是意外就在短短的 20
+分鐘之後來臨：金山寺站的 2.0
+被禁用了不能停！懷著「放棄了吧」的想法，我繼續騎著車按照地圖上最近的 2.0
+站的方向前行，又花了 20 分鐘的時間。因為那邊也沒有 1.0
+的車了，當我走回到高爾夫球場的時候已經是 9:58
+了，只好直接搭紅巴回學校。</p>
+<p>[此處應有圖片]</p>
+<p>不知道為什麼今天的紅巴是紫色的，途中有好多人都在問到底是哪一班，但是司機好像不知道他開的是紫色的
+(?)</p>
+<p>回到宿舍之後繼續寫 SA
+作業，上次的進度是把虛擬機搞爛了連不到網路，經過了一個半小時的搶修，終究還是連不到網路，看來在下次作業之前要全部重做ㄌ。</p>
+<p>在回顧上一次的作戰紀錄的時候意外發現其實 HW3 有交出一個 20 分的
+submission，但是被後來的 submission 蓋掉了所以沒拿到分數 QQ</p>
+<p>下午一點多去一餐吃炒泡麵，吃完大約兩點半就直接回宿舍睡覺，睡醒後已經是六點了，遂前往女二餐吃自助餐。久違的遇到了高中同學王さん，發現他最近也過的不太順利
+._.</p>
+<p>晚上耍個廢之後就去玩 Terraria 了。</p>
+<h3 id="day--288----2022.12.23">Day -288 -- 2022.12.23</h3>
+<p>玩到大約凌晨兩點之後就去 Youtube 找直播來聽。</p>
+<p>來推一個可愛ㄉ VTuber <a
+href="https://www.youtube.com/@UTANOch">白玖ウタノ</a>～從初配信之前意外滑到發現翻唱
+ANIMA
+很好聽就訂閱了，之後連開了幾次雜談跟歌回都碰巧有跟到，短短兩周的時間訂閱數已經從
+1k 增長到 11k 了！</p>
+<p>因為 ISSC 要我用 Word 給題目，但我只會用 Markdown 跟
+LaTeX，於是為了研究怎麼裝字體，還有為了各種麻煩的排版問題弄了超級久。</p>
+<p>感覺 LaTeX 跟 Word 對於初見都非常不友好，Markdown
+相比之下實在好太多了。但 LaTeX
+的模板給出來之後就很容易直接在上面做事，而 Word
+就算有模板也很容易不小心動到；再來就是 google
+到資訊的多寡差距太大了（也可能是我對 Word 相關論壇不瞭解），想知道 LaTeX
+怎麼設定只要把指令打出來通常就能在 <a
+href="https://tex.stackexchange.com">LaTeX 的 Stack Overflow</a>
+上找到，但是想找到 Word
+的用法爬文爬了幾個小時還是只找到文不對題的東西。</p>
+<p>上午七點半點決定要去睡覺，直到下午一點半醒來之後去吃新竹美食，吃完則繼續排版工作。</p>
+<p>即將到聖誕節了，今天划手機幾乎都是跟聖誕節有關的貼文。因為感興趣就稍微查了一下
+12 Days of Christmas 是哪些天，得到的結果是聖誕節 12.25 到隔年的主顯節
+(Epiphany) 前一天 01.05 這 12 天。</p>
+<p>反正這學期基本上是都炸了，不如就想想 12.25 到 01.05 要怎麼度過這「12
+Days of Christmas」吧！第一個想法是每天 virtual 一場 OI 或
+ICPC，但是段考畢竟還是要考，於是計畫暫時變成「前五天打 CF / AT、後七天打
+JOISC + 三場咚咚」的感覺，希望有辦法做到 OwO</p>
+<p>突然想到二手版上有人在徵機率作業教學，我才意識到好像又要有作業了。一陣子沒開
+E3 了，發現 25 號下午要寫完機率 HW4，而 HW3
+已經不知不覺間過去了。比起每次看著作業 deadline
+一個接一個的從身邊飛過去，直接忽略他好像比較不會有罪惡感耶。</p>
+<p>下禮拜包含體育有 6
+科段考分別在一二三四四四，我要讀哪幾科才不會被二一啊。</p>
+<p>直到晚上八點半終於把版排完了！到時候在出題心得那邊再把題目丟出來吧～套一個冰箱梗：</p>
+<blockquote>
+<p>我每次望向題本，不是希望我學到的新功能可以利用在題本上，而是希望我對成品的期待降低到我可以把現在這份交差了事。</p>
+</blockquote>
+<p>明天早上還要趕去台中開會，其實我到現在都不知道出這個到底能不能賺錢，又或是能賺多少錢。說到賺錢，我覺得夠好的題目（像是
+IOI Seats、Aliens 等等）應該有 20k+
+的價值，因為在上面花的心力絕對不只有一個人的一兩百個小時；而一般的難題大約是
+4k、中等題 2.5k、簡單題 1.5k
+吧。當然這是指出題人認真想題目生題目的狀況，如果是隨便從別的地方偷題，或是官解寫爛、亂生測資、題意不清等等問題那麼該題的價值就會不斷下降……</p>
+<p>說實話這幾年 ISSC
+的題目讓我很驚訝，明明感覺上這是高中生一年中的大比賽之一，題目品質卻每況愈下。從
+2019 年還有考察各種算法，到 2020 跟 2021
+的時候題目各種卻出包、感覺幾乎變成手速大賽，今年的題目更是只能用黑人問號來形容。理論上如果有錢可賺一定會有許多有打比賽的人願意出題的吧？</p>
+<p>順帶一題，Codeforces 一年一度的 magic 又可以使用了，目前我是偽裝成
+International Master 的顏色 --- 橘色。沒錯，我從橘色變成橘色了 (?)</p>
+<p>[此處應有圖片]</p>
+<h3 id="day--287----2022.12.24-2022-issc">Day -287 -- 2022.12.24 (2022
+ISSC)</h3>
+<p>今年當上了 ISSC 工人才意識到這個比賽是多麼落後 QQ</p>
+<ul>
+<li>11:00</li>
+</ul>
+<p>本來是 11:00 要開評審會議，但是因為拉肚子導致出發時間更晚，直到 11:50
+左右才抵達 ST039。</p>
+<ul>
+<li>11:45</li>
+</ul>
+<p>到場之後先看到題本的排版消失了，等寬字體不見，還有 pJ
+的範測被複製了一份塞到 pI 上 (?)</p>
+<p>因為我 pH 的驗題解爛掉了所以在嘗試修它，之後突然想起 pJ 有 checker
+要放上去，試了很久終於發現是 <code>testlib.h</code> 要放 <a
+href="https://github.com/cn-xcpc-tools/testlib-for-domjudge">domjudge
+專用的版本</a>才有效。</p>
+<ul>
+<li>13:10</li>
+</ul>
+<p>快速吃過午餐之後就到了測機時間，聽旺陽學長跟掛長說前一天收到的測試賽
+pC 沒有測資是臨時生的，而今天發現 pA 跟 pB
+的測資也都是爛的，只好臨時手生一些測資。其中 pB 測資甚至只有範例測資
+OwO</p>
+<ul>
+<li>14:10</li>
+</ul>
+<p>看到工人開始打紅色以外的氣球，一問之下發現因為溝通不良導致工人以為只要打紅色的就好。最後決定把
+pA 跟 pC 的顏色換掉，讓最簡單的 pC 變成紅色。</p>
+<ul>
+<li>14:30</li>
+</ul>
+<p>比賽開始了，一片混亂。</p>
+<p>有三個隊伍共用到別人的帳號，導致會有一些隊伍共用 submission
+的成績，好在把全部人的隊伍都重新檢視一遍之後暫時解決掉這個問題，不過已經造成的影響只能透過賽後手動加扣分來解決了
+QQ</p>
+<p>場內好像沒有電子檔題本可以用，Judge
+裡也沒有提供可以下載的範例測資，參賽者們要面對的是兩題有超長範例的
+pH、pI（pH 甚至範例測資足足就佔了一頁半）。</p>
+<ul>
+<li>15:00</li>
+</ul>
+<p>我發現比賽時間設定成三個小時而官網上是寫 2.5
+小時，不過因為先前紙本說明上寫的也是三小時，我們討論了一下決定維持原樣。</p>
+<blockquote>
+<p>結果後來又有人進來吵到底要不要維持三小時 ._.</p>
+</blockquote>
+<ul>
+<li>15:15</li>
+</ul>
+<p>有人提問 pA 輸入測資結尾有沒有空白，雖然沒有但是有
+<code>\r\n</code>，可惜他沒問到點所以我就放棄回覆「測資以
+<code>\r\n</code> 結尾」了。</p>
+<ul>
+<li>15:37</li>
+</ul>
+<p>終於有一隊 (pixelcat) 上傳了 pJ，可惜它的輸出連範例都過不了，幫
+QQ</p>
+<ul>
+<li>16:05</li>
+</ul>
+<p>最後還是決定要把行尾的 <code>\r</code> 拿掉並
+rejudge，結果是「小象幫」超越了「隊伍名稱」早一分鐘拿到了首殺。</p>
+<ul>
+<li>16:20</li>
+</ul>
+<p>發現 pA 限制有錯，每筆測資的空格數可能會超過 100
+個。一開始先發了「空格數有誤」的
+clarification，後來改成把不符合格式的兩筆測資刪掉再 rejudge。</p>
+<ul>
+<li>17:00</li>
+</ul>
+<p>封版ㄌ，我的題目怎麼都變成防破台題了啦 QQ</p>
+<ul>
+<li>17:13</li>
+</ul>
+<p>becaido 起飛。</p>
+<ul>
+<li>17:20</li>
+</ul>
+<p>becaido 跟蝸牛同時在 170 min 過 pJ，雖然是蝸牛拿到首殺但 becaido
+仍然是大一位。</p>
+<ul>
+<li>17:30</li>
+</ul>
+<p>比賽結束，準備頒獎。</p>
+<ul>
+<li>18:xx</li>
+</ul>
+<p>結束之後跟教授們吃了一間看起來就很貴的餐廳。感覺我就很不適合吃這種東西，每次喜宴感覺都是去吃生菜的
+._.</p>
+<div class="note default no-icon"><p>因為到了隔年的五月我才想起來要把東西丟上去，所以就寫到這裡吧
+OAO。</p>
+</div>
+]]></content>
+      <categories>
+        <category>競程</category>
+        <category>日記</category>
+      </categories>
+      <tags>
+        <tag>unknown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2022 ISSC 題解</title>
     <url>/cp/editorials/issc22/</url>
     <content><![CDATA[<p>本來沒有打算打所有題目的題解的，因為題目應該也沒有難到會有人想看所有題目的解。不過出於強迫症我還是嘗試把每題的題解打出來了。</p>
@@ -2789,6 +3090,159 @@ href="https://github.com/SorahISA/competitive_programming/blob/master/ZeroJudge/
       </categories>
       <tags>
         <tag>ZeroJudge</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>資訊之芽 2023 算法班第一階段認證火烤 出題心得</title>
+    <url>/cp/organizes/sprout23-mid/</url>
+    <content><![CDATA[<ul>
+<li><a
+href="https://drive.google.com/drive/folders/1GjYbJzCrMGNIbksjQdA5XYRfHB8saPj4">題目的
+tps 資料夾</a></li>
+</ul>
+<p>這題其實原本是出給 4/21
+的交大競程一期中考的，但當時由於題目太難就換了簡單的題目上去。</p>
+<span id="more"></span>
+<h2 id="想法">想法</h2>
+<p>因為是出給競程一，所以這題的靈感來源其實是一樣我出的<a
+href="https://codeforces.com/group/GG44hyrVLY/contest/385453/problem/220610E">去年競程一期末考的
+Wifi</a>。當時這題因為變數太多（跟 TOI 2021
+初選學的）導致很不好拆包裝，好像連一個 submission 都沒有，現在放在
+Codeforces 上也沒有人來寫 QAQ。</p>
+<figure>
+<img data-src="version1.jpg" style="width: 90%">
+<figcaption>
+題目草稿
+</figcaption>
+</figure>
+<p>4/5 的晚上是生出 prototype 的 deadline，這題好像是在 4/4
+晚上迸發出來的。一開始先想到了上面的 Q1，然後馬上發現可以變成 <span
+class="math inline">\(\mathcal{O}(\sqrt{s})\)</span>
+段區間，再過了一陣子也都想不出更好的解。</p>
+<p>隨後我就想到可能可以出 Wifi 反過來的版本：之前是問給訊號問第 <span
+class="math inline">\(k\)</span>
+大，現在不如就給最大值問任意一組訊號吧！這就是 Q2 的原形。</p>
+<p>當下我就試著看能解到什麼程度：首先是先發現了她有個看起來就很對的
+greedy 性質，接著畫了一下又 claim
+她有優超性，這時我確定這題用李超線段樹就做到 <span
+class="math inline">\(\mathcal{O}(n \lg^2 n)\)</span> 或是 <span
+class="math inline">\(\mathcal{O}(n \lg n)\)</span>，但我不確定
+convex-hull trick 能不能處理優超性函數，所以 deque
+的解被我畫了個問號。</p>
+<p>隨後，我去翻了一些講義，發現只要有優超性的函數就能直接套這個做法上去，而市面上通常不會看到
+convex-hull trick
+放在非線性函數上，我就覺得這題一定要找地方出出來，讓我之後可以拿來當例題用。</p>
+<p>（當時還有想到幾題跟這個函數沒關係的題目，之後或許會丟到 YTP 或 IONC
+吧？）</p>
+<h2 id="生題">生題</h2>
+<p>這題的解沒有花很多時間來寫（至少比題解快多了），之後 HNO2
+有幫我看過確認想法應該是好的，不過當我丟到競程一的時候就被說太難了
+QQ。</p>
+<p>就這樣，題目被封存起來，直到競程一期中考的前兩天，CatAgain
+敲我讓我看資芽 Slack 的訊息，我才知道我要負責出一題期中考，而且其他
+subject 已經被領走了，剩下一題
+DS。翻了一下上課講義，發現還沒教線段樹、BIT 等樹狀結構，也沒看到可以用
+<code>std::set</code> 或
+<code>std::map</code>（雖然好像可以？），我意識到我好像沒剩下多少種題目可以出了。</p>
+<p>接著我看了一遍其他四題，一題裸的 priority queue 做
+greedy（water）、一題建虛點做
+01-BFS（mid）、一題後來被換掉的題目（water）、還有一題看不太懂但感覺也是水題的題目（water），感覺好像我再出水題就會有一大堆人破台了？</p>
+<p>當時我也沒打算一定要用這題（hard），我就又想了一個簡單的 DS
+題（easy-mid），然後把這兩題都丟上去讓 PM 選。最後出乎我預料的選了 hard
+的那題，並提出了「增加 <span class="math inline">\(C = 1\)</span>
+subtask
+方便觀察函數圖形」、「提供範例圖片（本來就有打算提供）」，我就把測資生一生等人來驗題。</p>
+<figure>
+<img data-src="original-subtasks.png" style="width: 50%; max-width: 300px">
+<figcaption>
+初版子題分數及限制
+</figcaption>
+</figure>
+<p>由於不知道怎樣的測資才算強，我大概想了幾種方法：</p>
+<ol type="1">
+<li>純 random</li>
+<li>只在少數幾個位置蓋基地台</li>
+<li>所有位置的信號強度總和很小</li>
+<li>把所有是基地台的位置都 <span class="math inline">\(-1\)</span></li>
+<li>全部的值都加上一個常數</li>
+<li>遞增 / 遞減排序</li>
+</ol>
+<p>上述幾種都會在生完基地台之後在官解上先跑過一次去讓 <span
+class="math inline">\(b_i = s_i\)</span>
+再調整結果。而後續驗題又陸陸續續的多了四五種類型的測資。</p>
+<p>擔心這題只有一個人驗會不夠，途中我又戳了幾個人來幫忙驗題，可惜恰逢期中考年（怎麼大學永遠都在段考），最後只有
+PolarisChiba 跟 nella17 可以來幫忙，感謝他們各貢獻了半天來幫我驗題
+&gt;////&lt;！也因此這題的測資變強了很多，本來甚至是暴力加上怪剪枝就能直接
+AC，現在也已經卡掉了已知的所有唬爛方法。殘念的是，目前這題還沒有其他人拿到
+AC。</p>
+<p>現在剩下的就只有題解的部分了。我本來以為大概花五六個小時就能做完題解，但由於
+nella17
+只在最後一天有空，所以基本上從晚上八點到考試當天的上午十點就是在生測資、改測資跟寫題解中度過。</p>
+<p>上午八點半，我在寫最後一個子題，突然就意識到：<span
+class="math inline">\(b_1 \ge b_2 \ge \cdots \ge b_n\)</span> 有 <span
+class="math inline">\(b_i = b_{i+1}\)</span>
+的情況也要特殊處理，那麼那個子題到 AC 的難度區間是不是太小了？就把 <span
+class="math inline">\(n \le 3000\)</span> 跟 <span
+class="math inline">\(b_1 \ge b_2 \ge \cdots \ge b_n\)</span>
+的配分都提高了一些，並把限制從非嚴格遞減改成嚴格遞減。</p>
+<p>重新生測資並 background rejudge 之後，我發現本來給 <span
+class="math inline">\(C \cdot b_i \le 60\)</span> 子題的解竟然吃 TLE
+了！檢查一遍測資跟解發現沒有問題，於是就將問題歸咎於除法次數太多，只好把那個子題的
+<span class="math inline">\(n\)</span> 也下調又重新 rejudge 一次（如果 C
+語法班考試時會覺得 judge 有點卡那是我的鍋 QQ）。</p>
+<p>稍憩一下，下午兩點從床上起來繼續完成題解。因為我<del>作死</del>把子題性質改了導致函數圖形要全部重畫。本來還想用題目中的函數演示一下是怎麼做
+convex-hull trick 的，但最後連優超性的證明都還來不及寫。</p>
+<h2 id="驗題">驗題</h2>
+<p>發現 pA 跟 pC 的官解爛了，pA 是戳到了 UB 但測資沒有出問題，pC
+是官解用 <code>int</code>，但實際上應該要用 <code>long long</code>。</p>
+<p>我真的不懂要怎麼好好唬爛，我唯一會的可能就是想辦法套個 random 上去
+QQ。身為出題者的時候更是如此，對自己的題目根本無從下手。</p>
+<p>也或許是越難的題目就能想到越多種唬爛的辦法？</p>
+<h2 id="考試">考試</h2>
+<p>好像不能透漏太多。</p>
+<p>不知道是誰在考試開始約 45 分鐘時戳了 Rejudge all submissions
+的按鈕，結果 judge 大概就<img data-src="https://assets.hackmd.io/build/emojify.js/dist/images/basic/fire.png"
+alt=":fire:" />火力全開<img data-src="https://assets.hackmd.io/build/emojify.js/dist/images/basic/fire.png"
+alt=":fire:" />了快半小時？之後絕對不要再把「火」放進比賽名稱了......</p>
+<p>本來我 claim 我的題目一定不會有人 <span class="math inline">\(&gt;
+25\)</span> 分，然後大約會有 <span class="math inline">\(10\)</span>
+人拿到 <span class="math inline">\(25\)</span> 分，幾個人拿到 <span
+class="math inline">\(10\)</span> 分，不過 baluteshih
+覺得這題可能只有競賽選手會開，其中某人可以期待一下。</p>
+<p>他燒雞。</p>
+<p>這題最後的結果是 [25 分] * 1 + [10 分] * 11 + [0 分] *
+56，不確定是我對資芽學員 or
+現役高中生實力的誤判比較嚴重，還是我對這題題目難度的低估比較致命。</p>
+<p>考試途中有一個有趣的提問：「子題分數是取聯集還是交集？」</p>
+<p>說實話，取交集聽起來很好玩耶，哪天辦愚人節比賽應該就要這樣搞w</p>
+<h2 id="結語">結語</h2>
+<p>這是第一次為出題寫心得，本來去年 IONCamp、校內賽、花中模考、ISSC
+等比賽都有打算寫心得的，但是 IONCamp
+是太累，拖了幾天就沒心情了；其它則是沒什麼認識的人或參賽者，讓我也沒動力寫心得。</p>
+<p>當某天我能為一些題池裡的未解題目生出滿意的解，我還蠻想要找一些人辦類似
+LYB
+邀請賽的咚咚的，也不知道在大學時期有沒有這種機會（也不知道我的大學時期還有多久
+uwu）。</p>
+<p>對這場考試的難度，我 claim 如果放到 TOI 初選線會在 380 上下。其中 D
+跟 E（不考慮對於 interactive 的不熟悉程度）該有 <span
+class="math inline">\(&gt; 60\)</span> AC、A 跟 C 該有 <span
+class="math inline">\(\sim 30\)</span> AC、B 可能會有人拿到 65 或
+100。</p>
+<p>比起這題 <code>wifi2</code>，我覺得 <code>Wifi</code> 更適合出成 OI
+題（方便用子題來 debug），而這題的子題其實沒有太大的用處，反而丟去 ICPC
+可能會更好？但我還是比較喜歡出 OI
+題就是了。畢竟大部分的比賽我都沒辦法看到參賽者的螢幕畫面，只要他們沒有上傳我就不知道他們在做什麼。看到參賽者一步一步的拿到子題們的分數，遠比看著只有
+0 與 1 的記分板要有趣的多。</p>
+<p>PolarisChiba
+在驗題時精神出了一個很巧妙的解法：把函數都取倒數，算完答案再取倒數回來，這樣算答案時每個函數就會變成兩條直線，也不用再通靈那個奇怪函數的性質了！</p>
+<p>這個解聽起來超讚，如果隔幾天寫完能拿 AC 我就把他補進題解裡面吧～</p>
+]]></content>
+      <categories>
+        <category>競程</category>
+        <category>出題心得</category>
+      </categories>
+      <tags>
+        <tag>sprout</tag>
       </tags>
   </entry>
   <entry>

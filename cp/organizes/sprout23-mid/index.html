@@ -21,30 +21,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"sorahisa.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#39C5BB","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="動機 刷 板中的講義題單 的時候寫到了這一題，發現單純利用 sliding windows 過不了，花了大約四小時的時間去優化它才成功 AC。然後因為想寫題解，所以就順便來寫這一篇紀錄一下。">
+    <meta name="description" content="題目的 tps 資料夾  這題其實原本是出給 4&#x2F;21 的交大競程一期中考的，但當時由於題目太難就換了簡單的題目上去。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ZeroJudge c272. 趙哥的養成計畫 I --- 題解">
-<meta property="og:url" content="https://sorahisa.github.io/cp/editorials/zj-c272/index.html">
+<meta property="og:title" content="資訊之芽 2023 算法班第一階段認證火烤 出題心得">
+<meta property="og:url" content="https://sorahisa.github.io/cp/organizes/sprout23-mid/index.html">
 <meta property="og:site_name" content="SorahISA&#39;s Blog">
-<meta property="og:description" content="動機 刷 板中的講義題單 的時候寫到了這一題，發現單純利用 sliding windows 過不了，花了大約四小時的時間去優化它才成功 AC。然後因為想寫題解，所以就順便來寫這一篇紀錄一下。">
+<meta property="og:description" content="題目的 tps 資料夾  這題其實原本是出給 4&#x2F;21 的交大競程一期中考的，但當時由於題目太難就換了簡單的題目上去。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.imgur.com/lpSzrOH.png">
-<meta property="article:published_time" content="2021-07-20T18:10:21.000Z">
+<meta property="og:image" content="https://sorahisa.github.io/cp/organizes/sprout23-mid/version1.jpg">
+<meta property="og:image" content="https://sorahisa.github.io/cp/organizes/sprout23-mid/original-subtasks.png">
+<meta property="og:image" content="https://assets.hackmd.io/build/emojify.js/dist/images/basic/fire.png">
+<meta property="og:image" content="https://assets.hackmd.io/build/emojify.js/dist/images/basic/fire.png">
+<meta property="article:published_time" content="2023-04-30T01:30:00.000Z">
 <meta property="article:modified_time" content="2023-05-14T02:10:12.386Z">
 <meta property="article:author" content="SorahISA">
-<meta property="article:tag" content="ZeroJudge">
+<meta property="article:tag" content="sprout">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/lpSzrOH.png">
+<meta name="twitter:image" content="https://sorahisa.github.io/cp/organizes/sprout23-mid/version1.jpg">
 
 
-<link rel="canonical" href="https://sorahisa.github.io/cp/editorials/zj-c272/">
+<link rel="canonical" href="https://sorahisa.github.io/cp/organizes/sprout23-mid/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sorahisa.github.io/cp/editorials/zj-c272/","path":"cp/editorials/zj-c272/","title":"ZeroJudge c272. 趙哥的養成計畫 I --- 題解"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sorahisa.github.io/cp/organizes/sprout23-mid/","path":"cp/organizes/sprout23-mid/","title":"資訊之芽 2023 算法班第一階段認證火烤 出題心得"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>ZeroJudge c272. 趙哥的養成計畫 I --- 題解 | SorahISA's Blog</title>
+<title>資訊之芽 2023 算法班第一階段認證火烤 出題心得 | SorahISA's Blog</title>
   
 
 
@@ -146,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8B%95%E6%A9%9F"><span class="nav-number">1.</span> <span class="nav-text">動機</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%8C%E6%84%8F"><span class="nav-number">2.</span> <span class="nav-text">題意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E5%81%9A%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">暴力做法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%90%9C"><span class="nav-number">4.</span> <span class="nav-text">二分搜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BB%91%E5%8B%95%E7%AA%97%E5%8F%A3"><span class="nav-number">5.</span> <span class="nav-text">滑動窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E6%95%B8%E5%84%AA%E5%8C%96-1"><span class="nav-number">6.</span> <span class="nav-text">常數優化 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E6%95%B8%E5%84%AA%E5%8C%96-2"><span class="nav-number">7.</span> <span class="nav-text">常數優化 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#io-%E5%84%AA%E5%8C%96"><span class="nav-number">8.</span> <span class="nav-text">I&#x2F;O 優化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E6%95%B8%E5%84%AA%E5%8C%96-3"><span class="nav-number">9.</span> <span class="nav-text">常數優化 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ac-code"><span class="nav-number">10.</span> <span class="nav-text">AC code</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%B3%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E9%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">生題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A9%97%E9%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">驗題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%80%83%E8%A9%A6"><span class="nav-number">4.</span> <span class="nav-text">考試</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">5.</span> <span class="nav-text">結語</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -206,7 +209,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sorahisa.github.io/cp/editorials/zj-c272/">
+    <link itemprop="mainEntityOfPage" href="https://sorahisa.github.io/cp/organizes/sprout23-mid/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -219,12 +222,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="ZeroJudge c272. 趙哥的養成計畫 I --- 題解 | SorahISA's Blog">
+      <meta itemprop="name" content="資訊之芽 2023 算法班第一階段認證火烤 出題心得 | SorahISA's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ZeroJudge c272. 趙哥的養成計畫 I --- 題解
+          資訊之芽 2023 算法班第一階段認證火烤 出題心得
         </h1>
 
         <div class="post-meta-container">
@@ -235,7 +238,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-07-20 18:10:21" itemprop="dateCreated datePublished" datetime="2021-07-20T18:10:21+00:00">2021-07-20</time>
+      <time title="Created: 2023-04-30 01:30:00" itemprop="dateCreated datePublished" datetime="2023-04-30T01:30:00+00:00">2023-04-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -254,7 +257,7 @@
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/cp/editorials/" itemprop="url" rel="index"><span itemprop="name">題解</span></a>
+          <a href="/categories/cp/organizes/" itemprop="url" rel="index"><span itemprop="name">出題心得</span></a>
         </span>
     </span>
 
@@ -268,114 +271,147 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="動機">動機</h2>
-<p>刷
-<a target="_blank" rel="noopener" href="https://sites.google.com/site/pcshic/zi-xun-pei-xun">板中的講義題單</a>
-的時候寫到了這一題，發現單純利用 sliding windows
-過不了，花了大約四小時的時間去優化它才成功
-AC。然後因為想寫題解，所以就順便來寫這一篇紀錄一下。</p>
+        <ul>
+<li><a
+target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1GjYbJzCrMGNIbksjQdA5XYRfHB8saPj4">題目的
+tps 資料夾</a></li>
+</ul>
+<p>這題其實原本是出給 4/21
+的交大競程一期中考的，但當時由於題目太難就換了簡單的題目上去。</p>
 <span id="more"></span>
-<h2 id="題意">題意</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=c272">題目連結</a></li>
-</ul>
-<blockquote>
-<p>給你 <span class="math inline">\(N\)</span>（<span
-class="math inline">\(N \le 10\)</span>）個整數 <span
-class="math inline">\(A_1 \sim A_N\)</span>（<span
-class="math inline">\(|A_i| \le 10^6\)</span>）跟一個計分函式</p>
-<p><span class="math display">\[score(i) = A_{\sigma_i} \times (M -
-\min\{i, M + 1\} + 1) \notag\]</span> （<span
-class="math inline">\(\sigma\)</span> 是一個 <span
-class="math inline">\(1 \sim N\)</span> 的排列）。</p>
-<p>接著有 <span class="math inline">\(Q\)</span>（<span
-class="math inline">\(Q \le 10^6\)</span>）次詢問，請找出在分數不超過
-<span class="math inline">\(qs\)</span>（<span
-class="math inline">\(-2^{46} &lt; qs &lt;
-2^{25}\)</span>）的前提下最多可以拿多少分。</p>
-</blockquote>
-<h2 id="暴力做法">暴力做法</h2>
-<p>首先，C++ 裡可以透過
-<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/algorithm/next_permutation"><code>std::next_permutation()</code></a>
-來找到所有排列，再依序計算出每個排列的分數。因為 <span
-class="math inline">\(N \le 10\)</span>，所以排列個數 <span
-class="math inline">\(P \le 10! =
-3\,628\,800\)</span>。如果對每次詢問都重新查詢一遍，那複雜度會爛到 <span
-class="math inline">\(\mathcal{O}(QP)\)</span>，顯然無法通過。</p>
-<div class="note info"><details>
-<summary>
-範例 code
-</summary>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> A[N];</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; ++i) cin &gt;&gt; A[i];</span><br><span class="line"><span class="built_in">sort</span>(A, A + N);</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="comment">/* calculate score */</span></span><br><span class="line">&#125; <span class="keyword">while</span> (<span class="built_in">next_permutation</span>(A, A + N));</span><br></pre></td></tr></table></figure>
-</details>
-</div>
-<h2 id="二分搜">二分搜</h2>
-<p>不過因為每次詢問的排列都是相同的，先把所有排列的分數處理出來再利用二分搜（或直接用
-<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/algorithm/upper_bound"><code>std::prev(std::upper_bound())</code></a>）得到第一個
-<span class="math inline">\(\le qs\)</span> 的最大值，複雜度是 <span
-class="math inline">\(\mathcal{O}(Q \lg P)\)</span>，應該可以拿到 <span
-class="math inline">\(51\)</span> 或 <span
-class="math inline">\(61\)</span> 分。</p>
-<h2 id="滑動窗口">滑動窗口</h2>
-<p>這樣還是太慢了，觀察到 <span class="math inline">\(qs\)</span>
-越大相應的答案就越大，考慮把所有詢問先拿出來排序，最後利用 sliding
-windows 的方法維護答案，複雜度是 <span
-class="math inline">\(\mathcal{O}(Q \lg Q + P)\)</span>，還是只能拿到
-<span class="math inline">\(51\)</span> 或 <span
-class="math inline">\(61\)</span> 分。</p>
-<h2 id="常數優化-1">常數優化 1</h2>
-<p>分數的最大值不會超過 <span class="math inline">\(\max\{A_i\} \times M
-\le 10^7\)</span>，所以不用使用 <code>long long</code>，可以用
-<code>int</code> 處理就好，但要注意的是 <span
-class="math inline">\(qs\)</span> 的範圍會到
-<code>long long</code>，可以先把他判斷掉。</p>
-<div class="note info"><details>
-<summary>
-範例 code
-</summary>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="type">long</span> qs;</span><br><span class="line">vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; <span class="built_in">query</span>(Q);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; Q; ++i) &#123;</span><br><span class="line">    cin &gt;&gt; qs;</span><br><span class="line">    <span class="keyword">if</span> (qs &lt; all_score[<span class="number">0</span>]) qs = all_score[<span class="number">0</span>] - <span class="number">1</span>;</span><br><span class="line">    query[i].first = qs, query[i].second = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-</div>
-<h2 id="常數優化-2">常數優化 2</h2>
-<p>把所有 vector 都拔掉換成一般的 array、把區域變數開到全域、開
-<code>#pragma GCC optimize("Ofast", "unroll-loops")</code>。</p>
-<h2 id="io-優化">I/O 優化</h2>
-<p>因為輸入大約有 <span class="math inline">\(6 \times 10^6\)</span>
-個字元，輸出可能會到 <span class="math inline">\(2.5 \times
-10^7\)</span> 個字元 (假設都是 <code>Case #xxxxx</code> 跟
-<code>No Solution!</code>)，所以需要進行「適量」的優化。輸入跟輸出就選擇使用
-<code>read()</code> 跟 <code>write()</code> 從 buffer
-裡面一次讀進來跟印出去。</p>
-<p>我的 I/O 模板是參考 FHVirus 的
-<a target="_blank" rel="noopener" href="https://fhvirus.github.io/blog/2020/fhvirus-io/">這篇
-blog</a>，有興趣的人也可以去參考一下。</p>
-<p>另外就是如果你是使用 <code>getchar()</code> 跟 <code>putchar()</code>
-會拿到 <span class="math inline">\(74\)</span> 分，使用
-<code>getchar_unlocked()</code> 跟 <code>putchar_unlocked()</code>
-也可以拿到滿分。</p>
-<h2 id="常數優化-3">常數優化 3</h2>
-<p>因為不知道出題人是怎麼把空間壓到只有 <span
-class="math inline">\(1.5\)</span> MB
-的，所以就嘗試只當連續枚舉的答案不相同時才把答案加入陣列中，並把原本的滑動窗口改成二分搜，意外的直接拿到
-TopCoder。</p>
-<p><img data-src="https://i.imgur.com/lpSzrOH.png" /></p>
-<div class="note info"><details>
-<summary>
-範例 code
-</summary>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="type">int</span> score = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; M; ++i) score += A[i] * (M - i);</span><br><span class="line">    <span class="keyword">if</span> (score != all_score[all_score_sz<span class="number">-1</span>]) all_score[all_score_sz++] = score;</span><br><span class="line">&#125; <span class="keyword">while</span> (<span class="built_in">next_permutation</span>(A, A + N));</span><br></pre></td></tr></table></figure>
-</details>
-</div>
-<p>這個方法只要 <span class="math inline">\(N = M = 10\)</span>
-就可以輕鬆卡掉，測資竟然沒出滿 OAO！</p>
-<h2 id="ac-code">AC code</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/SorahISA/competitive_programming/blob/master/ZeroJudge/c/c272-1.cpp">滑動窗口</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/SorahISA/competitive_programming/blob/master/ZeroJudge/c/c272-2.cpp">二分搜</a></li>
-</ul>
+<h2 id="想法">想法</h2>
+<p>因為是出給競程一，所以這題的靈感來源其實是一樣我出的<a
+target="_blank" rel="noopener" href="https://codeforces.com/group/GG44hyrVLY/contest/385453/problem/220610E">去年競程一期末考的
+Wifi</a>。當時這題因為變數太多（跟 TOI 2021
+初選學的）導致很不好拆包裝，好像連一個 submission 都沒有，現在放在
+Codeforces 上也沒有人來寫 QAQ。</p>
+<figure>
+<img data-src="version1.jpg" style="width: 90%">
+<figcaption>
+題目草稿
+</figcaption>
+</figure>
+<p>4/5 的晚上是生出 prototype 的 deadline，這題好像是在 4/4
+晚上迸發出來的。一開始先想到了上面的 Q1，然後馬上發現可以變成 <span
+class="math inline">\(\mathcal{O}(\sqrt{s})\)</span>
+段區間，再過了一陣子也都想不出更好的解。</p>
+<p>隨後我就想到可能可以出 Wifi 反過來的版本：之前是問給訊號問第 <span
+class="math inline">\(k\)</span>
+大，現在不如就給最大值問任意一組訊號吧！這就是 Q2 的原形。</p>
+<p>當下我就試著看能解到什麼程度：首先是先發現了她有個看起來就很對的
+greedy 性質，接著畫了一下又 claim
+她有優超性，這時我確定這題用李超線段樹就做到 <span
+class="math inline">\(\mathcal{O}(n \lg^2 n)\)</span> 或是 <span
+class="math inline">\(\mathcal{O}(n \lg n)\)</span>，但我不確定
+convex-hull trick 能不能處理優超性函數，所以 deque
+的解被我畫了個問號。</p>
+<p>隨後，我去翻了一些講義，發現只要有優超性的函數就能直接套這個做法上去，而市面上通常不會看到
+convex-hull trick
+放在非線性函數上，我就覺得這題一定要找地方出出來，讓我之後可以拿來當例題用。</p>
+<p>（當時還有想到幾題跟這個函數沒關係的題目，之後或許會丟到 YTP 或 IONC
+吧？）</p>
+<h2 id="生題">生題</h2>
+<p>這題的解沒有花很多時間來寫（至少比題解快多了），之後 HNO2
+有幫我看過確認想法應該是好的，不過當我丟到競程一的時候就被說太難了
+QQ。</p>
+<p>就這樣，題目被封存起來，直到競程一期中考的前兩天，CatAgain
+敲我讓我看資芽 Slack 的訊息，我才知道我要負責出一題期中考，而且其他
+subject 已經被領走了，剩下一題
+DS。翻了一下上課講義，發現還沒教線段樹、BIT 等樹狀結構，也沒看到可以用
+<code>std::set</code> 或
+<code>std::map</code>（雖然好像可以？），我意識到我好像沒剩下多少種題目可以出了。</p>
+<p>接著我看了一遍其他四題，一題裸的 priority queue 做
+greedy（water）、一題建虛點做
+01-BFS（mid）、一題後來被換掉的題目（water）、還有一題看不太懂但感覺也是水題的題目（water），感覺好像我再出水題就會有一大堆人破台了？</p>
+<p>當時我也沒打算一定要用這題（hard），我就又想了一個簡單的 DS
+題（easy-mid），然後把這兩題都丟上去讓 PM 選。最後出乎我預料的選了 hard
+的那題，並提出了「增加 <span class="math inline">\(C = 1\)</span>
+subtask
+方便觀察函數圖形」、「提供範例圖片（本來就有打算提供）」，我就把測資生一生等人來驗題。</p>
+<figure>
+<img data-src="original-subtasks.png" style="width: 50%; max-width: 300px">
+<figcaption>
+初版子題分數及限制
+</figcaption>
+</figure>
+<p>由於不知道怎樣的測資才算強，我大概想了幾種方法：</p>
+<ol type="1">
+<li>純 random</li>
+<li>只在少數幾個位置蓋基地台</li>
+<li>所有位置的信號強度總和很小</li>
+<li>把所有是基地台的位置都 <span class="math inline">\(-1\)</span></li>
+<li>全部的值都加上一個常數</li>
+<li>遞增 / 遞減排序</li>
+</ol>
+<p>上述幾種都會在生完基地台之後在官解上先跑過一次去讓 <span
+class="math inline">\(b_i = s_i\)</span>
+再調整結果。而後續驗題又陸陸續續的多了四五種類型的測資。</p>
+<p>擔心這題只有一個人驗會不夠，途中我又戳了幾個人來幫忙驗題，可惜恰逢期中考年（怎麼大學永遠都在段考），最後只有
+PolarisChiba 跟 nella17 可以來幫忙，感謝他們各貢獻了半天來幫我驗題
+&gt;////&lt;！也因此這題的測資變強了很多，本來甚至是暴力加上怪剪枝就能直接
+AC，現在也已經卡掉了已知的所有唬爛方法。殘念的是，目前這題還沒有其他人拿到
+AC。</p>
+<p>現在剩下的就只有題解的部分了。我本來以為大概花五六個小時就能做完題解，但由於
+nella17
+只在最後一天有空，所以基本上從晚上八點到考試當天的上午十點就是在生測資、改測資跟寫題解中度過。</p>
+<p>上午八點半，我在寫最後一個子題，突然就意識到：<span
+class="math inline">\(b_1 \ge b_2 \ge \cdots \ge b_n\)</span> 有 <span
+class="math inline">\(b_i = b_{i+1}\)</span>
+的情況也要特殊處理，那麼那個子題到 AC 的難度區間是不是太小了？就把 <span
+class="math inline">\(n \le 3000\)</span> 跟 <span
+class="math inline">\(b_1 \ge b_2 \ge \cdots \ge b_n\)</span>
+的配分都提高了一些，並把限制從非嚴格遞減改成嚴格遞減。</p>
+<p>重新生測資並 background rejudge 之後，我發現本來給 <span
+class="math inline">\(C \cdot b_i \le 60\)</span> 子題的解竟然吃 TLE
+了！檢查一遍測資跟解發現沒有問題，於是就將問題歸咎於除法次數太多，只好把那個子題的
+<span class="math inline">\(n\)</span> 也下調又重新 rejudge 一次（如果 C
+語法班考試時會覺得 judge 有點卡那是我的鍋 QQ）。</p>
+<p>稍憩一下，下午兩點從床上起來繼續完成題解。因為我<del>作死</del>把子題性質改了導致函數圖形要全部重畫。本來還想用題目中的函數演示一下是怎麼做
+convex-hull trick 的，但最後連優超性的證明都還來不及寫。</p>
+<h2 id="驗題">驗題</h2>
+<p>發現 pA 跟 pC 的官解爛了，pA 是戳到了 UB 但測資沒有出問題，pC
+是官解用 <code>int</code>，但實際上應該要用 <code>long long</code>。</p>
+<p>我真的不懂要怎麼好好唬爛，我唯一會的可能就是想辦法套個 random 上去
+QQ。身為出題者的時候更是如此，對自己的題目根本無從下手。</p>
+<p>也或許是越難的題目就能想到越多種唬爛的辦法？</p>
+<h2 id="考試">考試</h2>
+<p>好像不能透漏太多。</p>
+<p>不知道是誰在考試開始約 45 分鐘時戳了 Rejudge all submissions
+的按鈕，結果 judge 大概就<img data-src="https://assets.hackmd.io/build/emojify.js/dist/images/basic/fire.png"
+alt=":fire:" />火力全開<img data-src="https://assets.hackmd.io/build/emojify.js/dist/images/basic/fire.png"
+alt=":fire:" />了快半小時？之後絕對不要再把「火」放進比賽名稱了......</p>
+<p>本來我 claim 我的題目一定不會有人 <span class="math inline">\(&gt;
+25\)</span> 分，然後大約會有 <span class="math inline">\(10\)</span>
+人拿到 <span class="math inline">\(25\)</span> 分，幾個人拿到 <span
+class="math inline">\(10\)</span> 分，不過 baluteshih
+覺得這題可能只有競賽選手會開，其中某人可以期待一下。</p>
+<p>他燒雞。</p>
+<p>這題最後的結果是 [25 分] * 1 + [10 分] * 11 + [0 分] *
+56，不確定是我對資芽學員 or
+現役高中生實力的誤判比較嚴重，還是我對這題題目難度的低估比較致命。</p>
+<p>考試途中有一個有趣的提問：「子題分數是取聯集還是交集？」</p>
+<p>說實話，取交集聽起來很好玩耶，哪天辦愚人節比賽應該就要這樣搞w</p>
+<h2 id="結語">結語</h2>
+<p>這是第一次為出題寫心得，本來去年 IONCamp、校內賽、花中模考、ISSC
+等比賽都有打算寫心得的，但是 IONCamp
+是太累，拖了幾天就沒心情了；其它則是沒什麼認識的人或參賽者，讓我也沒動力寫心得。</p>
+<p>當某天我能為一些題池裡的未解題目生出滿意的解，我還蠻想要找一些人辦類似
+LYB
+邀請賽的咚咚的，也不知道在大學時期有沒有這種機會（也不知道我的大學時期還有多久
+uwu）。</p>
+<p>對這場考試的難度，我 claim 如果放到 TOI 初選線會在 380 上下。其中 D
+跟 E（不考慮對於 interactive 的不熟悉程度）該有 <span
+class="math inline">\(&gt; 60\)</span> AC、A 跟 C 該有 <span
+class="math inline">\(\sim 30\)</span> AC、B 可能會有人拿到 65 或
+100。</p>
+<p>比起這題 <code>wifi2</code>，我覺得 <code>Wifi</code> 更適合出成 OI
+題（方便用子題來 debug），而這題的子題其實沒有太大的用處，反而丟去 ICPC
+可能會更好？但我還是比較喜歡出 OI
+題就是了。畢竟大部分的比賽我都沒辦法看到參賽者的螢幕畫面，只要他們沒有上傳我就不知道他們在做什麼。看到參賽者一步一步的拿到子題們的分數，遠比看著只有
+0 與 1 的記分板要有趣的多。</p>
+<p>PolarisChiba
+在驗題時精神出了一個很巧妙的解法：把函數都取倒數，算完答案再取倒數回來，這樣算答案時每個函數就會變成兩條直線，也不用再通靈那個奇怪函數的性質了！</p>
+<p>這個解聽起來超讚，如果隔幾天寫完能拿 AC 我就把他補進題解裡面吧～</p>
 
     </div>
 
@@ -385,21 +421,18 @@ target="_blank" rel="noopener" href="https://github.com/SorahISA/competitive_pro
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/ZeroJudge/" rel="tag"># ZeroJudge</a>
+              <a href="/tags/sprout/" rel="tag"># sprout</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/cp/contests/ioi21/" rel="prev" title="IOI 2021 場外心得">
-                  <i class="fa fa-chevron-left"></i> IOI 2021 場外心得
+                <a href="/cp/editorials/issc22/" rel="prev" title="2022 ISSC 題解">
+                  <i class="fa fa-chevron-left"></i> 2022 ISSC 題解
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/learning/nycu-introduction-to-algorithms/nycu-i2a-midterm/" rel="next" title="演算法概論－期中考">
-                  演算法概論－期中考 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
